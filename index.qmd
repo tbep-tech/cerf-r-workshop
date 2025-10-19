@@ -1,0 +1,68 @@
+---
+lightbox: true
+execute:
+  echo: false
+---
+
+```{css}
+/*| echo: false */
+figcaption {
+  margin: auto;
+  text-align: center;
+}
+```
+
+# About this Workshop {.unnumbered}
+
+This workshop will provide attendees with a gentle introduction to the R Statistical Programming Language for basic data exploration and analysis. No prior experience is needed. The workshop content will include a mix of instructor led demonstrations and hands-on exercises designed to reinforce core principles of the programming language. Additional emphasis will be placed on using RStudio as the preferred platform for working with data in a project-based environment. By the end of the workshop, attendees will have the necessary foundation for continued learning to further build R skills.
+
+## Agenda {.unnumbered} 
+
+```{r}
+load(file = 'data/agenda.RData')
+knitr::kable(agenda)
+```
+
+## Housekeeping  {.unnumbered}
+
+There are a few housekeeping items we need to go over before we start the workshop.  
+
+1. Feel free to ask questions during the training. We will also use the stickies to signal 
+
+1. Please use RStudio Cloud or your own installation of RStudio during this workshop.  The setup instructions for RStudio Cloud are [here](setupcloud.html) and for RStudio installation [here](setup.html).  You may use one or the other, but we recommend RStudio Cloud for the training. 
+
+1. We have a [live coding](https://tinyurl.com/cerf-r-training-live-coding){target="_blank"} link that we'll be using as we go through the lessons. If you get lost, you can copy/paste code from this link into RStudio. 
+
+1. All training content is on this website.  We will be covering the content directly on the website, so if you get lost you can view the agenda to see which lesson we're covering and find where we're at by scrolling through the content. 
+
+1. Each lesson has it's own R script that is linked at the top. If you are not using the live coding link, you can download the lesson R script and use that directly. 
+
+1. Finally, if you are not using RStudio Cloud, please make sure to download the required datasets [here](https://tbep-tech.github.io/cerf-r-training/data/data.zip) and make sure you have the the `tidyverse`, `sf`, and `mapview` packages installed. See the [setup instructions](setup.html) for details.  
+
+All exercises and breaks will be timed to make sure that we stay on schedule. We'll display a timer on the screen to track progress.
+
+## Software requirements
+
+This training will use RStudio and R. Please make sure that you are ready to use the required software prior to the workshop.  __We will not be available for installation issues or questions the day of the workshop__.  There are two options for setup:
+
+1. Use RStudio Cloud to access from a web browser following the [setup instructions](setupcloud.html). 
+
+     OR 
+     
+1. Install RStudio and R on your personal computer following the [setup instructions](setup.html). 
+
+## Data and resources
+
+Please view the [Data and Resources](Data_and_Resources.html) page for data used in this workshop and additional links for R learning material.  A [live coding](https://tinyurl.com/cerf-r-training-live-coding){target="_blank"} link is also available.
+
+## Instructor
+
+[Marcus Beck](https://fawda123.github.io/CV/Beck_CV.pdf){target="_blank"} ([mbeck@tbep.org](mailto:mbeck@tbep.org)) - Marcus is the Senior Scientist for the Tampa Bay Estuary Program and is developing data analysis and visualization methods for Bay health indicators.  He received his BS in Zoology from the University of Florida in 2007 and his MSc and PhD in Conservation Biology from the University of Minnesota in 2009 and 2013. Marcus has experience researching environmental indicators and developing open science products to support environmental decision-making.  He has over fifteen years of experience using and developing software in the R Statistical Programming Language.
+
+## Source content
+
+All source materials for this website can be accessed at [https://github.com/tbep-tech/cerf-r-training](https://github.com/tbep-tech/cerf-r-training){target="_blank"}
+
+[![build](https://github.com/tbep-tech/cerf-r-training/workflows/build/badge.svg)](https://github.com/tbep-tech/cerf-r-training/actions) This site is built automatically with GitHub Actions. Last site build `r Sys.time()`.
+ 
+ <a rel='license' href='http://creativecommons.org/licenses/by/4.0/'><img alt='Creative Commons License' style='border-width:0' src='https://i.creativecommons.org/l/by/4.0/88x31.png' /></a>&nbsp;&nbsp;This website is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by/4.0/'>Creative Commons Attribution 4.0 International License</a>.
