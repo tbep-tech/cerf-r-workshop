@@ -5,4 +5,373 @@ execute:
   echo: true
 ---
 
+<script src="js/hideoutput.js"></script>
+
 # Data wrangling part 2 {#sec-data_wrangling_2}
+
+Get the lesson R script: [Data_Wrangling_2.R](Data_Wrangling_2.R)
+
+Get the lesson data: [download zip](data/data.zip)
+
+## Lesson Outline
+
+* [Combining data]
+* [Tidy data]
+* [Group by and summarize]
+
+## Lesson Exercises
+
+* [Exercise 6]
+* [Exercise 7]
+* [Exercise 8]
+
+## Goals
+
+In this lesson we'll continue our discussion of data wrangling with the tidyverse. Data wrangling is the manipulation or combination of datasets for the purpose of understanding.  It fits within the broader scheme of **data exploration**, described as the art of looking at your data, rapidly generating hypotheses, quickly testing them, then repeating again and again and again (from [R for Data Science](http://r4ds.had.co.nz/){target="_blank"}, as is most of today's content). 
+
+![](figs/data_wrangling_2/data-science-wrangle.png)
+
+Always remember that **wrangling is based on a purpose.** The process always begins by answering the following two questions:
+
+* What do my input data look like?
+* What should my input data look like given what I want to do?
+
+You define what steps to take to get your data from input to where you want to go.
+
+Last lesson we learned the following functions from the `dplyr` package (cheatsheet [here](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf){target="_blank"}):
+
+* Selecting variables with `select`
+* Filtering observations by some criteria with `filter`
+* Adding or modifying existing variables with `mutate`
+* Renaming variables with `rename`
+* Arranging rows by a variable with `arrange`
+
+As before, we only have one hour to cover the basics of data wrangling. It’s an unrealistic expectation that you will be a ninja wrangler after this training. As such, the goals are to expose you to fundamentals and to develop an appreciation of what’s possible. I also want to provide resources that you can use for follow-up learning on your own.
+
+After this lesson you should be able to answer (or be able to find answers to) the following:
+
+* How are data joined?
+* What is tidy data?
+* How do I summarize a dataset?
+
+You should already have the tidyverse package installed, but let's give it a go if you haven't done this part yet:
+
+```{r}
+#| eval: true
+# install
+install.packages('tidyverse')
+```
+
+After installation, we can load the package:
+```{r}
+#| message: true
+library(tidyverse)
+```
+
+## Combining data
+
+Combining data is a common task of data wrangling.  Perhaps we want to combine information between two datasets that share a common identifier.  As a real world example, our fisheries data contain information about fish catch, but we also want to include spatial information about the stations (i.e., lat, lon).  We would need to (and we will) combine data if this information is in two different places.  Combining data with dplyr is called joining.
+
+All joins require that each of the tables can be linked by shared identifiers.  These are called 'keys' and are usually represented as a separate column that acts as a unique variable for the observations.  The "Station ID" is a common key, but remember that a key might need to be unique for each row.  It doesn't make sense to join two tables by station ID if multiple site visits were made. In that case, your key should include some information about the site visit **and** station ID.
+
+### Types of joins
+
+The challenge with joins is that the two datasets may not represent the same observations for a given key.  For example, you might have one table with all observations for every key, another with only some observations, or two tables with only a few shared keys.  What you get back from a join will depend on what's shared between tables, in addition to the type of join you use.
+
+We can demonstrate types of joins with simple graphics. The first is an **inner-join**.
+
+![](figs/data_wrangling_2/join-inner.png)
+
+The second is an **outer-join**, and comes in three flavors: left, right, and full.
+
+![](figs/data_wrangling_2/join-outer.png)
+
+If all keys are shared between two data objects, then left, right, and full joins will give you the same result.  I typically only use left_join just because it's intuitive to me.  This assumes that there is never any more information in the second table - it has the same or less keys as the original table.
+
+The data we downloaded for this workshop included fisheries catch data and the locations of each station.  If we want to plot any of the catch data by location, we need to join the two datasets. 
+
+```{r}
+# load the fish data
+fishdat <- read_csv('data/fishdat.csv')
+
+# load the station data
+statloc <- read_csv('data/statloc.csv')
+
+# join the two 
+joindat <- left_join(fishdat, statloc, by = 'Reference')
+head(joindat)
+```
+
+## Exercise 6
+
+For this exercise we'll repeat the join we just did, but on a subset of the data. We're going to select some columns of interest from our fisheries dataset, filter by gear type, then use a full_join with the station data. Try to use pipes if you can. 
+
+1. Select the `Reference`, `Sampling_Date`, `Gear`, and `Common Snook` columns from the fisheries dataset (hint, use `select` from dplyr).
+
+1. Filter the fisheries dataset by gear type 20 (hint, use `filter == 20`).  Check the dimensions of the new dataset with `dim`. 
+
+1. Use a `full_join` to join the fisheries dataset with the station location dataset.  What is the key value for joining?  
+
+1. Check the dimensions of the new table.  What happened? Select only the `StationID`, `StationWaterDepth`, `SampleLatitude`, and `SampleLongitude` columns from the master data.
+
+<div class="fold s o">
+```{r}
+#| results: hide
+# load the fish data
+fishdat <- read_csv('data/fishdat.csv')
+
+# load the station data
+statloc <- read_csv('data/statloc.csv')
+
+# wrangle before join
+joindat <- fishdat %>% 
+  select(Reference, Sampling_Date, Gear, `Common Snook`) %>% 
+  filter(Gear == 20) 
+
+dim(joindat)
+
+# full join
+joindat <- joindat %>% 
+  full_join(statloc, by = 'Reference')
+
+dim(joindat)
+```
+</div>
+
+## Tidy data
+
+The opposite of a tidy dataset is a messy dataset.  You should always strive to create a tidy data set as an outcome of the wrangling process.  Tidy data are easy to work with and will make downstream analysis much simpler.  This will become apparent when we start summarizing and plotting our data.
+
+To help understand tidy data, it's useful to look at alternative ways of representing data. The example below shows the same data organised in four different ways. Each dataset shows the same values of four variables *country*, *year*, *population*, and *cases*, but each dataset organises the values in a different way. Only one of these examples is tidy.
+
+```{r}
+table1
+table2
+table3
+
+# Spread across two tibbles
+table4a  # cases
+table4b  # population
+```
+
+These are all representations of the same underlying data but they are not equally easy to work with.  The tidy dataset is much easier to work with inside the tidyverse.
+
+There are three inter-correlated rules which make a dataset tidy:
+
+1.  Each variable must have its own column.
+1.  Each observation must have its own row.
+1.  Each value must have its own cell.
+
+![](figs/data_wrangling_2/tidy-1.png)
+
+For the example tables above, only the first table is tidy. 
+
+There are some very real reasons why you would encounter untidy data:
+
+1.  Most people aren't familiar with the principles of tidy data, and it's hard
+    to derive them yourself unless you spend a _lot_ of time working with data.
+
+1.  Data is often organised to facilitate some use other than analysis. For
+    example, data is often organised to make entry as easy as possible.
+
+This means for most real analyses, you'll need to do some tidying. The first step is always to figure out what the variables and observations are. The second step is to resolve one of two common problems:
+
+1. One variable might be spread across multiple columns.
+
+1. One observation might be scattered across multiple rows.
+
+To fix these problems, you'll need the two most important functions in tidyr: `gather()` and `spread()`.
+
+Side note: Recent versions of tidyr have the `pivot_longer()` and `pivot_wider()` functions that accomplish similar tasks.  Some may find these functions more intuitive, but I present the former here for legacy purposes. 
+
+### Gathering
+
+A common problem is a dataset where some of the column names are not names of variables, but _values_ of a variable. Take `table4a`: the column names `1999` and `2000` represent values of the `year` variable, and each row represents two observations, not one.
+
+```{r}
+table4a
+```
+
+To tidy a dataset like this, we need to __gather__ those columns into a new pair of variables. To describe that operation we need three parameters:
+
+* The set of columns that represent values, not variables. In this example,
+  those are the columns `1999` and `2000`.
+
+* The name of the variable whose values form the column names. I call that
+  the `key`, and here it is `year`.
+
+* The name of the variable whose values are spread over the cells. I call
+  that `value`, and here it's the number of `cases`.
+
+Together those parameters generate the call to `gather()`:
+
+```{r}
+table4a %>%
+  gather(`1999`, `2000`, key = "year", value = "cases")
+```
+
+Gathering can be graphically demonstrated:
+
+![](figs/data_wrangling_2/tidy-9.png)
+
+### Spreading
+
+Spreading is the opposite of gathering. You use it when an observation is scattered across multiple rows. For example, take `table2`: an observation is a country in a year, but each observation is spread across two rows.
+
+```{r}
+table2
+```
+
+To tidy this up, we first analyse the representation in similar way to `gather()`. This time, however, we only need two parameters:
+
+* The column that contains variable names, the `key` column. Here, it's
+  `type`.
+
+* The column that contains values forms multiple variables, the `value`
+  column. Here it's `count`.
+
+Once we've figured that out, we can use `spread()`, as shown programmatically below.
+
+```{r}
+spread(table2, key = type, value = count)
+```
+
+Spreading can be graphically demonstrated:
+
+![](figs/data_wrangling_2/tidy-8.png)
+
+## Exercise 7
+
+Let's take a look at the fisheries data. Are these data "tidy"? To help with the next few examples, we'll gather the  species and catch count data using the `gather` function from the `tidyr` package.
+
+1. Inspect the fisheries dataset.  What are the dimensions (hint: `dim`)?  What are the names and column types (hint: `str`)?
+
+1. Use the `gather` function to "gather" the species columns and count data into two new columns. What are your keys? What are your values?  Assign the new dataset to a variable in your environment.
+
+1. Check the dimensions and structure of your new dataset. What's different?
+
+<div class = "fold o s">
+```{r}
+#| results: hide
+# check dimensions, structure
+dim(fishdat)
+str(fishdat)
+
+# gather the fishdat
+gatherdat <- fishdat %>%
+  gather(key = 'Species', value = 'Count', Bluefish, `Common Snook`, Mullets, Pinfish, `Red Drum`, `Sand Seatrout`)
+
+# check dimensions, structure
+dim(gatherdat)
+str(gatherdat)
+```
+</div>
+
+## Group by and summarize
+
+The last tool we're going to learn about in `dplyr` is the `summarize` function.  As the name implies, this function lets you summarize columns in a dataset.  Think of it as a way to condense rows using a summary method of your choice, e.g., what's the average of the values in a column?
+
+The summarize function is most useful with the `group_by` function.  This function lets you define a column that serves as a grouping variable for developing separate summaries, as compared to summarizing the entire dataset.  The `group_by` function works with any `dplyr` function so it can be quite powerful.
+
+Let's use our gathered fisheries dataset from exercise 7. 
+
+```{r}
+head(gatherdat)
+```
+
+It's difficult to see patterns until we start to evaluate some of the differences.  It's also setup in a way to let us easily group by different variables.  We could ask a simple question: how does total catch vary across species (ignoring gear differences)? 
+
+First we can use `group_by`. Notice the new information at the top of the output.
+```{r}
+by_spp <- group_by(gatherdat, Species)
+by_spp
+```
+
+We can then `summarize` to get the total count.
+```{r}
+by_spp <- summarize(by_spp, totals = sum(Count))
+by_spp
+```
+
+Of course, this can (and should) be done with pipes:
+```{r}
+by_spp <- gatherdat %>%
+  group_by(Species) %>%
+  summarize(totals = sum(Count))
+by_spp
+```
+
+We can group the dataset by more than one column to get summaries with multiple groups. Here we can look at total count by each unique combination of gear and species.
+
+```{r}
+by_spp_gear <- gatherdat %>%
+  group_by(Species, Gear) %>%
+  summarize(totals = sum(Count))
+by_spp_gear
+```
+
+We can also get more than one summary at a time.  The summary function can use any function that operates on a vector.  Some common examples include `min`, `max`, `sd`, `var`, `median`, `mean`, and `n`.  It's usually good practice to include a summary of how many observations were in each group, so get used to including the `n` function.
+```{r}
+more_sums <-gatherdat %>%
+  group_by(Species) %>%
+  summarize(
+    n = n(),
+    min_count = min(Count),
+    max_count = max(Count),
+    total = sum(Count)
+  )
+more_sums
+```
+
+Finally, many of the summary functions we've used (e.g., `sum`, `min`, `max`, `mean`) will not work correctly if there are missing observations in your data.  You'll see these as `NA` (or sometimes `NaN`) entries.  You have to use the argument `na.rm = T` to explicitly tell R how to handle the missing values.  Setting `na.rm = T` says to remove the `NA` values when summarizing the data.
+
+```{r}
+x <- c(1, 2, NA, 4)
+mean(x)
+mean(x, na.rm = T)
+```
+
+A quick check for missing values can be done with `anyNA`. This works on vectors and data frames.
+```{r}
+anyNA(x)
+```
+
+## Exercise 8
+
+Now we have access to a several tools in the tidyverse to help us wrangle more effectively.  For the final exercise, we're going subset our fisheries data and get a summary.  Specifically, we'll filter our data by Gear type 20 and Pinfish, then summarize the average catch across stations. 
+
+1. Using the gathered data we created in exercise 7, filter the data by Gear type 20 and Pinfish (hint, `filter(Gear == 20 & Species == 'Pinfish')`.
+
+1. Group the data by site so you can summarize the catch of Pinfish (hint, `group_by(Reference)`.  
+
+1. Summarize the count column by taking the average (hint, `summarise(ave = mean(Count))`)
+
+1. Which station has the highest average catch of Pinfish (hint, `arrange(ave)`)?
+
+<div class = 'fold o s'>
+```{r}
+#| results: hide
+sumdat <- gatherdat %>%
+  filter(Gear == 20 & Species == 'Pinfish') %>% 
+  group_by(Reference) %>% 
+  summarize(
+    ave = mean(Count)
+  ) %>% 
+  arrange(-ave)
+sumdat
+```
+</div>
+
+## Next time
+
+Now you should be able to answer (or be able to find answers to) the following:
+
+* How are data joined?
+* What is tidy data?
+* How do I summarize a dataset?
+
+In the next lesson we'll learn about data visualization and graphics.
+
+## Attribution
+
+Content in this lesson was pillaged extensively from the USGS-R training curriculum [here](https://github.com/USGS-R/training-curriculum){target="_blank"} and [R for data Science](https://github.com/hadley/r4ds){target="_blank"}.
