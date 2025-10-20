@@ -14,7 +14,7 @@
     "href": "index.html#agenda",
     "title": "Introduction to R",
     "section": "Agenda",
-    "text": "Agenda\n\n\n\n\nTime\nTopic\n\n\n\n09:00\nR basics\n\n\n10:00\nBreak\n\n\n10:15\nData wrangling part 1\n\n\n11:15\nBreak\n\n\n11:30\nData wrangling part 2\n\n\n12:30\nLunch\n\n\n1:30\nData viz\n\n\n2:30\nBreak\n\n\n2:45\nSpatial data analysis\n\n\n3:45\nContinued learning and adjourn",
+    "text": "Agenda\n\n\n\n\n\nTime\nTopic\n\n\n\n\n09:00\nR basics\n\n\n10:00\nBreak\n\n\n10:15\nData wrangling part 1\n\n\n11:15\nBreak\n\n\n11:30\nData wrangling part 2\n\n\n12:30\nLunch\n\n\n1:30\nData viz\n\n\n2:30\nBreak\n\n\n2:45\nSpatial data analysis\n\n\n3:45\nContinued learning and adjourn",
     "crumbs": [
       "About this Workshop"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#software-requirements",
     "title": "Introduction to R",
     "section": "Software requirements",
-    "text": "Software requirements\nThis training will use RStudio and R. Please make sure that you are ready to use the required software prior to the workshop. We will not be available for installation issues or questions the day of the workshop. There are two options for setup:\n\n\nUse RStudio Cloud to access from a web browser following the setup instructions.\nOR\n\nInstall RStudio and R on your personal computer following the setup instructions.",
+    "text": "Software requirements\nThis training will use RStudio and R. Please make sure that you are ready to use the required software prior to the workshop. We will not be available for installation issues or questions the day of the workshop. There are two options for setup:\n\nUse RStudio Cloud to access from a web browser following the setup instructions.\nOR\nInstall RStudio and R on your personal computer following the setup instructions.",
     "crumbs": [
       "About this Workshop"
     ]
@@ -64,7 +64,7 @@
     "href": "index.html#source-content",
     "title": "Introduction to R",
     "section": "Source content",
-    "text": "Source content\nAll source materials for this website can be accessed at https://github.com/tbep-tech/cerf-r-training\n This site is built automatically with GitHub Actions. Last site build 2025-10-20 13:45:10.930719.\n  This website is licensed under a Creative Commons Attribution 4.0 International License.",
+    "text": "Source content\nAll source materials for this website can be accessed at https://github.com/tbep-tech/cerf-r-training\n This site is built automatically with GitHub Actions. Last site build 2025-10-20 19:29:35.195694.\n  This website is licensed under a Creative Commons Attribution 4.0 International License.",
     "crumbs": [
       "About this Workshop"
     ]
