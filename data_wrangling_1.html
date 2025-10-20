@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -42,7 +77,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-67adf36a8b5ae47e57bc3b9532410483.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-18e48916e66a9a8e2d6c438ebac6ca13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -183,14 +221,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setupcloud.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Setup for the workshop (cloud)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./data_resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Data and resources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Data and resources</span></span></a>
   </div>
 </li>
       </ul>
@@ -200,8 +232,28 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lesson-outline" id="toc-lesson-outline" class="nav-link active" data-scroll-target="#lesson-outline"><span class="header-section-number">2.1</span> Lesson Outline</a></li>
+  <li><a href="#lesson-exercises" id="toc-lesson-exercises" class="nav-link" data-scroll-target="#lesson-exercises"><span class="header-section-number">2.2</span> Lesson Exercises</a></li>
+  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals"><span class="header-section-number">2.3</span> Goals</a></li>
+  <li><a href="#the-tidyverse" id="toc-the-tidyverse" class="nav-link" data-scroll-target="#the-tidyverse"><span class="header-section-number">2.4</span> The tidyverse</a></li>
+  <li><a href="#data-wrangling-with-dplyr" id="toc-data-wrangling-with-dplyr" class="nav-link" data-scroll-target="#data-wrangling-with-dplyr"><span class="header-section-number">2.5</span> Data wrangling with <code>dplyr</code></a>
+  <ul>
+  <li><a href="#selecting" id="toc-selecting" class="nav-link" data-scroll-target="#selecting"><span class="header-section-number">2.5.1</span> Selecting</a></li>
+  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering"><span class="header-section-number">2.5.2</span> Filtering</a></li>
+  <li><a href="#mutating" id="toc-mutating" class="nav-link" data-scroll-target="#mutating"><span class="header-section-number">2.5.3</span> Mutating</a></li>
+  </ul></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">2.6</span> Exercise 4</a></li>
+  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping"><span class="header-section-number">2.7</span> Piping</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5"><span class="header-section-number">2.8</span> Exercise 5</a></li>
+  <li><a href="#next-time" id="toc-next-time" class="nav-link" data-scroll-target="#next-time"><span class="header-section-number">2.9</span> Next time</a></li>
+  <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution"><span class="header-section-number">2.10</span> Attribution</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/cerf-r-workshop/edit/main/data_wrangling_1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -225,8 +277,501 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<script src="js/hideoutput.js"></script>
+<p>Get the lesson R script: <a href="Data_Wrangling_1.R">Data_Wrangling_1.R</a></p>
+<p>Get the lesson data: <a href="data/data.zip">download zip</a></p>
+<section id="lesson-outline" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="lesson-outline"><span class="header-section-number">2.1</span> Lesson Outline</h2>
+<ul>
+<li><a href="#goals">Goals</a></li>
+<li><a href="#the-tidyverse">The tidyverse</a></li>
+<li><a href="#data-wrangling-with-dplyr">Data wrangling with <code>dplyr</code></a></li>
+<li><a href="#piping">Piping</a></li>
+</ul>
+</section>
+<section id="lesson-exercises" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="lesson-exercises"><span class="header-section-number">2.2</span> Lesson Exercises</h2>
+<ul>
+<li><a href="#exercise-4">Exercise 4</a></li>
+<li><a href="#exercise-5">Exercise 5</a></li>
+</ul>
+</section>
+<section id="goals" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="goals"><span class="header-section-number">2.3</span> Goals</h2>
+<p>Data wrangling (manipulation, ninjery, cleaning, etc.) is the part of any data analysis that will take the most time. While it may not necessarily be fun, it is foundational to all the work that follows. I strongly believe that mastering these skills has more value than mastering a particular analysis. Check out <a href="https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html" target="_blank">this article</a> if you don’t believe me.</p>
+<p>We’ll have two hours to cover parts 1 and 2 of data wrangling. It’s an unrealistic expectation that you will be a ninja wrangler after this training. As such, the goals are to expose you to fundamentals and to develop an appreciation of what’s possible. I also want to provide resources that you can use for follow-up learning on your own.</p>
+<p>After this lesson you should be able to answer (or be able to find answers to) the following:</p>
+<ul>
+<li>Why do we need to manipulate data?</li>
+<li>What is the tidyverse?</li>
+<li>What can you do with dplyr?</li>
+<li>What is piping?</li>
+</ul>
+</section>
+<section id="the-tidyverse" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="the-tidyverse"><span class="header-section-number">2.4</span> The tidyverse</h2>
+<p>The <a href="https://www.tidyverse.org/" target="_blank">tidyverse</a> is a set of packages that work in harmony because they share common data representations and design. The tidyverse package is designed to make it easy to install and load core packages from the tidyverse in a single command. With tidyverse, you’ll be able to address all steps of data exploration.</p>
+<p><a href="figs/data_wrangling_1/data-science.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/data_wrangling_1/data-science.png" class="img-fluid"></a></p>
+<p>From the excellent book, <a href="http://r4ds.had.co.nz/" target="_blank">R for Data Science</a>, <strong>data exploration</strong> is the art of looking at your data, rapidly generating hypotheses, quickly testing them, then repeating again and again and again. Tools in the tidyverse also have direct application to more formal analyses with many of the other available R packages on <a href="https://cran.r-project.org/" target="_blank">CRAN</a>.</p>
+<p>You should already have the tidyverse installed, but let’s give it a go if you haven’t done this part yet:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tidyverse'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>After installation, we can load the package:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.1     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>Notice that the messages you get after loading are a bit different from other packages. That’s because tidyverse is a package that manages other packages. Loading tidyverse will load all of the core packagbes:</p>
+<ul>
+<li><a href="http://ggplot2.tidyverse.org" target="_blank">ggplot2</a>, for data visualisation.</li>
+<li><a href="http://dplyr.tidyverse.org" target="_blank">dplyr</a>, for data manipulation.</li>
+<li><a href="http://tidyr.tidyverse.org" target="_blank">tidyr</a>, for data tidying.</li>
+<li><a href="http://readr.tidyverse.org" target="_blank">readr</a>, for data import.</li>
+<li><a href="http://purrr.tidyverse.org" target="_blank">purrr</a>, for functional programming.</li>
+<li><a href="http://tibble.tidyverse.org" target="_blank">tibble</a>, for tibbles, a modern re-imagining of data frames.</li>
+</ul>
+<p>Other packages (e.g., <code>readxl</code>) are also included but you will probably not use these as frequently.</p>
+<p>A nice feature of tidyverse is the ability to check for and install new versions of each package:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidyverse_update</span>()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following packages are out of date:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  * broom (0.4.0 -&gt; 0.4.1)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  * DBI   (0.4.1 -&gt; 0.5)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  * Rcpp  (0.12.6 -&gt; 0.12.7)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Update now?</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: Yes</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2: No</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>As you’ll soon learn using R, there are often several ways to achieve the same goal. The tidyverse provides tools to address problems that can be solved with other packages or even functions from the base installation. Tidyverse is admittedly an <em>opinionated</em> approach to data exploration, but it’s popularity and rapid growth within the R community is a testament to the power of the tools that are provided.</p>
+</section>
+<section id="data-wrangling-with-dplyr" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="data-wrangling-with-dplyr"><span class="header-section-number">2.5</span> Data wrangling with <code>dplyr</code></h2>
+<p><a href="figs/data_wrangling_1/data-science-wrangle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figs/data_wrangling_1/data-science-wrangle.png" class="img-fluid"></a></p>
+<p>The data wrangling process includes data import, tidying, and transformation. The process directly feeds into, and is not mutually exclusive, with the <em>understanding</em> or modelling side of data exploration. More generally, I consider data wrangling as the manipulation or combination of datasets for the purpose of analysis.</p>
+<p>Wrangling begins with import and ends with an output of some kind, such as a plot or a model, but is more often a dataset that has been altered from a raw dataset to suit the needs of an analysis. In a perfect world, the wrangling process is linear with no need for back-tracking. In reality, we often uncover more information about a dataset, either through wrangling or modeling, that warrants re-evaluation or even gathering more data. Data also come in many forms and the form you need for analysis is rarely the required form of the input data. For these reasons, data wrangling will consume most of your time in data exploration.</p>
+<p><strong>All wrangling is based on a purpose.</strong> No one wrangles for the sake of wrangling (usually), so the process always begins by answering the following two questions:</p>
+<ul>
+<li>What do my input data look like?</li>
+<li>What should my input data look like given what I want to do?</li>
+</ul>
+<p>At the most basic level, going from what your data looks like to what it should look like will require a few key operations. Some common examples:</p>
+<ul>
+<li>Selecting specific variables</li>
+<li>Filtering observations by some criteria</li>
+<li>Adding or modifying existing variables</li>
+<li>Renaming variables</li>
+<li>Arranging rows by a variable</li>
+<li>Summarizing variable conditional on others</li>
+</ul>
+<p>The <code>dplyr</code> package provides easy tools for these common data manipulation tasks. It is built to work directly with data frames and this is one of the foundational packages in what is now known as the tidyverse. The philosophy of dplyr is that one function does one thing and the name of the function says what it does. This is where the tidyverse generally departs from other packages and even base R. It is meant to be easy, logical, and intuitive. There is a lot of great info on dplyr. If you have an interest, I’d encourage you to look more. The vignettes are particularly good.</p>
+<ul>
+<li><a href="https://github.com/hadley/dplyr" target="_blank"><code>dplyr</code> GitHub repo</a></li>
+<li><a href="http://cran.rstudio.com/web/packages/dplyr/" target="_blank">CRAN page: vignettes here</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" target="_blank">Cheatsheet</a></li>
+</ul>
+<p>I’ll demonstrate the examples with the <code>fishdat</code> dataset from the last lesson. This dataset includes over 30000 catch records of fish from Old Tampa Bay.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fishdat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/fishdat.csv'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># see first six rows</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fishdat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550020 TBM1996032006 1996-03-20     1996   300 2018-04-12 10:27:38        0
+2  1550749 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+3  1550750 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+4  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+5  1550828 TBM1996042601 1996-04-26     1996   160 2018-04-12 10:25:23        0
+6  1550838 TBM1996051312 1996-05-13     1996   300 2018-04-12 10:25:23        0
+# ℹ 5 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dimensions</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fishdat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2844   12</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># column names</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fishdat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "OBJECTID"      "Reference"     "Sampling_Date" "yr"           
+ [5] "Gear"          "ExDate"        "Bluefish"      "Common Snook" 
+ [9] "Mullets"       "Pinfish"       "Red Drum"      "Sand Seatrout"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># structure</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fishdat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [2,844 × 12] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ OBJECTID     : num [1:2844] 1550020 1550749 1550750 1550762 1550828 ...
+ $ Reference    : chr [1:2844] "TBM1996032006" "TBM1996032004" "TBM1996032004" "TBM1996032207" ...
+ $ Sampling_Date: Date[1:2844], format: "1996-03-20" "1996-03-20" ...
+ $ yr           : num [1:2844] 1996 1996 1996 1996 1996 ...
+ $ Gear         : num [1:2844] 300 22 22 20 160 300 300 300 300 22 ...
+ $ ExDate       : POSIXct[1:2844], format: "2018-04-12 10:27:38" "2018-04-12 10:25:23" ...
+ $ Bluefish     : num [1:2844] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Common Snook : num [1:2844] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Mullets      : num [1:2844] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Pinfish      : num [1:2844] 0 54 0 80 0 0 0 0 1 1 ...
+ $ Red Drum     : num [1:2844] 0 0 1 0 4 0 0 0 0 0 ...
+ $ Sand Seatrout: num [1:2844] 1 0 0 0 0 1 5 66 0 0 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   OBJECTID = col_double(),
+  ..   Reference = col_character(),
+  ..   Sampling_Date = col_date(format = ""),
+  ..   yr = col_double(),
+  ..   Gear = col_double(),
+  ..   ExDate = col_datetime(format = ""),
+  ..   Bluefish = col_double(),
+  ..   `Common Snook` = col_double(),
+  ..   Mullets = col_double(),
+  ..   Pinfish = col_double(),
+  ..   `Red Drum` = col_double(),
+  ..   `Sand Seatrout` = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<section id="selecting" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="selecting"><span class="header-section-number">2.5.1</span> Selecting</h3>
+<p>Let’s begin using dplyr. Don’t forget to load the tidyverse if you haven’t done so already. We can use the <code>select</code> function to, you guessed it, select columns.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first, select some columns</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>dplyr_sel1 <span class="ot">&lt;-</span> <span class="fu">select</span>(fishdat, Sampling_Date, Gear, Pinfish)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dplyr_sel1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  Sampling_Date  Gear Pinfish
+  &lt;date&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+1 1996-03-20      300       0
+2 1996-03-20       22      54
+3 1996-03-20       22       0
+4 1996-03-22       20      80
+5 1996-04-26      160       0
+6 1996-05-13      300       0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select everything but ObjectId and ExDate</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>dplyr_sel2 <span class="ot">&lt;-</span> <span class="fu">select</span>(fishdat, <span class="sc">-</span>OBJECTID, <span class="sc">-</span>ExDate)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dplyr_sel2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 10
+  Reference    Sampling_Date    yr  Gear Bluefish `Common Snook` Mullets Pinfish
+  &lt;chr&gt;        &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;          &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 TBM19960320… 1996-03-20     1996   300        0              0       0       0
+2 TBM19960320… 1996-03-20     1996    22        0              0       0      54
+3 TBM19960320… 1996-03-20     1996    22        0              0       0       0
+4 TBM19960322… 1996-03-22     1996    20        0              0       0      80
+5 TBM19960426… 1996-04-26     1996   160        0              0       0       0
+6 TBM19960513… 1996-05-13     1996   300        0              0       0       0
+# ℹ 2 more variables: `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns that contain the letter c</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dplyr_sel3 <span class="ot">&lt;-</span> <span class="fu">select</span>(fishdat, <span class="fu">matches</span>(<span class="st">'c'</span>))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dplyr_sel3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  OBJECTID Reference     `Common Snook`
+     &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;
+1  1550020 TBM1996032006              0
+2  1550749 TBM1996032004              0
+3  1550750 TBM1996032004              0
+4  1550762 TBM1996032207              0
+5  1550828 TBM1996042601              0
+6  1550838 TBM1996051312              0</code></pre>
+</div>
+</div>
+</section>
+<section id="filtering" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="filtering"><span class="header-section-number">2.5.2</span> Filtering</h3>
+<p>After selecting columns, you’ll probably want to remove observations that don’t fit some criteria. For example, maybe you want to remove all rows with low catch or maybe you want to look only at fish caught in Gear 20 (a 21 m seine net).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now filter observations with more than 30 Pinfish caught</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>dplyr_high_catch <span class="ot">&lt;-</span> <span class="fu">filter</span>(fishdat, Pinfish <span class="sc">&gt;</span> <span class="dv">30</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dplyr_high_catch)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550749 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+2  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+3  1555103 TBM1996022010 1996-02-20     1996    22 2018-04-12 10:25:29        0
+4  1572931 TBM1996080603 1996-08-06     1996   160 2018-04-12 10:25:36        0
+5  1572932 TBM1996080604 1996-08-06     1996   160 2018-04-12 10:25:36        0
+6  1573079 TBM1996062104 1996-06-21     1996    20 2018-04-12 10:26:15        0
+# ℹ 5 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now filter observations for Gear type as 20</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>dplyr_gear20 <span class="ot">&lt;-</span> <span class="fu">filter</span>(fishdat, Gear <span class="sc">==</span> <span class="dv">20</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dplyr_gear20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+2  1555259 TBM1996022104 1996-02-21     1996    20 2018-04-12 10:25:31        0
+3  1573079 TBM1996062104 1996-06-21     1996    20 2018-04-12 10:26:15        0
+4  1576651 TBM1996022007 1996-02-20     1996    20 2018-04-12 10:25:24        0
+5  1584465 TBM1996061917 1996-06-19     1996    20 2018-04-12 10:26:04        0
+6  1584803 TBM1996011905 1996-01-19     1996    20 2018-04-12 10:25:26        0
+# ℹ 5 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Filtering can take a bit of time to master because there are several ways to tell R what you want. Within the filter function, the working part is a <em>logical selection</em> of <code>TRUE</code> and <code>FALSE</code> values that are used to select rows (<code>TRUE</code> means I want that row, <code>FALSE</code> means I don’t). Every selection within the filter function, no matter how complicated, will always be a T/F vector. This is similar to running queries on a database if you’re familiar with SQL.</p>
+<p>To use filtering effectively, you have to know how to select the observations that you want using the comparison operators. R provides the standard suite: <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code> (not equal), and <code>==</code> (equal). When you’re starting out with R, the easiest mistake to make is to use <code>=</code> instead of <code>==</code> when testing for equality.</p>
+<p>Multiple arguments to <code>filter()</code> are combined with “and”: every expression must be true in order for a row to be included in the output. For other types of combinations, you’ll need to use Boolean operators yourself: <code>&amp;</code> is “and”, <code>|</code> is “or”, and <code>!</code> is “not”. This is the complete set of Boolean operations.</p>
+<p><a href="figs/data_wrangling_1/transform-logical.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figs/data_wrangling_1/transform-logical.png" class="img-fluid"></a></p>
+<p>Let’s start combining filtering operations.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get rows with &gt; 30 and less than 100 Pinfish</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>filt1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(fishdat, Pinfish <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> Pinfish <span class="sc">&lt;</span> <span class="dv">100</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(filt1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550749 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+2  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+3  1555103 TBM1996022010 1996-02-20     1996    22 2018-04-12 10:25:29        0
+4  1572931 TBM1996080603 1996-08-06     1996   160 2018-04-12 10:25:36        0
+5  1573079 TBM1996062104 1996-06-21     1996    20 2018-04-12 10:26:15        0
+6  1635253 TBM1997031016 1997-03-10     1997    20 2018-04-12 10:29:33        0
+# ℹ 5 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get rows with gear type 20 or red drum larger than 40</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>filt2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(fishdat, Gear <span class="sc">==</span> <span class="dv">20</span> <span class="sc">|</span> <span class="st">`</span><span class="at">Red Drum</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">40</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(filt2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+2  1555259 TBM1996022104 1996-02-21     1996    20 2018-04-12 10:25:31        0
+3  1573079 TBM1996062104 1996-06-21     1996    20 2018-04-12 10:26:15        0
+4  1576651 TBM1996022007 1996-02-20     1996    20 2018-04-12 10:25:24        0
+5  1584465 TBM1996061917 1996-06-19     1996    20 2018-04-12 10:26:04        0
+6  1584803 TBM1996011905 1996-01-19     1996    20 2018-04-12 10:25:26        0
+# ℹ 5 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get rows gear 20 or gear 5</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>filt3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(fishdat, Gear <span class="sc">==</span> <span class="dv">20</span> <span class="sc">|</span> Gear <span class="sc">==</span> <span class="dv">5</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(filt3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+2  1555259 TBM1996022104 1996-02-21     1996    20 2018-04-12 10:25:31        0
+3  1573079 TBM1996062104 1996-06-21     1996    20 2018-04-12 10:26:15        0
+4  1576651 TBM1996022007 1996-02-20     1996    20 2018-04-12 10:25:24        0
+5  1584465 TBM1996061917 1996-06-19     1996    20 2018-04-12 10:26:04        0
+6  1584803 TBM1996011905 1996-01-19     1996    20 2018-04-12 10:25:26        0
+# ℹ 5 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get rows with gear 20 or gear 5 using different syntax</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>filt4 <span class="ot">&lt;-</span> <span class="fu">filter</span>(fishdat, Gear <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(filt4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+2  1555259 TBM1996022104 1996-02-21     1996    20 2018-04-12 10:25:31        0
+3  1573079 TBM1996062104 1996-06-21     1996    20 2018-04-12 10:26:15        0
+4  1576651 TBM1996022007 1996-02-20     1996    20 2018-04-12 10:25:24        0
+5  1584465 TBM1996061917 1996-06-19     1996    20 2018-04-12 10:26:04        0
+6  1584803 TBM1996011905 1996-01-19     1996    20 2018-04-12 10:25:26        0
+# ℹ 5 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>As a side note, any variable (i.e., column name) with spaces or non-standard characters can be referenced by enclosing it with backticks (see <a href="http://adv-r.had.co.nz/Environments.html#binding" target="_blank">here</a>).</p>
+</section>
+<section id="mutating" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="mutating"><span class="header-section-number">2.5.3</span> Mutating</h3>
+<p>Now that we’ve seen how to filter observations and select columns of a data frame, maybe we want to add a new column. In dplyr, <code>mutate</code> allows us to add new columns. These can be vectors you are adding or based on expressions applied to existing columns. For instance, we have a column for average size in mm and maybe we want to convert to cm.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add a column as bluefish divided by 100</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>dplyr_mut <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fishdat, <span class="at">Bluefish_p100 =</span> Bluefish <span class="sc">/</span> <span class="dv">100</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dplyr_mut)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 13
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550020 TBM1996032006 1996-03-20     1996   300 2018-04-12 10:27:38        0
+2  1550749 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+3  1550750 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+4  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+5  1550828 TBM1996042601 1996-04-26     1996   160 2018-04-12 10:25:23        0
+6  1550838 TBM1996051312 1996-05-13     1996   300 2018-04-12 10:25:23        0
+# ℹ 6 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;, Bluefish_p100 &lt;dbl&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add a column for many/few mullet</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>dplyr_mut2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fishdat, <span class="at">mullet_cat =</span> <span class="fu">ifelse</span>(Mullets <span class="sc">&lt;</span> <span class="dv">20</span>, <span class="st">'few'</span>, <span class="st">'many'</span>))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dplyr_mut2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 13
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550020 TBM1996032006 1996-03-20     1996   300 2018-04-12 10:27:38        0
+2  1550749 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+3  1550750 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+4  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+5  1550828 TBM1996042601 1996-04-26     1996   160 2018-04-12 10:25:23        0
+6  1550838 TBM1996051312 1996-05-13     1996   300 2018-04-12 10:25:23        0
+# ℹ 6 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;, mullet_cat &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Some other useful dplyr functions include <code>arrange</code> to sort the observations (rows) by a column and <code>rename</code> to (you guessed it) rename a column.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange by maximum size</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>dplyr_arr <span class="ot">&lt;-</span> <span class="fu">arrange</span>(fishdat, <span class="st">`</span><span class="at">Sand Seatrout</span><span class="st">`</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dplyr_arr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550749 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+2  1550750 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+3  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+4  1550828 TBM1996042601 1996-04-26     1996   160 2018-04-12 10:25:23        0
+5  1551311 TBM1996032209 1996-03-22     1996   300 2018-04-12 10:25:20        0
+6  1551335 TBM1996041807 1996-04-18     1996    22 2018-04-12 10:25:24        0
+# ℹ 5 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rename some columns</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>dplyr_rnm <span class="ot">&lt;-</span> <span class="fu">rename</span>(fishdat, <span class="at">snook =</span> <span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dplyr_rnm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550020 TBM1996032006 1996-03-20     1996   300 2018-04-12 10:27:38        0
+2  1550749 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+3  1550750 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+4  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+5  1550828 TBM1996042601 1996-04-26     1996   160 2018-04-12 10:25:23        0
+6  1550838 TBM1996051312 1996-05-13     1996   300 2018-04-12 10:25:23        0
+# ℹ 5 more variables: snook &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>There are many more functions in <code>dplyr</code> but the ones above are by far the most used. As you can imagine, they are most effective when used together because there is never only one step in the data wrangling process. After the exercise, we’ll talk about how we can efficiently <em>pipe</em> the functions in dplyr to create a new data object.</p>
+</section>
+</section>
+<section id="exercise-4" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">2.6</span> Exercise 4</h2>
+<p>Now that you know the basic functions in <code>dplyr</code> and how to use them, let’s put them to use. Using <code>fishdat</code>, let’s select some columns of interest, filter by gear type, and rename one of the columns.</p>
+<ol type="1">
+<li><p>Select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Sand Seatrout</code> columns. Assign this dataset to a new object in your workspace. Don’t forget to use backticks to select column names that have spaces.</p></li>
+<li><p>Using the new object, filter to get all rows where Gear is equal to 20 (hint, filter by the <code>Gear</code> column and don’t forget ot use <code>==</code>).</p></li>
+<li><p>Rename the <code>Sampling_Date</code> column to <code>date</code>.</p></li>
+</ol>
+<div class="fold s o">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">select</span>(fishdat, Reference, Sampling_Date, Gear, <span class="st">`</span><span class="at">Sand Seatrout</span><span class="st">`</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(ex1, Gear <span class="sc">==</span> <span class="dv">20</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">rename</span>(ex1, <span class="at">date =</span> Sampling_Date)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(ex1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="piping" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="piping"><span class="header-section-number">2.7</span> Piping</h2>
+<p>A complete data wrangling exercise will always include multiple steps to go from the raw data to the output you need. Here’s a terrible wrangling example using functions from base R:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>cropdat <span class="ot">&lt;-</span> rawdat[<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>]</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>savecols <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(cropdat<span class="sc">$</span>Party, cropdat<span class="sc">$</span><span class="st">`</span><span class="at">Last Inventory Year (2015)</span><span class="st">`</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(savecols) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Party'</span>,<span class="st">'2015'</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>savecols<span class="sc">$</span>rank2015 <span class="ot">&lt;-</span> <span class="fu">rank</span>(<span class="sc">-</span>savecols<span class="sc">$</span><span class="st">`</span><span class="at">2015</span><span class="st">`</span>)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>top10df <span class="ot">&lt;-</span> savecols[savecols<span class="sc">$</span>rank2015 <span class="sc">&lt;=</span> <span class="dv">10</span>,]</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>basedat <span class="ot">&lt;-</span> cropdat[cropdat<span class="sc">$</span>Party <span class="sc">%in%</span> top10df<span class="sc">$</span>Party,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Technically, if this works it’s not “wrong”, but there are a couple of issues that can lead to problems down the line. First, the flow of functions to manipulate the data is not obvious and this makes your code very hard to read. Second, lots of unecessary intermediates have been created in your workspace. Anything that adds to clutter should be avoided because R is fundamentally based on object assignments. The less you assign as a variable in your environment the easier it will be to navigate complex scripts.</p>
+<p>The good news is that you now know how to use the dplyr functions to wrangle data. The function names in dplyr were chosen specifically to be descriptive. This will make your code much more readable than if you were using base R counterparts. The bad news is that I haven’t told you how to easily link the functions. Fortunately, there’s an easy fix to this problem.</p>
+<p>The <code>magrittr</code> package (comes with tidyverse) provides a very useful method called <em>piping</em> that will make wrangling a whole lot easier. The idea is simple: a pipe (<code>%&gt;%</code>) is used to chain functions together. The output from one function becomes the input to the next function in the pipe. This avoids the need to create intermediate objects and creates a logical progression of steps that demystify the wrangling process.</p>
+<p>Consider the simple example:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not using pipes, select a column, filter rows</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>bad_ex <span class="ot">&lt;-</span> <span class="fu">select</span>(fishdat, Gear, <span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>bad_ex2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(bad_ex, <span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>With pipes, it looks like this:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with pipes, select a column, filter rows</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>good_ex <span class="ot">&lt;-</span> fishdat <span class="sc">%&gt;%</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Gear, <span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we’ve created only one new object in our environment and we can clearly see that we select, then filter. The only real coding difference is now the select and filter functions only include the relevant information. You do not need to specify a data object as input to a function if you’re using piping. The pipe will always use the input that comes from above.</p>
+<p>A couple comments about piping:</p>
+<ul>
+<li>I find it very annoying to type the pipe operator (six key strokes!). RStudio has a nice keyboard shortcut: <code>Crtl + Shift + M</code> for Windows (use <code>Cmd + Shift + M</code> on a mac).</li>
+<li>It’s convention to start a new function on the next line after a pipe operator. This makes the code easier to read and you can also comment out a single step in a long pipe.</li>
+<li>Don’t make your pipes too long, limit them to a particular data object or task.</li>
+</ul>
+</section>
+<section id="exercise-5" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">2.8</span> Exercise 5</h2>
+<p>Now that we know how to pipe functions, let’s repeat exercise 4. You should already have code to select and filter the data. Use the following to repeat the analysis but with pipes. You should only have to create one data object in this exercise.</p>
+<ol type="1">
+<li>Using your code from exercise four, try to replicate the steps using pipes. The steps we used in exercise four were:
+<ul>
+<li>From fishdat, select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Sand Seatrout</code> columns</li>
+<li>Filter by <code>Gear</code> to get only gear 20</li>
+<li>Rename <code>Sampling_Date</code> to <code>date</code></li>
+</ul></li>
+</ol>
+<div class="fold s o">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ex2 <span class="ot">&lt;-</span> fishdat <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Reference, Sampling_Date, Gear, <span class="st">`</span><span class="at">Sand Seatrout</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gear <span class="sc">==</span> <span class="dv">20</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">date =</span> Sampling_Date)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ex2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="next-time" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="next-time"><span class="header-section-number">2.9</span> Next time</h2>
+<p>Now you should be able to answer (or be able to find answers to) the following:</p>
+<ul>
+<li>Why do we need to manipulate data?</li>
+<li>What is the tidyverse?</li>
+<li>What can you do with dplyr?</li>
+<li>What is piping?</li>
+</ul>
+<p>Next we’ll continue with data wrangling.</p>
+</section>
+<section id="attribution" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="attribution"><span class="header-section-number">2.10</span> Attribution</h2>
+<p>Content in this lesson was pillaged extensively from the USGS-R training curriculum <a href="https://github.com/USGS-R/training-curriculum" target="_blank">here</a> and <a href="https://github.com/hadley/r4ds" target="_blank">R for data Science</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -700,12 +1245,44 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/cerf-r-workshop/edit/main/data_wrangling_1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/tbep-tech/cerf-r-workshop/edit/main/data_wrangling_1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/" target="_blank">Quarto</a></p>
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

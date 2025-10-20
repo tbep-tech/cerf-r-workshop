@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -42,7 +77,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-67adf36a8b5ae47e57bc3b9532410483.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-18e48916e66a9a8e2d6c438ebac6ca13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -183,14 +221,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setupcloud.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Setup for the workshop (cloud)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./data_resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Data and resources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Data and resources</span></span></a>
   </div>
 </li>
       </ul>
@@ -200,8 +232,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lesson-outline" id="toc-lesson-outline" class="nav-link active" data-scroll-target="#lesson-outline"><span class="header-section-number">3.1</span> Lesson Outline</a></li>
+  <li><a href="#lesson-exercises" id="toc-lesson-exercises" class="nav-link" data-scroll-target="#lesson-exercises"><span class="header-section-number">3.2</span> Lesson Exercises</a></li>
+  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals"><span class="header-section-number">3.3</span> Goals</a></li>
+  <li><a href="#combining-data" id="toc-combining-data" class="nav-link" data-scroll-target="#combining-data"><span class="header-section-number">3.4</span> Combining data</a>
+  <ul>
+  <li><a href="#types-of-joins" id="toc-types-of-joins" class="nav-link" data-scroll-target="#types-of-joins"><span class="header-section-number">3.4.1</span> Types of joins</a></li>
+  </ul></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6"><span class="header-section-number">3.5</span> Exercise 6</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">3.6</span> Tidy data</a>
+  <ul>
+  <li><a href="#gathering" id="toc-gathering" class="nav-link" data-scroll-target="#gathering"><span class="header-section-number">3.6.1</span> Gathering</a></li>
+  <li><a href="#spreading" id="toc-spreading" class="nav-link" data-scroll-target="#spreading"><span class="header-section-number">3.6.2</span> Spreading</a></li>
+  </ul></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7"><span class="header-section-number">3.7</span> Exercise 7</a></li>
+  <li><a href="#group-by-and-summarize" id="toc-group-by-and-summarize" class="nav-link" data-scroll-target="#group-by-and-summarize"><span class="header-section-number">3.8</span> Group by and summarize</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8"><span class="header-section-number">3.9</span> Exercise 8</a></li>
+  <li><a href="#next-time" id="toc-next-time" class="nav-link" data-scroll-target="#next-time"><span class="header-section-number">3.10</span> Next time</a></li>
+  <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution"><span class="header-section-number">3.11</span> Attribution</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/cerf-r-workshop/edit/main/data_wrangling_2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -225,8 +280,523 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<script src="js/hideoutput.js"></script>
+<p>Get the lesson R script: <a href="Data_Wrangling_2.R">Data_Wrangling_2.R</a></p>
+<p>Get the lesson data: <a href="data/data.zip">download zip</a></p>
+<section id="lesson-outline" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="lesson-outline"><span class="header-section-number">3.1</span> Lesson Outline</h2>
+<ul>
+<li><a href="#combining-data">Combining data</a></li>
+<li><a href="#tidy-data">Tidy data</a></li>
+<li><a href="#group-by-and-summarize">Group by and summarize</a></li>
+</ul>
+</section>
+<section id="lesson-exercises" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="lesson-exercises"><span class="header-section-number">3.2</span> Lesson Exercises</h2>
+<ul>
+<li><a href="#exercise-6">Exercise 6</a></li>
+<li><a href="#exercise-7">Exercise 7</a></li>
+<li><a href="#exercise-8">Exercise 8</a></li>
+</ul>
+</section>
+<section id="goals" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="goals"><span class="header-section-number">3.3</span> Goals</h2>
+<p>In this lesson we’ll continue our discussion of data wrangling with the tidyverse. Data wrangling is the manipulation or combination of datasets for the purpose of understanding. It fits within the broader scheme of <strong>data exploration</strong>, described as the art of looking at your data, rapidly generating hypotheses, quickly testing them, then repeating again and again and again (from <a href="http://r4ds.had.co.nz/" target="_blank">R for Data Science</a>, as is most of today’s content).</p>
+<p><a href="figs/data_wrangling_2/data-science-wrangle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/data_wrangling_2/data-science-wrangle.png" class="img-fluid"></a></p>
+<p>Always remember that <strong>wrangling is based on a purpose.</strong> The process always begins by answering the following two questions:</p>
+<ul>
+<li>What do my input data look like?</li>
+<li>What should my input data look like given what I want to do?</li>
+</ul>
+<p>You define what steps to take to get your data from input to where you want to go.</p>
+<p>Last lesson we learned the following functions from the <code>dplyr</code> package (cheatsheet <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" target="_blank">here</a>):</p>
+<ul>
+<li>Selecting variables with <code>select</code></li>
+<li>Filtering observations by some criteria with <code>filter</code></li>
+<li>Adding or modifying existing variables with <code>mutate</code></li>
+<li>Renaming variables with <code>rename</code></li>
+<li>Arranging rows by a variable with <code>arrange</code></li>
+</ul>
+<p>As before, we only have one hour to cover the basics of data wrangling. It’s an unrealistic expectation that you will be a ninja wrangler after this training. As such, the goals are to expose you to fundamentals and to develop an appreciation of what’s possible. I also want to provide resources that you can use for follow-up learning on your own.</p>
+<p>After this lesson you should be able to answer (or be able to find answers to) the following:</p>
+<ul>
+<li>How are data joined?</li>
+<li>What is tidy data?</li>
+<li>How do I summarize a dataset?</li>
+</ul>
+<p>You should already have the tidyverse package installed, but let’s give it a go if you haven’t done this part yet:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tidyverse'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>After installation, we can load the package:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.1     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+</section>
+<section id="combining-data" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="combining-data"><span class="header-section-number">3.4</span> Combining data</h2>
+<p>Combining data is a common task of data wrangling. Perhaps we want to combine information between two datasets that share a common identifier. As a real world example, our fisheries data contain information about fish catch, but we also want to include spatial information about the stations (i.e., lat, lon). We would need to (and we will) combine data if this information is in two different places. Combining data with dplyr is called joining.</p>
+<p>All joins require that each of the tables can be linked by shared identifiers. These are called ‘keys’ and are usually represented as a separate column that acts as a unique variable for the observations. The “Station ID” is a common key, but remember that a key might need to be unique for each row. It doesn’t make sense to join two tables by station ID if multiple site visits were made. In that case, your key should include some information about the site visit <strong>and</strong> station ID.</p>
+<section id="types-of-joins" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="types-of-joins"><span class="header-section-number">3.4.1</span> Types of joins</h3>
+<p>The challenge with joins is that the two datasets may not represent the same observations for a given key. For example, you might have one table with all observations for every key, another with only some observations, or two tables with only a few shared keys. What you get back from a join will depend on what’s shared between tables, in addition to the type of join you use.</p>
+<p>We can demonstrate types of joins with simple graphics. The first is an <strong>inner-join</strong>.</p>
+<p><a href="figs/data_wrangling_2/join-inner.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figs/data_wrangling_2/join-inner.png" class="img-fluid"></a></p>
+<p>The second is an <strong>outer-join</strong>, and comes in three flavors: left, right, and full.</p>
+<p><a href="figs/data_wrangling_2/join-outer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figs/data_wrangling_2/join-outer.png" class="img-fluid"></a></p>
+<p>If all keys are shared between two data objects, then left, right, and full joins will give you the same result. I typically only use left_join just because it’s intuitive to me. This assumes that there is never any more information in the second table - it has the same or less keys as the original table.</p>
+<p>The data we downloaded for this workshop included fisheries catch data and the locations of each station. If we want to plot any of the catch data by location, we need to join the two datasets.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the fish data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fishdat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/fishdat.csv'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load the station data</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>statloc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/statloc.csv'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># join the two </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>joindat <span class="ot">&lt;-</span> <span class="fu">left_join</span>(fishdat, statloc, <span class="at">by =</span> <span class="st">'Reference'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(joindat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Bluefish
+     &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;                 &lt;dbl&gt;
+1  1550020 TBM1996032006 1996-03-20     1996   300 2018-04-12 10:27:38        0
+2  1550749 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+3  1550750 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23        0
+4  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23        0
+5  1550828 TBM1996042601 1996-04-26     1996   160 2018-04-12 10:25:23        0
+6  1550838 TBM1996051312 1996-05-13     1996   300 2018-04-12 10:25:23        0
+# ℹ 7 more variables: `Common Snook` &lt;dbl&gt;, Mullets &lt;dbl&gt;, Pinfish &lt;dbl&gt;,
+#   `Red Drum` &lt;dbl&gt;, `Sand Seatrout` &lt;dbl&gt;, Latitude &lt;dbl&gt;, Longitude &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-6" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="exercise-6"><span class="header-section-number">3.5</span> Exercise 6</h2>
+<p>For this exercise we’ll repeat the join we just did, but on a subset of the data. We’re going to select some columns of interest from our fisheries dataset, filter by gear type, then use a full_join with the station data. Try to use pipes if you can.</p>
+<ol type="1">
+<li><p>Select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Common Snook</code> columns from the fisheries dataset (hint, use <code>select</code> from dplyr).</p></li>
+<li><p>Filter the fisheries dataset by gear type 20 (hint, use <code>filter == 20</code>). Check the dimensions of the new dataset with <code>dim</code>.</p></li>
+<li><p>Use a <code>full_join</code> to join the fisheries dataset with the station location dataset. What is the key value for joining?</p></li>
+<li><p>Check the dimensions of the new table. What happened? Select only the <code>StationID</code>, <code>StationWaterDepth</code>, <code>SampleLatitude</code>, and <code>SampleLongitude</code> columns from the master data.</p></li>
+</ol>
+<div class="fold s o">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the fish data</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fishdat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/fishdat.csv'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load the station data</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>statloc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/statloc.csv'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># wrangle before join</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>joindat <span class="ot">&lt;-</span> fishdat <span class="sc">%&gt;%</span> </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Reference, Sampling_Date, Gear, <span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gear <span class="sc">==</span> <span class="dv">20</span>) </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(joindat)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># full join</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>joindat <span class="ot">&lt;-</span> joindat <span class="sc">%&gt;%</span> </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(statloc, <span class="at">by =</span> <span class="st">'Reference'</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(joindat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="tidy-data" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="tidy-data"><span class="header-section-number">3.6</span> Tidy data</h2>
+<p>The opposite of a tidy dataset is a messy dataset. You should always strive to create a tidy data set as an outcome of the wrangling process. Tidy data are easy to work with and will make downstream analysis much simpler. This will become apparent when we start summarizing and plotting our data.</p>
+<p>To help understand tidy data, it’s useful to look at alternative ways of representing data. The example below shows the same data organised in four different ways. Each dataset shows the same values of four variables <em>country</em>, <em>year</em>, <em>population</em>, and <em>cases</em>, but each dataset organises the values in a different way. Only one of these examples is tidy.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>table1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>table2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>table3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spread across two tibbles</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>table4a  <span class="co"># cases</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>table4b  <span class="co"># population</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country         `1999`     `2000`
+  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan   19987071   20595360
+2 Brazil       172006362  174504898
+3 China       1272915272 1280428583</code></pre>
+</div>
+</div>
+<p>These are all representations of the same underlying data but they are not equally easy to work with. The tidy dataset is much easier to work with inside the tidyverse.</p>
+<p>There are three inter-correlated rules which make a dataset tidy:</p>
+<ol type="1">
+<li>Each variable must have its own column.</li>
+<li>Each observation must have its own row.</li>
+<li>Each value must have its own cell.</li>
+</ol>
+<p><a href="figs/data_wrangling_2/tidy-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="figs/data_wrangling_2/tidy-1.png" class="img-fluid"></a></p>
+<p>For the example tables above, only the first table is tidy.</p>
+<p>There are some very real reasons why you would encounter untidy data:</p>
+<ol type="1">
+<li><p>Most people aren’t familiar with the principles of tidy data, and it’s hard to derive them yourself unless you spend a <em>lot</em> of time working with data.</p></li>
+<li><p>Data is often organised to facilitate some use other than analysis. For example, data is often organised to make entry as easy as possible.</p></li>
+</ol>
+<p>This means for most real analyses, you’ll need to do some tidying. The first step is always to figure out what the variables and observations are. The second step is to resolve one of two common problems:</p>
+<ol type="1">
+<li><p>One variable might be spread across multiple columns.</p></li>
+<li><p>One observation might be scattered across multiple rows.</p></li>
+</ol>
+<p>To fix these problems, you’ll need the two most important functions in tidyr: <code>gather()</code> and <code>spread()</code>.</p>
+<p>Side note: Recent versions of tidyr have the <code>pivot_longer()</code> and <code>pivot_wider()</code> functions that accomplish similar tasks. Some may find these functions more intuitive, but I present the former here for legacy purposes.</p>
+<section id="gathering" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="gathering"><span class="header-section-number">3.6.1</span> Gathering</h3>
+<p>A common problem is a dataset where some of the column names are not names of variables, but <em>values</em> of a variable. Take <code>table4a</code>: the column names <code>1999</code> and <code>2000</code> represent values of the <code>year</code> variable, and each row represents two observations, not one.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>table4a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+</div>
+<p>To tidy a dataset like this, we need to <strong>gather</strong> those columns into a new pair of variables. To describe that operation we need three parameters:</p>
+<ul>
+<li><p>The set of columns that represent values, not variables. In this example, those are the columns <code>1999</code> and <code>2000</code>.</p></li>
+<li><p>The name of the variable whose values form the column names. I call that the <code>key</code>, and here it is <code>year</code>.</p></li>
+<li><p>The name of the variable whose values are spread over the cells. I call that <code>value</code>, and here it’s the number of <code>cases</code>.</p></li>
+</ul>
+<p>Together those parameters generate the call to <code>gather()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>table4a <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>, <span class="at">key =</span> <span class="st">"year"</span>, <span class="at">value =</span> <span class="st">"cases"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year   cases
+  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
+1 Afghanistan 1999     745
+2 Brazil      1999   37737
+3 China       1999  212258
+4 Afghanistan 2000    2666
+5 Brazil      2000   80488
+6 China       2000  213766</code></pre>
+</div>
+</div>
+<p>Gathering can be graphically demonstrated:</p>
+<p><a href="figs/data_wrangling_2/tidy-9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="figs/data_wrangling_2/tidy-9.png" class="img-fluid"></a></p>
+</section>
+<section id="spreading" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="spreading"><span class="header-section-number">3.6.2</span> Spreading</h3>
+<p>Spreading is the opposite of gathering. You use it when an observation is scattered across multiple rows. For example, take <code>table2</code>: an observation is a country in a year, but each observation is spread across two rows.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>table2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+<p>To tidy this up, we first analyse the representation in similar way to <code>gather()</code>. This time, however, we only need two parameters:</p>
+<ul>
+<li><p>The column that contains variable names, the <code>key</code> column. Here, it’s <code>type</code>.</p></li>
+<li><p>The column that contains values forms multiple variables, the <code>value</code> column. Here it’s <code>count</code>.</p></li>
+</ul>
+<p>Once we’ve figured that out, we can use <code>spread()</code>, as shown programmatically below.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spread</span>(table2, <span class="at">key =</span> type, <span class="at">value =</span> count)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+<p>Spreading can be graphically demonstrated:</p>
+<p><a href="figs/data_wrangling_2/tidy-8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="figs/data_wrangling_2/tidy-8.png" class="img-fluid"></a></p>
+</section>
+</section>
+<section id="exercise-7" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="exercise-7"><span class="header-section-number">3.7</span> Exercise 7</h2>
+<p>Let’s take a look at the fisheries data. Are these data “tidy”? To help with the next few examples, we’ll gather the species and catch count data using the <code>gather</code> function from the <code>tidyr</code> package.</p>
+<ol type="1">
+<li><p>Inspect the fisheries dataset. What are the dimensions (hint: <code>dim</code>)? What are the names and column types (hint: <code>str</code>)?</p></li>
+<li><p>Use the <code>gather</code> function to “gather” the species columns and count data into two new columns. What are your keys? What are your values? Assign the new dataset to a variable in your environment.</p></li>
+<li><p>Check the dimensions and structure of your new dataset. What’s different?</p></li>
+</ol>
+<div class="fold o s">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check dimensions, structure</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fishdat)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fishdat)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># gather the fishdat</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>gatherdat <span class="ot">&lt;-</span> fishdat <span class="sc">%&gt;%</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">'Species'</span>, <span class="at">value =</span> <span class="st">'Count'</span>, Bluefish, <span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span>, Mullets, Pinfish, <span class="st">`</span><span class="at">Red Drum</span><span class="st">`</span>, <span class="st">`</span><span class="at">Sand Seatrout</span><span class="st">`</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># check dimensions, structure</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(gatherdat)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gatherdat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="group-by-and-summarize" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="group-by-and-summarize"><span class="header-section-number">3.8</span> Group by and summarize</h2>
+<p>The last tool we’re going to learn about in <code>dplyr</code> is the <code>summarize</code> function. As the name implies, this function lets you summarize columns in a dataset. Think of it as a way to condense rows using a summary method of your choice, e.g., what’s the average of the values in a column?</p>
+<p>The summarize function is most useful with the <code>group_by</code> function. This function lets you define a column that serves as a grouping variable for developing separate summaries, as compared to summarizing the entire dataset. The <code>group_by</code> function works with any <code>dplyr</code> function so it can be quite powerful.</p>
+<p>Let’s use our gathered fisheries dataset from exercise 7.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gatherdat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  OBJECTID Reference Sampling_Date    yr  Gear ExDate              Species Count
+     &lt;dbl&gt; &lt;chr&gt;     &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;   &lt;dbl&gt;
+1  1550020 TBM19960… 1996-03-20     1996   300 2018-04-12 10:27:38 Bluefi…     0
+2  1550749 TBM19960… 1996-03-20     1996    22 2018-04-12 10:25:23 Bluefi…     0
+3  1550750 TBM19960… 1996-03-20     1996    22 2018-04-12 10:25:23 Bluefi…     0
+4  1550762 TBM19960… 1996-03-22     1996    20 2018-04-12 10:25:23 Bluefi…     0
+5  1550828 TBM19960… 1996-04-26     1996   160 2018-04-12 10:25:23 Bluefi…     0
+6  1550838 TBM19960… 1996-05-13     1996   300 2018-04-12 10:25:23 Bluefi…     0</code></pre>
+</div>
+</div>
+<p>It’s difficult to see patterns until we start to evaluate some of the differences. It’s also setup in a way to let us easily group by different variables. We could ask a simple question: how does total catch vary across species (ignoring gear differences)?</p>
+<p>First we can use <code>group_by</code>. Notice the new information at the top of the output.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>by_spp <span class="ot">&lt;-</span> <span class="fu">group_by</span>(gatherdat, Species)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>by_spp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 17,064 × 8
+# Groups:   Species [6]
+   OBJECTID Reference     Sampling_Date    yr  Gear ExDate              Species 
+      &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;   
+ 1  1550020 TBM1996032006 1996-03-20     1996   300 2018-04-12 10:27:38 Bluefish
+ 2  1550749 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23 Bluefish
+ 3  1550750 TBM1996032004 1996-03-20     1996    22 2018-04-12 10:25:23 Bluefish
+ 4  1550762 TBM1996032207 1996-03-22     1996    20 2018-04-12 10:25:23 Bluefish
+ 5  1550828 TBM1996042601 1996-04-26     1996   160 2018-04-12 10:25:23 Bluefish
+ 6  1550838 TBM1996051312 1996-05-13     1996   300 2018-04-12 10:25:23 Bluefish
+ 7  1550842 TBM1996051407 1996-05-14     1996   300 2018-04-12 10:25:23 Bluefish
+ 8  1551131 TBM1996051415 1996-05-14     1996   300 2018-04-12 10:27:38 Bluefish
+ 9  1551311 TBM1996032209 1996-03-22     1996   300 2018-04-12 10:25:20 Bluefish
+10  1551335 TBM1996041807 1996-04-18     1996    22 2018-04-12 10:25:24 Bluefish
+# ℹ 17,054 more rows
+# ℹ 1 more variable: Count &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>We can then <code>summarize</code> to get the total count.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>by_spp <span class="ot">&lt;-</span> <span class="fu">summarize</span>(by_spp, <span class="at">totals =</span> <span class="fu">sum</span>(Count))</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>by_spp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  Species       totals
+  &lt;chr&gt;          &lt;dbl&gt;
+1 Bluefish           7
+2 Common Snook    3898
+3 Mullets           17
+4 Pinfish        98182
+5 Red Drum        3422
+6 Sand Seatrout   7789</code></pre>
+</div>
+</div>
+<p>Of course, this can (and should) be done with pipes:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>by_spp <span class="ot">&lt;-</span> gatherdat <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">totals =</span> <span class="fu">sum</span>(Count))</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>by_spp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  Species       totals
+  &lt;chr&gt;          &lt;dbl&gt;
+1 Bluefish           7
+2 Common Snook    3898
+3 Mullets           17
+4 Pinfish        98182
+5 Red Drum        3422
+6 Sand Seatrout   7789</code></pre>
+</div>
+</div>
+<p>We can group the dataset by more than one column to get summaries with multiple groups. Here we can look at total count by each unique combination of gear and species.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>by_spp_gear <span class="ot">&lt;-</span> gatherdat <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, Gear) <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">totals =</span> <span class="fu">sum</span>(Count))</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>by_spp_gear</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 36 × 3
+# Groups:   Species [6]
+   Species       Gear totals
+   &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Bluefish        20      1
+ 2 Bluefish        22      0
+ 3 Bluefish       160      6
+ 4 Bluefish       251      0
+ 5 Bluefish       300      0
+ 6 Bluefish       301      0
+ 7 Common Snook    20     20
+ 8 Common Snook    22      0
+ 9 Common Snook   160   3866
+10 Common Snook   251     12
+# ℹ 26 more rows</code></pre>
+</div>
+</div>
+<p>We can also get more than one summary at a time. The summary function can use any function that operates on a vector. Some common examples include <code>min</code>, <code>max</code>, <code>sd</code>, <code>var</code>, <code>median</code>, <code>mean</code>, and <code>n</code>. It’s usually good practice to include a summary of how many observations were in each group, so get used to including the <code>n</code> function.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>more_sums <span class="ot">&lt;-</span>gatherdat <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_count =</span> <span class="fu">min</span>(Count),</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_count =</span> <span class="fu">max</span>(Count),</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total =</span> <span class="fu">sum</span>(Count)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>more_sums</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  Species           n min_count max_count total
+  &lt;chr&gt;         &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1 Bluefish       2844         0         2     7
+2 Common Snook   2844         0       127  3898
+3 Mullets        2844         0         5    17
+4 Pinfish        2844         0      2530 98182
+5 Red Drum       2844         0       123  3422
+6 Sand Seatrout  2844         0       560  7789</code></pre>
+</div>
+</div>
+<p>Finally, many of the summary functions we’ve used (e.g., <code>sum</code>, <code>min</code>, <code>max</code>, <code>mean</code>) will not work correctly if there are missing observations in your data. You’ll see these as <code>NA</code> (or sometimes <code>NaN</code>) entries. You have to use the argument <code>na.rm = T</code> to explicitly tell R how to handle the missing values. Setting <code>na.rm = T</code> says to remove the <code>NA</code> values when summarizing the data.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.333333</code></pre>
+</div>
+</div>
+<p>A quick check for missing values can be done with <code>anyNA</code>. This works on vectors and data frames.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-8" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="exercise-8"><span class="header-section-number">3.9</span> Exercise 8</h2>
+<p>Now we have access to a several tools in the tidyverse to help us wrangle more effectively. For the final exercise, we’re going subset our fisheries data and get a summary. Specifically, we’ll filter our data by Gear type 20 and Pinfish, then summarize the average catch across stations.</p>
+<ol type="1">
+<li><p>Using the gathered data we created in exercise 7, filter the data by Gear type 20 and Pinfish (hint, <code>filter(Gear == 20 &amp; Species == 'Pinfish')</code>.</p></li>
+<li><p>Group the data by site so you can summarize the catch of Pinfish (hint, <code>group_by(Reference)</code>.</p></li>
+<li><p>Summarize the count column by taking the average (hint, <code>summarise(ave = mean(Count))</code>)</p></li>
+<li><p>Which station has the highest average catch of Pinfish (hint, <code>arrange(ave)</code>)?</p></li>
+</ol>
+<div class="fold o s">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sumdat <span class="ot">&lt;-</span> gatherdat <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gear <span class="sc">==</span> <span class="dv">20</span> <span class="sc">&amp;</span> Species <span class="sc">==</span> <span class="st">'Pinfish'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Reference) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ave =</span> <span class="fu">mean</span>(Count)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>ave)</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>sumdat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="next-time" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="next-time"><span class="header-section-number">3.10</span> Next time</h2>
+<p>Now you should be able to answer (or be able to find answers to) the following:</p>
+<ul>
+<li>How are data joined?</li>
+<li>What is tidy data?</li>
+<li>How do I summarize a dataset?</li>
+</ul>
+<p>In the next lesson we’ll learn about data visualization and graphics.</p>
+</section>
+<section id="attribution" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="attribution"><span class="header-section-number">3.11</span> Attribution</h2>
+<p>Content in this lesson was pillaged extensively from the USGS-R training curriculum <a href="https://github.com/USGS-R/training-curriculum" target="_blank">here</a> and <a href="https://github.com/hadley/r4ds" target="_blank">R for data Science</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -700,12 +1270,44 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/cerf-r-workshop/edit/main/data_wrangling_2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/tbep-tech/cerf-r-workshop/edit/main/data_wrangling_2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/" target="_blank">Quarto</a></p>
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
