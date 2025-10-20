@@ -1,0 +1,8 @@
+---
+lightbox: true
+
+execute:
+  echo: true
+---
+
+# Data viz {#sec-data_viz}

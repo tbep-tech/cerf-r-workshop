@@ -1,0 +1,8 @@
+---
+lightbox: true
+
+execute:
+  echo: true
+---
+
+# R basics {#sec-R_basics}

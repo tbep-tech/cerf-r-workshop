@@ -1,0 +1,5 @@
+---
+lightbox: true
+---
+
+# Data and resources {#sec-data_resources}
