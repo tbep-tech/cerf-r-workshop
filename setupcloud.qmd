@@ -1,5 +1,0 @@
----
-lightbox: true
----
-
-# Setup for the workshop (cloud) {#sec-setupcloud}
