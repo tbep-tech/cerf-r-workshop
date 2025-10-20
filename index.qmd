@@ -27,7 +27,7 @@ knitr::kable(agenda)
 
 There are a few housekeeping items we need to go over before we start the workshop.  
 
-1. Feel free to ask questions during the training. We will also use the stickies to signal 
+1. Feel free to ask questions during the training. We will also use the stickies to indicate progress on exercises (green means okay, red means I need help).
 
 1. Please use RStudio Cloud or your own installation of RStudio during this workshop.  The setup instructions for RStudio Cloud are [here](setupcloud.html) and for RStudio installation [here](setup.html).  You may use one or the other, but we recommend RStudio Cloud for the training. 
 
@@ -53,7 +53,7 @@ This training will use RStudio and R. Please make sure that you are ready to use
 
 ## Data and resources
 
-Please view the [Data and Resources](Data_and_Resources.html) page for data used in this workshop and additional links for R learning material.  A [live coding](https://tinyurl.com/cerf-r-training-live-coding){target="_blank"} link is also available.
+Please view the [Data and Resources](data_resources.html) page for data used in this workshop and additional links for R learning material.  A [live coding](https://tinyurl.com/cerf-r-training-live-coding){target="_blank"} link is also available.
 
 ## Instructor
 

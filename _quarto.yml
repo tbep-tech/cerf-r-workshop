@@ -31,7 +31,9 @@ book:
         - spatial_data_analysis.qmd  
   appendices:
     - setup.qmd
-  
+    - setupcloud.qmd
+    - data_resources.qmd
+
 format:
   html:
     theme:

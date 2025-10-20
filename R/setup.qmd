@@ -1,0 +1,5 @@
+---
+lightbox: true
+---
+
+# Setup for the workshop {#sec-setup}

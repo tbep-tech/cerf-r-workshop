@@ -1,0 +1,8 @@
+---
+lightbox: true
+
+execute:
+  echo: true
+---
+
+# Spatial data analysis {#sec-spatial_data_analysis}
