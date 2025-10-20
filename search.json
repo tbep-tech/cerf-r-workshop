@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "About this Workshop\nThis workshop will provide attendees with a gentle introduction to the R Statistical Programming Language for basic data exploration and analysis. No prior experience is needed. The workshop content will include a mix of instructor led demonstrations and hands-on exercises designed to reinforce core principles of the programming language. Additional emphasis will be placed on using RStudio as the preferred platform for working with data in a project-based environment. By the end of the workshop, attendees will have the necessary foundation for continued learning to further build R skills.",
+    "crumbs": [
+      "About this Workshop"
+    ]
+  },
+  {
+    "objectID": "index.html#agenda",
+    "href": "index.html#agenda",
+    "title": "Introduction to R",
+    "section": "Agenda",
+    "text": "Agenda\n\n\n\n\nTime\nTopic\n\n\n\n09:00\nR basics\n\n\n10:00\nBreak\n\n\n10:15\nData wrangling part 1\n\n\n11:15\nBreak\n\n\n11:30\nData wrangling part 2\n\n\n12:30\nLunch\n\n\n1:30\nData viz\n\n\n2:30\nBreak\n\n\n2:45\nSpatial data analysis\n\n\n3:45\nContinued learning and adjourn",
+    "crumbs": [
+      "About this Workshop"
+    ]
+  },
+  {
+    "objectID": "index.html#housekeeping",
+    "href": "index.html#housekeeping",
+    "title": "Introduction to R",
+    "section": "Housekeeping",
+    "text": "Housekeeping\nThere are a few housekeeping items we need to go over before we start the workshop.\n\nFeel free to ask questions during the training. We will also use the stickies to indicate progress on exercises (green means okay, red means I need help).\nPlease use RStudio Cloud or your own installation of RStudio during this workshop. The setup instructions for RStudio Cloud are here and for RStudio installation here. You may use one or the other, but we recommend RStudio Cloud for the training.\nWe have a live coding link that we’ll be using as we go through the lessons. If you get lost, you can copy/paste code from this link into RStudio.\nAll training content is on this website. We will be covering the content directly on the website, so if you get lost you can view the agenda to see which lesson we’re covering and find where we’re at by scrolling through the content.\nEach lesson has it’s own R script that is linked at the top. If you are not using the live coding link, you can download the lesson R script and use that directly.\nFinally, if you are not using RStudio Cloud, please make sure to download the required datasets here and make sure you have the the tidyverse, sf, and mapview packages installed. See the setup instructions for details.\n\nAll exercises and breaks will be timed to make sure that we stay on schedule. We’ll display a timer on the screen to track progress.",
+    "crumbs": [
+      "About this Workshop"
+    ]
+  },
+  {
+    "objectID": "index.html#software-requirements",
+    "href": "index.html#software-requirements",
+    "title": "Introduction to R",
+    "section": "Software requirements",
+    "text": "Software requirements\nThis training will use RStudio and R. Please make sure that you are ready to use the required software prior to the workshop. We will not be available for installation issues or questions the day of the workshop. There are two options for setup:\n\n\nUse RStudio Cloud to access from a web browser following the setup instructions.\nOR\n\nInstall RStudio and R on your personal computer following the setup instructions.",
+    "crumbs": [
+      "About this Workshop"
+    ]
+  },
+  {
+    "objectID": "index.html#data-and-resources",
+    "href": "index.html#data-and-resources",
+    "title": "Introduction to R",
+    "section": "Data and resources",
+    "text": "Data and resources\nPlease view the Data and Resources page for data used in this workshop and additional links for R learning material. A live coding link is also available.",
+    "crumbs": [
+      "About this Workshop"
+    ]
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "Introduction to R",
+    "section": "Instructor",
+    "text": "Instructor\nMarcus Beck (mbeck@tbep.org) - Marcus is the Senior Scientist for the Tampa Bay Estuary Program and is developing data analysis and visualization methods for Bay health indicators. He received his BS in Zoology from the University of Florida in 2007 and his MSc and PhD in Conservation Biology from the University of Minnesota in 2009 and 2013. Marcus has experience researching environmental indicators and developing open science products to support environmental decision-making. He has over fifteen years of experience using and developing software in the R Statistical Programming Language.",
+    "crumbs": [
+      "About this Workshop"
+    ]
+  },
+  {
+    "objectID": "index.html#source-content",
+    "href": "index.html#source-content",
+    "title": "Introduction to R",
+    "section": "Source content",
+    "text": "Source content\nAll source materials for this website can be accessed at https://github.com/tbep-tech/cerf-r-training\n This site is built automatically with GitHub Actions. Last site build 2025-10-20 13:45:10.930719.\n  This website is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "About this Workshop"
+    ]
+  }
+]
