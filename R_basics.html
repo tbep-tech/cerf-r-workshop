@@ -382,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-1" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">1.5</span> Exercise 1</h2>
 <p>This exercise will make sure R and RStudio are working and that you can get around the basics in RStudio.</p>
-<ol class="example" type="1">
+<ol type="1">
 <li><p>Start RStudio if using a version you installed OR navigate to <a href="https://posit.cloud/project/11213234" target="_blank">https://posit.cloud/project/11213234</a> if using RStudio Cloud. To start both R and RStudio requires only firing up RStudio. RStudio should be available from All Programs at the Start Menu. Fire up RStudio.</p></li>
 <li><p>If you’re not using RStudio Cloud, create a new project (File menu, New project, New directory, New project, Directory Name…). Name it “r_workshop”. We will use this for the rest of the workshop.</p></li>
 <li><p>Create a new “R Script” in the Source Pane, save that file into your newly created project and name it “first_script.R”. It’ll just be a blank text file at this point.</p></li>
@@ -408,31 +408,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 12.079010  8.586937 14.154825 13.936399  6.883798  6.305395  9.084455
-  [8] 12.829594 10.887918  7.836530  9.001568 10.370287  9.831415 10.245919
- [15] 14.092140  8.937508 11.047354 14.423350 12.034981 11.138949  7.477300
- [22]  9.908831 11.669912 11.020338 12.686709  9.032382 14.305234  8.766064
- [29]  9.723696 10.154350  8.939600 11.200230 10.506619  9.078964 10.986311
- [36] 11.654388  9.244846  7.355144 12.126700 13.771073 10.276413 12.012653
- [43] 11.421143 10.202323 11.937957  8.573577  9.025359  8.229556 11.470701
- [50]  9.097463 10.058142  9.600978  9.457922  9.417648  8.919053  4.272084
- [57] 12.720254 12.421122 12.140990  8.649492  9.583118  8.582591 10.244622
- [64] 14.277907  6.458151  8.662173  9.287872  8.062564  9.676604  7.489945
- [71] 13.429654  7.299800  5.678875  9.012768  9.826495  8.149252 11.165402
- [78] 11.112514  9.908719 11.215820 11.194903 10.292050 10.905226 10.633970
- [85] 12.108688  7.833701  8.028722 12.372297  9.763606  7.939484 12.896091
- [92]  6.120249 11.898701 12.703183  9.619425  9.661342 12.074042 10.005690
- [99] 11.061344 10.353844</code></pre>
+<pre><code>  [1]  9.063604  9.544663 14.394578  8.829253  7.496305 11.857878  6.098566
+  [8]  8.533733  8.353773  7.234573 10.121257 13.350128 13.853483 11.205238
+ [15]  9.412819 12.128338 11.081432  6.258921 10.012516 10.134309 12.230600
+ [22] 10.719130  8.392166 10.820164 14.529609 11.445566 10.189472 10.788711
+ [29]  8.265890  9.436650  7.846016  6.989054  8.833315  9.797074  8.304293
+ [36]  8.703209 12.418620  6.567464  6.969863  9.608397  9.998747 10.505107
+ [43]  8.860935  9.434525  9.723120 11.585985  9.151180 10.316218 12.527709
+ [50]  9.471291  8.704027  8.442265  8.309933  9.262471 11.347084  8.979937
+ [57] 12.305250  9.165947 10.467153  7.134578 11.554509 13.660906  6.422482
+ [64]  8.802983  8.154229 12.755144  8.646577 14.133059 11.310551  9.900245
+ [71] 11.291789 11.654962  6.317623 10.119049 10.770464  8.566701  8.467948
+ [78]  9.246401  8.059532  9.313277 10.785354 11.031071  8.890211  8.193327
+ [85] 10.581053 12.343884 12.709410  8.875516  8.590697 13.122830  9.328842
+ [92] 10.318848 10.999092 11.199845  9.415233  9.597593  8.024462 10.990627
+ [99] 10.893709  9.706090</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># average </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.07598035</code></pre>
+<pre><code>[1] 0.0263729</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 12.25621</code></pre>
+<pre><code>[1] -5.215933</code></pre>
 </div>
 </div>
 <p>Very often you will see functions used like this:</p>
@@ -443,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_random_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.75606</code></pre>
+<pre><code>[1] 13.25516</code></pre>
 </div>
 </div>
 <section id="what-is-the-environment" class="level3" data-number="1.6.1">
@@ -467,23 +467,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-2" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">1.7</span> Exercise 2</h2>
 <p>We’re going to install some packages from CRAN that will give us the tools for our workshop today. We’ll use the tidyverse, sf, and mapview packages. Later, we’ll explain in detail what each of these packages provide. Again, if you are using RStudio Cloud, these packages will already be installed. You can skip to step 5 in this case.</p>
-<ol start="6" class="example" type="1">
+<ol type="1">
 <li><p>At the top of the script you just created, type the following functions.</p>
-<div class="cell">
+<p>::: {.cell}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install packages from CRAN</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"sf"</span>)</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"mapview"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></li>
+<p>:::</p></li>
 <li><p>Select all the lines by clicking and dragging the mouse pointer over the text.</p></li>
 <li><p>Send all the commands to the console using <code>ctrl+enter</code>. You should see some text output on the console about the installation process. The installation may take a few minutes so don’t be alarmed.</p></li>
 <li><p>After the packages are done installing, verify that there were no errors during the process (this should be pretty obvious, i.e., error text in big scary red letters).</p></li>
 <li><p>Load the packages after they’ve installed.</p>
-<div class="cell">
+<p>::: {.cell}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"mapview"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></li>
+<p>:::</p></li>
 </ol>
 <p>An important aspect of packages is that you only need to download them once, but every time you start RStudio you need to load them with the <code>library()</code> function. Loading a package makes all of its functions available in your current R session.</p>
 <section id="getting-help" class="level3" data-number="1.7.1">
@@ -593,7 +593,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The only constraints required to make a data frame are:</p>
-<ol start="11" class="example" type="1">
+<ol type="1">
 <li><p>Each column (vector) contains the same type of data</p></li>
 <li><p>The number of observations in each column is equal.</p></li>
 </ol>
@@ -614,12 +614,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-3" class="level2" data-number="1.11">
 <h2 data-number="1.11" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">1.11</span> Exercise 3</h2>
 <p>Now that we have the data downloaded and extracted to our data folder, we’ll use <code>read_csv</code> to import two files into our environment. The <code>read_csv</code> function comes with the tidyverse package, so make sure that package is loaded (i.e., <code>library(tidyverse)</code>) before you do this exercise. This should have been done in the second exercise.</p>
-<ol start="13" class="example" type="1">
+<ol type="1">
 <li><p>Type the following in your script. Note the use of <em>relative</em> file paths within your project (see the explanation above).</p>
-<div class="cell">
+<p>::: {.cell}</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fishdat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/fishdat.csv'</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>statloc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/statloc.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></li>
+<p>:::</p></li>
 <li><p>Send the commands to the console with <code>ctrl+enter</code>.</p></li>
 <li><p>Verify that the data imported correctly by viewing the first six rows of each dataset. Use the <code>head()</code> function directly in the console, e.g., <code>head(fishdat)</code> or <code>head(statloc)</code></p></li>
 </ol>

@@ -684,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-4" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">2.6</span> Exercise 4</h2>
 <p>Now that you know the basic functions in <code>dplyr</code> and how to use them, let’s put them to use. Using <code>fishdat</code>, let’s select some columns of interest, filter by gear type, and rename one of the columns.</p>
-<ol class="example" type="1">
+<ol type="1">
 <li><p>Select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Sand Seatrout</code> columns. Assign this dataset to a new object in your workspace. Don’t forget to use backticks to select column names that have spaces.</p></li>
 <li><p>Using the new object, filter to get all rows where Gear is equal to 20 (hint, filter by the <code>Gear</code> column and don’t forget ot use <code>==</code>).</p></li>
 <li><p>Rename the <code>Sampling_Date</code> column to <code>date</code>.</p></li>
@@ -737,14 +737,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-5" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">2.8</span> Exercise 5</h2>
 <p>Now that we know how to pipe functions, let’s repeat exercise 4. You should already have code to select and filter the data. Use the following to repeat the analysis but with pipes. You should only have to create one data object in this exercise.</p>
-<ol start="4" class="example" type="1">
-<li>Using your code from exercise four, try to replicate the steps using pipes. The steps we used in exercise four were:
+<ol type="1">
+<li><p>Using your code from exercise four, try to replicate the steps using pipes. The steps we used in exercise four were:</p>
 <ul>
 <li>From fishdat, select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Sand Seatrout</code> columns</li>
 <li>Filter by <code>Gear</code> to get only gear 20</li>
 <li>Rename <code>Sampling_Date</code> to <code>date</code></li>
 </ul>
-<div class="cell">
+<p>::: {.cell}</p>
 <details class="code-fold">
 <summary>Click to show/hide solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ex2 <span class="ot">&lt;-</span> fishdat <span class="sc">%&gt;%</span> </span>
@@ -753,7 +753,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">date =</span> Sampling_Date)</span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ex2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-</div></li>
+<p>:::</p></li>
 </ol>
 </section>
 <section id="next-time" class="level2" data-number="2.9">
