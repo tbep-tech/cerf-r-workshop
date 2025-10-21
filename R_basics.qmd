@@ -93,7 +93,7 @@ After you write code in your script, it can be sent to the Console to run the co
 
 This exercise will make sure R and RStudio are working and that you can get around the basics in RStudio.
 
-1. Start RStudio if using a version you installed OR navigate to [https://rstudio.cloud/project/1318333](https://rstudio.cloud/project/1318333){target="_blank"} if using RStudio Cloud. To start both R and RStudio requires only firing up RStudio.  RStudio should be available from All Programs at the Start Menu.  Fire up RStudio. 
+1. Start RStudio if using a version you installed OR navigate to [https://posit.cloud/project/11213234](https://posit.cloud/project/11213234){target="_blank"} if using RStudio Cloud. To start both R and RStudio requires only firing up RStudio.  RStudio should be available from All Programs at the Start Menu.  Fire up RStudio. 
 
 1. If you're not using RStudio Cloud, create a new project (File menu, New project, New directory, New project, Directory Name...).  Name it "r_workshop".  We will use this for the rest of the workshop.
 
@@ -164,11 +164,11 @@ We're going to install some packages from CRAN that will give us the tools for o
 1. At the top of the script you just created, type the following functions.
 
     ```{r}
-    #| eval: false
-    # install packages from CRAN
-    install.packages("tidyverse")
-    install.packages("sf")
-    install.packages("mapview")
+#| eval: false
+# install packages from CRAN
+install.packages("tidyverse")
+install.packages("sf")
+install.packages("mapview")
     ```
 
 1. Select all the lines by clicking and dragging the mouse pointer over the text.  
@@ -180,12 +180,12 @@ We're going to install some packages from CRAN that will give us the tools for o
 1. Load the packages after they've installed. 
 
     ```{r, message = F, warning = F, results = 'hide'}
-    #| message: false
-    #| warning: false
-    #| results: hide
-    library("tidyverse")
-    library("sf")
-    library("mapview")
+#| message: false
+#| warning: false
+#| results: hide
+library("tidyverse")
+library("sf")
+library("mapview")
     ```
 
 An important aspect of packages is that you only need to download them once, but every time you start RStudio you need to load them with the `library()` function.  Loading a package makes all of its functions available in your current R session.
@@ -323,10 +323,10 @@ Now that we have the data downloaded and extracted to our data folder, we'll use
 1. Type the following in your script.  Note the use of *relative* file paths within your project (see the explanation above).
 
     ```{r}
-    fishdat <- read_csv('data/fishdat.csv')
-    statloc <- read_csv('data/statloc.csv')
+fishdat <- read_csv('data/fishdat.csv')
+statloc <- read_csv('data/statloc.csv')
     ```
-
+    
 1. Send the commands to the console with `ctrl+enter`.
 
 1. Verify that the data imported correctly by viewing the first six rows of each dataset.  Use the `head()` function directly in the console, e.g., `head(fishdat)` or `head(statloc)`
