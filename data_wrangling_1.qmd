@@ -227,11 +227,11 @@ There are many more functions in `dplyr` but the ones above are by far the most 
 
 Now that you know the basic functions in `dplyr` and how to use them, let's put them to use.  Using `fishdat`, let's select some columns of interest, filter by gear type, and rename one of the columns.
 
-(@)  Select the `Reference`, `Sampling_Date`, `Gear`, and `Sand Seatrout` columns.  Assign this dataset to a new object in your workspace.  Don't forget to use backticks to select column names that have spaces.
+1.  Select the `Reference`, `Sampling_Date`, `Gear`, and `Sand Seatrout` columns.  Assign this dataset to a new object in your workspace.  Don't forget to use backticks to select column names that have spaces.
 
-(@) Using the new object, filter to get all rows where Gear is equal to 20 (hint, filter by the `Gear` column and don't forget ot use `==`). 
+1. Using the new object, filter to get all rows where Gear is equal to 20 (hint, filter by the `Gear` column and don't forget ot use `==`). 
 
-(@) Rename the `Sampling_Date` column to `date`. 
+1. Rename the `Sampling_Date` column to `date`. 
 
 ```{r}
 #| eval: false
@@ -293,7 +293,7 @@ A couple comments about piping:
 
 Now that we know how to pipe functions, let's repeat exercise 4.  You should already have code to select and filter the data. Use the following to repeat the analysis but with pipes.  You should only have to create one data object in this exercise. 
 
-(@) Using your code from exercise four, try to replicate the steps using pipes.  The steps we used in exercise four were:
+1. Using your code from exercise four, try to replicate the steps using pipes.  The steps we used in exercise four were:
      * From fishdat, select the `Reference`, `Sampling_Date`, `Gear`, and `Sand Seatrout` columns
      * Filter by `Gear` to get only gear 20
      * Rename `Sampling_Date` to `date`

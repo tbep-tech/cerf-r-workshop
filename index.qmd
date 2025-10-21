@@ -27,17 +27,17 @@ knitr::kable(agenda)
 
 There are a few housekeeping items we need to go over before we start the workshop.  
 
-(@) Feel free to ask questions during the training. We will also use the stickies to indicate progress on exercises (green means okay, red means I need help).
+1. Feel free to ask questions during the training. We will also use the stickies to indicate progress on exercises (green means okay, red means I need help).
 
-(@) Please use your own installation of RStudio or RStudio Cloud during this workshop.  The setup instructions are [here](setup.html).  You may use one or the other, but we recommend RStudio Cloud for the training. 
+1. Please use your own installation of RStudio or RStudio Cloud during this workshop.  The setup instructions are [here](setup.html).  You may use one or the other, but we recommend RStudio Cloud for the training. 
 
-(@) We have a [live coding](https://tinyurl.com/cerf-r-workshop-live-coding){target="_blank"} link that we'll be using as we go through the lessons. If you get lost, you can copy/paste code from this link into RStudio. 
+1. We have a [live coding](https://tinyurl.com/cerf-r-workshop-live-coding){target="_blank"} link that we'll be using as we go through the lessons. If you get lost, you can copy/paste code from this link into RStudio. 
 
-(@) All training content is on this website.  We will be covering the content directly on the website, so if you get lost you can view the agenda to see which lesson we're covering and find where we're at by scrolling through the content. 
+1. All training content is on this website.  We will be covering the content directly on the website, so if you get lost you can view the agenda to see which lesson we're covering and find where we're at by scrolling through the content. 
 
-(@) Each lesson has it's own R script that is linked at the top. If you are not using the live coding link, you can download the lesson R script and use that directly. 
+1. Each lesson has it's own R script that is linked at the top. If you are not using the live coding link, you can download the lesson R script and use that directly. 
 
-(@) Finally, if you are not using RStudio Cloud, please make sure to download the required datasets [here](https://tbep-tech.github.io/cerf-r-workshop/data/data.zip) and make sure you have the the `tidyverse`, `sf`, and `mapview` packages installed. See the [setup instructions](setup.html) for details.  
+1. Finally, if you are not using RStudio Cloud, please make sure to download the required datasets [here](https://tbep-tech.github.io/cerf-r-workshop/data/data.zip) and make sure you have the the `tidyverse`, `sf`, and `mapview` packages installed. See the [setup instructions](setup.html) for details.  
 
 All exercises and breaks will be timed to make sure that we stay on schedule. We'll display a timer on the screen to track progress.
 
@@ -45,11 +45,11 @@ All exercises and breaks will be timed to make sure that we stay on schedule. We
 
 This training will use RStudio and R. Please make sure that you are ready to use the required software prior to the workshop by following the setup instructions [here](setup.html).  __We will not be available for installation issues or questions the day of the workshop__.  There are two options:
 
-(@) Install RStudio and R on your personal computer (recommended). 
+1. Install RStudio and R on your personal computer (recommended). 
 
      OR 
 
-(@) Use RStudio Cloud to access from a web browser. 
+1. Use RStudio Cloud to access from a web browser. 
 
 ## Data and resources
 
