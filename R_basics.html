@@ -406,31 +406,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 10.581896 12.198044 11.537407 12.488387 11.474797  8.463044 10.860799
-  [8]  9.893923  9.267715 11.679584 10.692341  7.328557 10.213381 10.597944
- [15]  8.539521 10.730976 11.604166 10.833646 10.110409  8.672853  5.973525
- [22]  9.619477 10.222063 11.090917 12.358330  8.383002 13.555920 12.771573
- [29] 10.856337 10.281770 10.599757 10.302356 11.443664 11.548985  9.413006
- [36]  9.797788  9.952147  8.174711 10.590649  6.989352 11.633933 10.766577
- [43] 10.944519  9.195541  9.072364  8.010652  9.046181 13.713195 15.483067
- [50] 10.042334 14.475835  7.562047 13.202320 11.228151 10.210160 11.984217
- [57] 12.730803 12.818956  7.617029  7.388199  9.180493  7.635369  4.944303
- [64]  8.697506 13.146167 10.348421 12.806232 12.264469  9.387102  9.198445
- [71] 11.814277 10.111624 12.662281 10.514184 11.532520 11.246078 13.053274
- [78] 11.593378 10.506255  8.443557 10.308504 13.642419 11.214700 10.404002
- [85]  7.730290 11.498062  9.027604  5.156639 12.394790  9.808349 11.563399
- [92] 10.773234  7.854544 12.332976 11.077200 10.003792 10.305114  9.098185
- [99] 12.289224  8.336845</code></pre>
+<pre><code>  [1] 11.584461  8.447675  7.811673  3.576012  8.421245 12.058495 10.387878
+  [8]  7.542151  6.906587 11.416253 14.405845  7.612491  7.838463  7.122603
+ [15]  5.805889  8.926394  8.224302 10.024708  8.529561 14.635541 11.088104
+ [22]  9.420483 10.950493  7.208273  8.137381  8.546703 11.249354  9.296781
+ [29]  8.415747  7.326093  5.868009 11.928868  8.662381  7.173950 10.068097
+ [36] 11.193885 13.422068  8.716652  8.733346 11.138809 10.456467 11.802793
+ [43] 13.006068  7.928476 10.307235 10.817336 12.714923 10.821148 14.031752
+ [50]  6.958702  8.566686  8.029425 11.210469  9.054430 11.212336  7.648669
+ [57] 11.032267 10.989348 11.650485  9.382539 10.566235  9.072890 13.801496
+ [64] 11.084098 11.693171  9.883325 10.335207  9.960187  8.227130 10.984294
+ [71]  9.987833 11.002225  8.276721 13.130057 10.494433 10.023634 10.037396
+ [78]  7.822495  8.469366 10.265302  9.045380  7.135922  6.666290  9.460755
+ [85]  9.265170  9.252317 11.580979  9.970715 11.379777  9.999339 10.426187
+ [92]  9.850143  8.642829 12.417183 13.026696  7.044374 10.540980  9.010811
+ [99]  8.771347  9.914656</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># average </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1182329</code></pre>
+<pre><code>[1] -0.1663597</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.518204</code></pre>
+<pre><code>[1] 10.49976</code></pre>
 </div>
 </div>
 <p>Very often you will see functions used like this:</p>
@@ -441,7 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_random_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.827924</code></pre>
+<pre><code>[1] -13.55982</code></pre>
 </div>
 </div>
 <section id="what-is-the-environment" class="level3" data-number="1.6.1">
@@ -465,7 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-2" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">1.7</span> Exercise 2</h2>
 <p>We’re going to install some packages from CRAN that will give us the tools for our workshop today. We’ll use the tidyverse, sf, and mapview packages. Later, we’ll explain in detail what each of these packages provide. Again, if you are using RStudio Cloud, these packages will already be installed. You can skip to step 5 in this case.</p>
-<ol class="example" type="1">
+<ol type="1">
 <li><p>At the top of the script you just created, type the following functions.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install packages from CRAN</span></span>
@@ -483,7 +483,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"mapview"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 </ol>
-<p>&nbsp;</p>
 <p>An important aspect of packages is that you only need to download them once, but every time you start RStudio you need to load them with the <code>library()</code> function. Loading a package makes all of its functions available in your current R session.</p>
 </section>
 <section id="getting-help" class="level2" data-number="1.8">
@@ -613,7 +612,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-3" class="level2" data-number="1.12">
 <h2 data-number="1.12" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">1.12</span> Exercise 3</h2>
 <p>Now that we have the data downloaded and extracted to our data folder, we’ll use <code>read_csv</code> to import two files into our environment. The <code>read_csv</code> function comes with the tidyverse package, so make sure that package is loaded (i.e., <code>library(tidyverse)</code>) before you do this exercise. This should have been done in the second exercise.</p>
-<ol start="6" class="example" type="1">
+<ol type="1">
 <li><p>Type the following in your script. Note the use of <em>relative</em> file paths within your project (see the explanation above).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fishdat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/fishdat.csv'</span>)</span>
@@ -622,7 +621,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Send the commands to the console with <code>ctrl+enter</code>.</p></li>
 <li><p>Verify that the data imported correctly by viewing the first six rows of each dataset. Use the <code>head()</code> function directly in the console, e.g., <code>head(fishdat)</code> or <code>head(statloc)</code></p></li>
 </ol>
-<p>&nbsp;</p>
 <p>Let’s explore the datasets a bit. There are many useful functions for exploring the characteristics of a dataset. This is always a good idea when you first import something.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the dimensions</span></span>
