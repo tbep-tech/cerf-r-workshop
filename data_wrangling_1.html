@@ -737,14 +737,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-5" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">2.8</span> Exercise 5</h2>
 <p>Now that we know how to pipe functions, let’s repeat exercise 4. You should already have code to select and filter the data. Use the following to repeat the analysis but with pipes. You should only have to create one data object in this exercise.</p>
+<p>Using your code from exercise four, try to replicate the steps <strong>using pipes</strong>. The steps we used in exercise four were:</p>
 <ol type="1">
-<li><p>Using your code from exercise four, try to replicate the steps using pipes. The steps we used in exercise four were:</p>
-<ul>
-<li>From fishdat, select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Sand Seatrout</code> columns</li>
-<li>Filter by <code>Gear</code> to get only gear 20</li>
-<li>Rename <code>Sampling_Date</code> to <code>date</code></li>
-</ul>
-<p>::: {.cell}</p>
+<li><p>From fishdat, select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Sand Seatrout</code> columns</p></li>
+<li><p>Filter by <code>Gear</code> to get only gear 20</p></li>
+<li><p>Rename <code>Sampling_Date</code> to <code>date</code></p></li>
+</ol>
+<div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ex2 <span class="ot">&lt;-</span> fishdat <span class="sc">%&gt;%</span> </span>
@@ -753,8 +752,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">date =</span> Sampling_Date)</span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ex2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<p>:::</p></li>
-</ol>
+</div>
 </section>
 <section id="next-time" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="next-time"><span class="header-section-number">2.9</span> Next time</h2>
