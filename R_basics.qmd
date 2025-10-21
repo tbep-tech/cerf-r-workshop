@@ -44,7 +44,7 @@ There are many programming languages available and each has it's specific benefi
 
 * The growth of R as explained in the [Stack Overflow blog](https://stackoverflow.blog/2017/10/10/impressive-growth-r/){target="_blank"}, [IEEE rating](http://blog.revolutionanalytics.com/2016/07/r-moves-up-to-5th-place-in-ieee-language-rankings.html){target="_blank"}
 
-R is also an open-source programming language - not only is it free, but this means anybody can contribute to it's development. As of `r format(Sys.time(), "%Y-%m-%d")`, there are `r nrow(available.packages())` supplemental packages for R on CRAN!   
+R is also an open-source programming language - not only is it free, but this means anybody can contribute to it's development. As of `r format(Sys.time(), "%Y-%m-%d")`, there are `r nrow(available.packages(contriburl = 'https://cran.rstudio.com/src/contrib'))` supplemental packages for R on CRAN!   
 
 ## RStudio
 
@@ -151,7 +151,7 @@ The base install of R is quite powerful, but you will soon have a need or desire
 
 ### CRAN
 
-One of the reasons for R's popularity is CRAN, [The Comprehensive R Archive Network](http://cran.r-project.org/){target="_blank"}.  This is where you download R and also where most will gain access to packages (there are other places, but that is for later).  Not much else to say about this now other than to be aware of it.  As of `r format(Sys.time(), "%Y-%m-%d")`, there are `r nrow(available.packages())` packages on CRAN! 
+One of the reasons for R's popularity is CRAN, [The Comprehensive R Archive Network](http://cran.r-project.org/){target="_blank"}.  This is where you download R and also where most will gain access to packages (there are other places, but that is for later).  Not much else to say about this now other than to be aware of it.  As of `r format(Sys.time(), "%Y-%m-%d")`, there are `r nrow(available.packages(contriburl = 'https://cran.rstudio.com/src/contrib'))` packages on CRAN! 
 
 ### Installing packages
 
@@ -161,34 +161,32 @@ When a package gets installed, that means the source code is downloaded and put 
 
 We're going to install some packages from CRAN that will give us the tools for our workshop today.  We'll use the tidyverse, sf, and mapview packages.  Later, we'll explain in detail what each of these packages provide.  Again, if you are using RStudio Cloud, these packages will already be installed.  You can skip to step 5 in this case.  
 
-(@) At the top of the script you just created, type the following functions.
+1. At the top of the script you just created, type the following functions.
 
-    ```{r}
-    #| eval: false
-    # install packages from CRAN
-    install.packages("tidyverse")
-    install.packages("sf")
-    install.packages("mapview")
-    ```
+   ```{r}
+   #| eval: false
+   # install packages from CRAN
+   install.packages("tidyverse")
+   install.packages("sf")
+   install.packages("mapview")
+   ```
 
-(@) Select all the lines by clicking and dragging the mouse pointer over the text.  
+1. Select all the lines by clicking and dragging the mouse pointer over the text.  
 
-(@) Send all the commands to the console using `ctrl+enter`.  You should see some text output on the console about the installation process.  The installation may take a few minutes so don't be alarmed.  
+1. Send all the commands to the console using `ctrl+enter`.  You should see some text output on the console about the installation process.  The installation may take a few minutes so don't be alarmed.  
 
-(@) After the packages are done installing, verify that there were no errors during the process (this should be pretty obvious, i.e., error text in big scary red letters).
+1. After the packages are done installing, verify that there were no errors during the process (this should be pretty obvious, i.e., error text in big scary red letters).
 
-(@) Load the packages after they've installed. 
+1. Load the packages after they've installed. 
 
-    ```{r}
-    #| message: false
-    #| warning: false
-    #| results: hide
-    library("tidyverse")
-    library("sf")
-    library("mapview")
-    ```
-
-&nbsp;
+   ```{r}
+   #| message: false
+   #| warning: false
+   #| results: hide
+   library("tidyverse")
+   library("sf")
+   library("mapview")
+   ```
 
 An important aspect of packages is that you only need to download them once, but every time you start RStudio you need to load them with the `library()` function.  Loading a package makes all of its functions available in your current R session.
 
@@ -322,18 +320,16 @@ If you want to import a file that is not in your working directory, you will hav
 
 Now that we have the data downloaded and extracted to our data folder, we'll use `read_csv` to import two files into our environment.  The `read_csv` function comes with the tidyverse package, so make sure that package is loaded (i.e., `library(tidyverse)`) before you do this exercise.  This should have been done in the second exercise.
 
-(@) Type the following in your script.  Note the use of *relative* file paths within your project (see the explanation above).
+1. Type the following in your script.  Note the use of *relative* file paths within your project (see the explanation above).
 
-    ```{r}
-    fishdat <- read_csv('data/fishdat.csv')
-    statloc <- read_csv('data/statloc.csv')
-    ```
+   ```{r}
+   fishdat <- read_csv('data/fishdat.csv')
+   statloc <- read_csv('data/statloc.csv')
+   ```
 
-(@) Send the commands to the console with `ctrl+enter`.
+1. Send the commands to the console with `ctrl+enter`.
 
-(@) Verify that the data imported correctly by viewing the first six rows of each dataset.  Use the `head()` function directly in the console, e.g., `head(fishdat)` or `head(statloc)`
-
-&nbsp;
+1. Verify that the data imported correctly by viewing the first six rows of each dataset.  Use the `head()` function directly in the console, e.g., `head(fishdat)` or `head(statloc)`
 
 Let's explore the datasets a bit.  There are many useful functions for exploring the characteristics of a dataset.  This is always a good idea when you first import something.  
 
