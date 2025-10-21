@@ -188,9 +188,11 @@ We're going to install some packages from CRAN that will give us the tools for o
     library("mapview")
     ```
 
+&nbsp;
+
 An important aspect of packages is that you only need to download them once, but every time you start RStudio you need to load them with the `library()` function.  Loading a package makes all of its functions available in your current R session.
 
-### Getting Help
+## Getting Help
 
 Being able to find help and interpret that help is probably one of the most important skills for learning a new language.  R is no different. Help on functions and packages can be accessed directly from R, can be found on CRAN and other official R resources, searched on Google, found on StackOverflow, or from any number of fantastic online resources. I will cover a few of these here. 
 
@@ -331,6 +333,8 @@ Now that we have the data downloaded and extracted to our data folder, we'll use
 
 (@) Verify that the data imported correctly by viewing the first six rows of each dataset.  Use the `head()` function directly in the console, e.g., `head(fishdat)` or `head(statloc)`
 
+&nbsp;
+
 Let's explore the datasets a bit.  There are many useful functions for exploring the characteristics of a dataset.  This is always a good idea when you first import something.  
 
 ```{r}
@@ -359,7 +363,7 @@ View(fishdat)
 View(statloc)
 ```
 
-### Other ways to import data
+## Other ways to import data
 
 You might want to import an Excel spreadsheet as well. In the old days, importing spreadsheets into R was almost impossible given the proprietary data structure used by Microsoft.  The tools available in R have since matured and it's now pretty painless to import a spreadsheet.  The `readxl` package is the most recent and by far most flexible data import package for Excel files. It comes with the `tidyverse` family of packages.
 
