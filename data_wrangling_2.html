@@ -263,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./R_basics.html">Lessons</a></li><li class="breadcrumb-item"><a href="./data_wrangling_2.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling part 2</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="sec-data_wrangling_2" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling part 2</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/tbep-tech/cerf-r-workshop/blob/main/data_wrangling_2.qmd"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-data_wrangling_2" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling part 2</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/tbep-tech/cerf-r-workshop/blob/main/data_wrangling_2.qmd">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -280,7 +280,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<script src="js/hideoutput.js"></script>
 <p>Get the lesson R script: <a href="Data_Wrangling_2.R">Data_Wrangling_2.R</a></p>
 <p>Get the lesson data: <a href="data/data.zip">download zip</a></p>
 <section id="lesson-outline" class="level2" data-number="3.1">
@@ -388,14 +387,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-6" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="exercise-6"><span class="header-section-number">3.5</span> Exercise 6</h2>
 <p>For this exercise we’ll repeat the join we just did, but on a subset of the data. We’re going to select some columns of interest from our fisheries dataset, filter by gear type, then use a full_join with the station data. Try to use pipes if you can.</p>
-<ol type="1">
+<ol class="example" type="1">
 <li><p>Select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Common Snook</code> columns from the fisheries dataset (hint, use <code>select</code> from dplyr).</p></li>
 <li><p>Filter the fisheries dataset by gear type 20 (hint, use <code>filter == 20</code>). Check the dimensions of the new dataset with <code>dim</code>.</p></li>
 <li><p>Use a <code>full_join</code> to join the fisheries dataset with the station location dataset. What is the key value for joining?</p></li>
 <li><p>Check the dimensions of the new table. What happened? Select only the <code>StationID</code>, <code>StationWaterDepth</code>, <code>SampleLatitude</code>, and <code>SampleLongitude</code> columns from the master data.</p></li>
 </ol>
-<div class="fold s o">
 <div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the fish data</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fishdat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/fishdat.csv'</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -414,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(statloc, <span class="at">by =</span> <span class="st">'Reference'</span>)</span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(joindat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+</details>
 </div>
 </section>
 <section id="tidy-data" class="level2" data-number="3.6">
@@ -486,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>These are all representations of the same underlying data but they are not equally easy to work with. The tidy dataset is much easier to work with inside the tidyverse.</p>
 <p>There are three inter-correlated rules which make a dataset tidy:</p>
-<ol type="1">
+<ol start="5" class="example" type="1">
 <li>Each variable must have its own column.</li>
 <li>Each observation must have its own row.</li>
 <li>Each value must have its own cell.</li>
@@ -494,12 +494,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="figs/data_wrangling_2/tidy-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="figs/data_wrangling_2/tidy-1.png" class="img-fluid"></a></p>
 <p>For the example tables above, only the first table is tidy.</p>
 <p>There are some very real reasons why you would encounter untidy data:</p>
-<ol type="1">
+<ol start="8" class="example" type="1">
 <li><p>Most people aren’t familiar with the principles of tidy data, and it’s hard to derive them yourself unless you spend a <em>lot</em> of time working with data.</p></li>
 <li><p>Data is often organised to facilitate some use other than analysis. For example, data is often organised to make entry as easy as possible.</p></li>
 </ol>
 <p>This means for most real analyses, you’ll need to do some tidying. The first step is always to figure out what the variables and observations are. The second step is to resolve one of two common problems:</p>
-<ol type="1">
+<ol start="10" class="example" type="1">
 <li><p>One variable might be spread across multiple columns.</p></li>
 <li><p>One observation might be scattered across multiple rows.</p></li>
 </ol>
@@ -594,13 +594,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-7" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="exercise-7"><span class="header-section-number">3.7</span> Exercise 7</h2>
 <p>Let’s take a look at the fisheries data. Are these data “tidy”? To help with the next few examples, we’ll gather the species and catch count data using the <code>gather</code> function from the <code>tidyr</code> package.</p>
-<ol type="1">
+<ol start="12" class="example" type="1">
 <li><p>Inspect the fisheries dataset. What are the dimensions (hint: <code>dim</code>)? What are the names and column types (hint: <code>str</code>)?</p></li>
 <li><p>Use the <code>gather</code> function to “gather” the species columns and count data into two new columns. What are your keys? What are your values? Assign the new dataset to a variable in your environment.</p></li>
 <li><p>Check the dimensions and structure of your new dataset. What’s different?</p></li>
 </ol>
-<div class="fold o s">
 <div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check dimensions, structure</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fishdat)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fishdat)</span>
@@ -612,7 +613,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># check dimensions, structure</span></span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(gatherdat)</span>
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gatherdat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+</details>
 </div>
 </section>
 <section id="group-by-and-summarize" class="level2" data-number="3.8">
@@ -762,14 +763,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-8" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="exercise-8"><span class="header-section-number">3.9</span> Exercise 8</h2>
 <p>Now we have access to a several tools in the tidyverse to help us wrangle more effectively. For the final exercise, we’re going subset our fisheries data and get a summary. Specifically, we’ll filter our data by Gear type 20 and Pinfish, then summarize the average catch across stations.</p>
-<ol type="1">
+<ol start="15" class="example" type="1">
 <li><p>Using the gathered data we created in exercise 7, filter the data by Gear type 20 and Pinfish (hint, <code>filter(Gear == 20 &amp; Species == 'Pinfish')</code>.</p></li>
 <li><p>Group the data by site so you can summarize the catch of Pinfish (hint, <code>group_by(Reference)</code>.</p></li>
 <li><p>Summarize the count column by taking the average (hint, <code>summarise(ave = mean(Count))</code>)</p></li>
 <li><p>Which station has the highest average catch of Pinfish (hint, <code>arrange(ave)</code>)?</p></li>
 </ol>
-<div class="fold o s">
 <div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sumdat <span class="ot">&lt;-</span> gatherdat <span class="sc">%&gt;%</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gear <span class="sc">==</span> <span class="dv">20</span> <span class="sc">&amp;</span> Species <span class="sc">==</span> <span class="st">'Pinfish'</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Reference) <span class="sc">%&gt;%</span> </span>
@@ -778,7 +780,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
 <span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>ave)</span>
 <span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>sumdat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+</details>
 </div>
 </section>
 <section id="next-time" class="level2" data-number="3.10">

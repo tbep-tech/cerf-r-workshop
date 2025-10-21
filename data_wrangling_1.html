@@ -260,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./R_basics.html">Lessons</a></li><li class="breadcrumb-item"><a href="./data_wrangling_1.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling part 1</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="sec-data_wrangling_1" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling part 1</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/tbep-tech/cerf-r-workshop/blob/main/data_wrangling_1.qmd"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-data_wrangling_1" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling part 1</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/tbep-tech/cerf-r-workshop/blob/main/data_wrangling_1.qmd">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -277,7 +277,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<script src="js/hideoutput.js"></script>
 <p>Get the lesson R script: <a href="Data_Wrangling_1.R">Data_Wrangling_1.R</a></p>
 <p>Get the lesson data: <a href="data/data.zip">download zip</a></p>
 <section id="lesson-outline" class="level2" data-number="2.1">
@@ -685,18 +684,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-4" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">2.6</span> Exercise 4</h2>
 <p>Now that you know the basic functions in <code>dplyr</code> and how to use them, let’s put them to use. Using <code>fishdat</code>, let’s select some columns of interest, filter by gear type, and rename one of the columns.</p>
-<ol type="1">
+<ol class="example" type="1">
 <li><p>Select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Sand Seatrout</code> columns. Assign this dataset to a new object in your workspace. Don’t forget to use backticks to select column names that have spaces.</p></li>
 <li><p>Using the new object, filter to get all rows where Gear is equal to 20 (hint, filter by the <code>Gear</code> column and don’t forget ot use <code>==</code>).</p></li>
 <li><p>Rename the <code>Sampling_Date</code> column to <code>date</code>.</p></li>
 </ol>
-<div class="fold s o">
 <div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">select</span>(fishdat, Reference, Sampling_Date, Gear, <span class="st">`</span><span class="at">Sand Seatrout</span><span class="st">`</span>)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(ex1, Gear <span class="sc">==</span> <span class="dv">20</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">rename</span>(ex1, <span class="at">date =</span> Sampling_Date)</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(ex1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+</details>
 </div>
 </section>
 <section id="piping" class="level2" data-number="2.7">
@@ -737,23 +737,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-5" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">2.8</span> Exercise 5</h2>
 <p>Now that we know how to pipe functions, let’s repeat exercise 4. You should already have code to select and filter the data. Use the following to repeat the analysis but with pipes. You should only have to create one data object in this exercise.</p>
-<ol type="1">
+<ol start="4" class="example" type="1">
 <li>Using your code from exercise four, try to replicate the steps using pipes. The steps we used in exercise four were:
 <ul>
 <li>From fishdat, select the <code>Reference</code>, <code>Sampling_Date</code>, <code>Gear</code>, and <code>Sand Seatrout</code> columns</li>
 <li>Filter by <code>Gear</code> to get only gear 20</li>
 <li>Rename <code>Sampling_Date</code> to <code>date</code></li>
-</ul></li>
-</ol>
-<div class="fold s o">
+</ul>
 <div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ex2 <span class="ot">&lt;-</span> fishdat <span class="sc">%&gt;%</span> </span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Reference, Sampling_Date, Gear, <span class="st">`</span><span class="at">Sand Seatrout</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gear <span class="sc">==</span> <span class="dv">20</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">date =</span> Sampling_Date)</span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ex2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
+</details>
+</div></li>
+</ol>
 </section>
 <section id="next-time" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="next-time"><span class="header-section-number">2.9</span> Next time</h2>
