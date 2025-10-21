@@ -164,11 +164,11 @@ We're going to install some packages from CRAN that will give us the tools for o
 1. At the top of the script you just created, type the following functions.
 
     ```{r}
-#| eval: false
-# install packages from CRAN
-install.packages("tidyverse")
-install.packages("sf")
-install.packages("mapview")
+    #| eval: false
+    # install packages from CRAN
+    install.packages("tidyverse")
+    install.packages("sf")
+    install.packages("mapview")
     ```
 
 1. Select all the lines by clicking and dragging the mouse pointer over the text.  
@@ -180,12 +180,12 @@ install.packages("mapview")
 1. Load the packages after they've installed. 
 
     ```{r, message = F, warning = F, results = 'hide'}
-#| message: false
-#| warning: false
-#| results: hide
-library("tidyverse")
-library("sf")
-library("mapview")
+    #| message: false
+    #| warning: false
+    #| results: hide
+    library("tidyverse")
+    library("sf")
+    library("mapview")
     ```
 
 An important aspect of packages is that you only need to download them once, but every time you start RStudio you need to load them with the `library()` function.  Loading a package makes all of its functions available in your current R session.
@@ -323,8 +323,8 @@ Now that we have the data downloaded and extracted to our data folder, we'll use
 1. Type the following in your script.  Note the use of *relative* file paths within your project (see the explanation above).
 
     ```{r}
-fishdat <- read_csv('data/fishdat.csv')
-statloc <- read_csv('data/statloc.csv')
+    fishdat <- read_csv('data/fishdat.csv')
+    statloc <- read_csv('data/statloc.csv')
     ```
     
 1. Send the commands to the console with `ctrl+enter`.

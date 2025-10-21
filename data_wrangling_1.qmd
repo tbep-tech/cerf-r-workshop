@@ -5,8 +5,6 @@ execute:
   echo: true
 ---
 
-<script src="js/hideoutput.js"></script>
-
 # Data wrangling part 1 {#sec-data_wrangling_1}
 
 Get the lesson R script: [Data_Wrangling_1.R](Data_Wrangling_1.R)
@@ -235,15 +233,16 @@ Now that you know the basic functions in `dplyr` and how to use them, let's put 
 
 1. Rename the `Sampling_Date` column to `date`. 
 
-<div class="fold s o">
 ```{r}
 #| eval: false
+#| echo: true
+#| code-fold: true
+#| code-summary: "Click to show/hide solution"
 ex1 <- select(fishdat, Reference, Sampling_Date, Gear, `Sand Seatrout`)
 ex1 <- filter(ex1, Gear == 20)
 ex1 <- rename(ex1, date = Sampling_Date)
 nrow(ex1)
 ```
-</div>
 
 ## Piping
 
@@ -299,16 +298,17 @@ Now that we know how to pipe functions, let's repeat exercise 4.  You should alr
      * Filter by `Gear` to get only gear 20
      * Rename `Sampling_Date` to `date`
 
-<div class="fold s o">
-```{r}
-#| eval: false
-ex2 <- fishdat %>% 
-  select(Reference, Sampling_Date, Gear, `Sand Seatrout`) %>% 
-  filter(Gear == 20) %>% 
-  rename(date = Sampling_Date)
-head(ex2)
-```
-</div>
+    ```{r}
+    #| eval: false
+    #| echo: true
+    #| code-fold: true
+    #| code-summary: "Click to show/hide solution"
+    ex2 <- fishdat %>% 
+      select(Reference, Sampling_Date, Gear, `Sand Seatrout`) %>% 
+      filter(Gear == 20) %>% 
+      rename(date = Sampling_Date)
+    head(ex2)
+    ```
 
 ## Next time
 

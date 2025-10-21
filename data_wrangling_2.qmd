@@ -5,8 +5,6 @@ execute:
   echo: true
 ---
 
-<script src="js/hideoutput.js"></script>
-
 # Data wrangling part 2 {#sec-data_wrangling_2}
 
 Get the lesson R script: [Data_Wrangling_2.R](Data_Wrangling_2.R)
@@ -57,7 +55,7 @@ After this lesson you should be able to answer (or be able to find answers to) t
 You should already have the tidyverse package installed, but let's give it a go if you haven't done this part yet:
 
 ```{r}
-#| eval: true
+#| eval: false
 # install
 install.packages('tidyverse')
 ```
@@ -114,9 +112,11 @@ For this exercise we'll repeat the join we just did, but on a subset of the data
 
 1. Check the dimensions of the new table.  What happened? Select only the `StationID`, `StationWaterDepth`, `SampleLatitude`, and `SampleLongitude` columns from the master data.
 
-<div class="fold s o">
 ```{r}
 #| results: hide
+#| echo: true
+#| code-fold: true
+#| code-summary: "Click to show/hide solution"
 # load the fish data
 fishdat <- read_csv('data/fishdat.csv')
 
@@ -136,7 +136,6 @@ joindat <- joindat %>%
 
 dim(joindat)
 ```
-</div>
 
 ## Tidy data
 
@@ -250,9 +249,11 @@ Let's take a look at the fisheries data. Are these data "tidy"? To help with the
 
 1. Check the dimensions and structure of your new dataset. What's different?
 
-<div class = "fold o s">
 ```{r}
 #| results: hide
+#| echo: true
+#| code-fold: true
+#| code-summary: "Click to show/hide solution"
 # check dimensions, structure
 dim(fishdat)
 str(fishdat)
@@ -265,7 +266,6 @@ gatherdat <- fishdat %>%
 dim(gatherdat)
 str(gatherdat)
 ```
-</div>
 
 ## Group by and summarize
 
@@ -348,9 +348,11 @@ Now we have access to a several tools in the tidyverse to help us wrangle more e
 
 1. Which station has the highest average catch of Pinfish (hint, `arrange(ave)`)?
 
-<div class = 'fold o s'>
 ```{r}
 #| results: hide
+#| echo: true
+#| code-fold: true
+#| code-summary: "Click to show/hide solution"
 sumdat <- gatherdat %>%
   filter(Gear == 20 & Species == 'Pinfish') %>% 
   group_by(Reference) %>% 
@@ -360,7 +362,6 @@ sumdat <- gatherdat %>%
   arrange(-ave)
 sumdat
 ```
-</div>
 
 ## Next time
 
