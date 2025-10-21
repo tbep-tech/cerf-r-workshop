@@ -161,7 +161,7 @@ When a package gets installed, that means the source code is downloaded and put 
 
 We're going to install some packages from CRAN that will give us the tools for our workshop today.  We'll use the tidyverse, sf, and mapview packages.  Later, we'll explain in detail what each of these packages provide.  Again, if you are using RStudio Cloud, these packages will already be installed.  You can skip to step 5 in this case.  
 
-1. At the top of the script you just created, type the following functions.
+(@) At the top of the script you just created, type the following functions.
 
     ```{r}
     #| eval: false
@@ -171,13 +171,13 @@ We're going to install some packages from CRAN that will give us the tools for o
     install.packages("mapview")
     ```
 
-1. Select all the lines by clicking and dragging the mouse pointer over the text.  
+(@) Select all the lines by clicking and dragging the mouse pointer over the text.  
 
-1. Send all the commands to the console using `ctrl+enter`.  You should see some text output on the console about the installation process.  The installation may take a few minutes so don't be alarmed.  
+(@) Send all the commands to the console using `ctrl+enter`.  You should see some text output on the console about the installation process.  The installation may take a few minutes so don't be alarmed.  
 
-1. After the packages are done installing, verify that there were no errors during the process (this should be pretty obvious, i.e., error text in big scary red letters).
+(@) After the packages are done installing, verify that there were no errors during the process (this should be pretty obvious, i.e., error text in big scary red letters).
 
-1. Load the packages after they've installed. 
+(@) Load the packages after they've installed. 
 
     ```{r}
     #| message: false
@@ -320,16 +320,16 @@ If you want to import a file that is not in your working directory, you will hav
 
 Now that we have the data downloaded and extracted to our data folder, we'll use `read_csv` to import two files into our environment.  The `read_csv` function comes with the tidyverse package, so make sure that package is loaded (i.e., `library(tidyverse)`) before you do this exercise.  This should have been done in the second exercise.
 
-1. Type the following in your script.  Note the use of *relative* file paths within your project (see the explanation above).
+(@) Type the following in your script.  Note the use of *relative* file paths within your project (see the explanation above).
 
     ```{r}
     fishdat <- read_csv('data/fishdat.csv')
     statloc <- read_csv('data/statloc.csv')
     ```
 
-1. Send the commands to the console with `ctrl+enter`.
+(@) Send the commands to the console with `ctrl+enter`.
 
-1. Verify that the data imported correctly by viewing the first six rows of each dataset.  Use the `head()` function directly in the console, e.g., `head(fishdat)` or `head(statloc)`
+(@) Verify that the data imported correctly by viewing the first six rows of each dataset.  Use the `head()` function directly in the console, e.g., `head(fishdat)` or `head(statloc)`
 
 Let's explore the datasets a bit.  There are many useful functions for exploring the characteristics of a dataset.  This is always a good idea when you first import something.  
 

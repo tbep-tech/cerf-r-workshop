@@ -97,6 +97,7 @@ Let's get setup for this lesson.  We'll make sure we have the necessary packages
 #| echo: true
 #| message: false
 #| warning: false
+#| results: hide
 #| code-fold: true
 #| code-summary: "Click to show/hide solution"
 # load libraries
@@ -172,6 +173,7 @@ Let's join the `fishdat` and `statloc` datasets and create an `sf` object using 
 ```{r}
 #| echo: true
 #| message: false
+#| results: hide
 #| code-fold: true
 #| code-summary: "Click to show/hide solution"
 # Join the data
@@ -180,7 +182,7 @@ alldat <- left_join(fishdat, statloc, by = 'Reference')
 # create spatial data object
 alldat <- st_as_sf(alldat, coords = c('Longitude', 'Latitude'), crs = 4326)
 
-# examine the sf objec
+# examine the sf object
 alldat
 str(alldat)
 ```
