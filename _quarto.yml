@@ -37,7 +37,6 @@ format:
   html:
     theme:
       - minty
-    css: libs/style.css
     code-tools:
       source: repo
     code-link: true
