@@ -7,7 +7,7 @@ execute:
 
 # R basics {#sec-R_basics}
 
-Get the lesson R script: [R_Basics.R](R_Basics.R)
+Get the lesson R script: [R_basics.R](R_basics.R)
 
 Get the lesson data: [download zip](data/data.zip)
 

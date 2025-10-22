@@ -7,7 +7,7 @@ execute:
 
 # Data viz {#sec-data_viz}
 
-Get the lesson R script: [Viz_and_Graphics.R](Viz_and_Graphics.R)
+Get the lesson R script: [data_viz.R](data_viz.R)
 
 Get the lesson data: [download zip](data/data.zip)
 

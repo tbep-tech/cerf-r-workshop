@@ -7,7 +7,7 @@ execute:
 
 # Spatial data analysis {#sec-spatial_data_analysis}
 
-Get the lesson R script: [mapping.R](mapping.R)
+Get the lesson R script: [spatial_data_analysis.R](spatial_data_analysis.R)
 
 Get the lesson data: [download zip](data/data.zip)
 

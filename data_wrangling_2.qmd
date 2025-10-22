@@ -7,7 +7,7 @@ execute:
 
 # Data wrangling part 2 {#sec-data_wrangling_2}
 
-Get the lesson R script: [Data_Wrangling_2.R](Data_Wrangling_2.R)
+Get the lesson R script: [data_wrangling_2.R](data_wrangling_2.R)
 
 Get the lesson data: [download zip](data/data.zip)
 
