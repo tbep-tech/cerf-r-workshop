@@ -64,7 +64,7 @@
     "href": "index.html#source-content",
     "title": "Introduction to R",
     "section": "Source content",
-    "text": "Source content\nAll source materials for this website can be accessed at https://github.com/tbep-tech/cerf-r-workshop\n This site is built automatically with GitHub Actions. Last site build 2025-10-22 12:58:40.660436.\n  This website is licensed under a Creative Commons Attribution 4.0 International License.",
+    "text": "Source content\nAll source materials for this website can be accessed at https://github.com/tbep-tech/cerf-r-workshop\n This site is built automatically with GitHub Actions. Last site build 2025-10-22 13:14:53.074579.\n  This website is licensed under a Creative Commons Attribution 4.0 International License.",
     "crumbs": [
       "About this Workshop"
     ]
@@ -74,7 +74,7 @@
     "href": "R_basics.html",
     "title": "1  R basics",
     "section": "",
-    "text": "1.1 Lesson Outline\nGet the lesson R script: R_Basics.R\nGet the lesson data: download zip",
+    "text": "1.1 Lesson Outline\nGet the lesson R script: R_basics.R\nGet the lesson data: download zip",
     "crumbs": [
       "Lessons",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>R basics</span>"
@@ -140,7 +140,7 @@
     "href": "R_basics.html#r-language-fundamentals",
     "title": "1  R basics",
     "section": "1.6 R language fundamentals",
-    "text": "1.6 R language fundamentals\nR is built around functions. These are commands that do specific things based on what you provide. The basic syntax of a function follows the form: function_name(arg1, arg2, ...).\nWith the base install, you will gain access to many functions (2358, to be exact). Some examples:\n\n# print\nprint('hello world!')\n\n[1] \"hello world!\"\n\n# sequence\nseq(1, 10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# random numbers\nrnorm(100, mean = 10, sd = 2)\n\n  [1] 13.060073  5.679103 11.475152  8.857043  8.493104 11.362022  8.282558\n  [8] 11.338706  9.583911  9.764008  7.447406 11.666065  9.671226  8.046837\n [15]  8.784366  8.905556 10.852710  8.033155 10.958385 11.225089 10.353377\n [22] 10.563209 11.783751  5.222071  6.027348 10.367053  9.434440 10.356802\n [29] 12.439390 10.011741 12.521965  8.616085 10.174228  8.773270 10.150997\n [36]  8.754624  9.478078  5.957834  8.641855  8.511044 11.574476  8.289288\n [43]  9.034261 11.041196  8.255677 10.201618 13.649915 10.793269  6.946260\n [50]  7.670728  7.450955  6.727871 12.289495 11.521758 11.761507 10.844406\n [57]  8.972478  8.624255 10.948565  9.150768 10.496299  8.143126  8.268103\n [64]  8.972714  9.467722 11.931399  8.407643 10.871094  9.519937 10.476493\n [71] 13.661636 10.835206 10.658940  9.610842  7.838412 12.919449 10.095298\n [78] 10.416035 10.470853  9.312317  9.794972 12.344831 12.422913  8.315351\n [85] 11.354526 10.078593 11.538031 11.244973  8.312234  8.269835 10.797626\n [92] 12.525787  6.301508  8.589563  9.948373 10.239015 10.694862 12.621324\n [99]  9.387917 13.294204\n\n# average \nmean(rnorm(100))\n\n[1] 0.1698113\n\n# sum\nsum(rnorm(100))\n\n[1] -10.44122\n\n\nVery often you will see functions used like this:\n\nmy_random_sum &lt;- sum(rnorm(100))\n\nIn this case the first part of the line is the name of an object. You make this up. Ideally it should have some meaning, but the only rules are that it can’t start with a number and must not have any spaces. The second bit, &lt;-, is the assignment operator. This tells R to take the result of sum(rnorm(100)) and store it in an object named, my_random_sum. It is stored in the environment and can be used by just executing it’s name in the console.\n\nmy_random_sum\n\n[1] 2.992918\n\n\n\n1.6.1 What is the environment?\nThere are two outcomes when you run code. First, the code will simply print output directly in the console. Second, there is no output because you have stored it as a variable using &lt;-. Output that is stored is actually saved in the environment. The environment is the collection of named objects that are stored in memory for your current R session. Anything stored in memory will be accessible by it’s name without running the original script that was used to create it.\nWith this, you have the very basics of how we write R code and save objects that can be used later.\n\n\n1.6.2 Packages\nThe base install of R is quite powerful, but you will soon have a need or desire to go beyond this. Packages provide this ability. They are a standardized way of extending R with new methods, techniques, and programming functionality. There is a lot to say about packages regarding finding them, using them, etc., but for now let’s focus just on the basics.\n\n\n1.6.3 CRAN\nOne of the reasons for R’s popularity is CRAN, The Comprehensive R Archive Network. This is where you download R and also where most will gain access to packages (there are other places, but that is for later). Not much else to say about this now other than to be aware of it. As of 2025-10-22, there are 22927 packages on CRAN!\n\n\n1.6.4 Installing packages\nWhen a package gets installed, that means the source code is downloaded and put into your library. A default library location is set for you so no need to worry about that. In fact, on Windows most of this is pretty automatic. Let’s give it a shot.",
+    "text": "1.6 R language fundamentals\nR is built around functions. These are commands that do specific things based on what you provide. The basic syntax of a function follows the form: function_name(arg1, arg2, ...).\nWith the base install, you will gain access to many functions (2358, to be exact). Some examples:\n\n# print\nprint('hello world!')\n\n[1] \"hello world!\"\n\n# sequence\nseq(1, 10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# random numbers\nrnorm(100, mean = 10, sd = 2)\n\n  [1] 12.173714  8.540528  7.853463 10.999901 12.912263 10.728565 10.469278\n  [8] 10.891581  8.968513  8.082843  6.158843  9.419369  8.091358 11.622500\n [15] 13.820549  6.809680  6.573631 12.215557  7.874847 13.161510  8.015252\n [22]  5.617702  9.917830  5.143495 10.322114  5.744290  9.466105  9.585519\n [29]  5.976294  9.945762  9.618443  9.092224 10.585450  9.661330 14.738581\n [36]  8.626384  7.068936 11.773572 12.212282  9.657828 12.520242 14.190531\n [43] 11.821602  8.428972 10.437700 10.771166  9.696048 10.338976  6.633042\n [50] 10.662476  9.134272 13.961270  6.784460 10.383668 10.838462 11.516565\n [57] 12.789562 10.095022  8.964901  8.485800 10.693347  7.565669  5.656340\n [64] 10.651690 10.065564  9.461973 10.960270  9.653738 13.732428  9.625327\n [71]  9.817764 11.831792  6.873605 10.113941 10.082255 10.055006 14.696704\n [78] 10.334861 11.449823 11.361896 10.681304  9.217599 11.067724  8.990525\n [85]  9.782696 10.862913  9.368642  7.998464  6.831707 12.701946 12.918379\n [92]  9.836042  8.037525  5.681095 10.322444 11.497836  8.335737 11.678010\n [99] 10.780552 10.892249\n\n# average \nmean(rnorm(100))\n\n[1] 0.1424322\n\n# sum\nsum(rnorm(100))\n\n[1] 4.984221\n\n\nVery often you will see functions used like this:\n\nmy_random_sum &lt;- sum(rnorm(100))\n\nIn this case the first part of the line is the name of an object. You make this up. Ideally it should have some meaning, but the only rules are that it can’t start with a number and must not have any spaces. The second bit, &lt;-, is the assignment operator. This tells R to take the result of sum(rnorm(100)) and store it in an object named, my_random_sum. It is stored in the environment and can be used by just executing it’s name in the console.\n\nmy_random_sum\n\n[1] -5.482105\n\n\n\n1.6.1 What is the environment?\nThere are two outcomes when you run code. First, the code will simply print output directly in the console. Second, there is no output because you have stored it as a variable using &lt;-. Output that is stored is actually saved in the environment. The environment is the collection of named objects that are stored in memory for your current R session. Anything stored in memory will be accessible by it’s name without running the original script that was used to create it.\nWith this, you have the very basics of how we write R code and save objects that can be used later.\n\n\n1.6.2 Packages\nThe base install of R is quite powerful, but you will soon have a need or desire to go beyond this. Packages provide this ability. They are a standardized way of extending R with new methods, techniques, and programming functionality. There is a lot to say about packages regarding finding them, using them, etc., but for now let’s focus just on the basics.\n\n\n1.6.3 CRAN\nOne of the reasons for R’s popularity is CRAN, The Comprehensive R Archive Network. This is where you download R and also where most will gain access to packages (there are other places, but that is for later). Not much else to say about this now other than to be aware of it. As of 2025-10-22, there are 22927 packages on CRAN!\n\n\n1.6.4 Installing packages\nWhen a package gets installed, that means the source code is downloaded and put into your library. A default library location is set for you so no need to worry about that. In fact, on Windows most of this is pretty automatic. Let’s give it a shot.",
     "crumbs": [
       "Lessons",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>R basics</span>"
@@ -239,7 +239,7 @@
     "href": "data_wrangling_1.html",
     "title": "2  Data wrangling part 1",
     "section": "",
-    "text": "2.1 Lesson Outline\nGet the lesson R script: Data_Wrangling_1.R\nGet the lesson data: download zip",
+    "text": "2.1 Lesson Outline\nGet the lesson R script: data_wrangling_1.R\nGet the lesson data: download zip",
     "crumbs": [
       "Lessons",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data wrangling part 1</span>"
@@ -360,7 +360,7 @@
     "href": "data_wrangling_2.html",
     "title": "3  Data wrangling part 2",
     "section": "",
-    "text": "3.1 Lesson Outline\nGet the lesson R script: Data_Wrangling_2.R\nGet the lesson data: download zip",
+    "text": "3.1 Lesson Outline\nGet the lesson R script: data_wrangling_2.R\nGet the lesson data: download zip",
     "crumbs": [
       "Lessons",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data wrangling part 2</span>"
@@ -492,7 +492,7 @@
     "href": "data_viz.html",
     "title": "4  Data viz",
     "section": "",
-    "text": "4.1 Lesson Outline\nGet the lesson R script: Viz_and_Graphics.R\nGet the lesson data: download zip",
+    "text": "4.1 Lesson Outline\nGet the lesson R script: data_viz.R\nGet the lesson data: download zip",
     "crumbs": [
       "Lessons",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data viz</span>"
@@ -635,7 +635,7 @@
     "href": "spatial_data_analysis.html",
     "title": "5  Spatial data analysis",
     "section": "",
-    "text": "5.1 Lesson Outline\nGet the lesson R script: mapping.R\nGet the lesson data: download zip",
+    "text": "5.1 Lesson Outline\nGet the lesson R script: spatial_data_analysis.R\nGet the lesson data: download zip",
     "crumbs": [
       "Lessons",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Spatial data analysis</span>"
@@ -793,6 +793,39 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Setup for the workshop</span>"
+    ]
+  },
+  {
+    "objectID": "data_resources.html",
+    "href": "data_resources.html",
+    "title": "Appendix B — Data and resources",
+    "section": "",
+    "text": "B.1 Datasets\nThis page contains links to the data we’re using in our workshop, and a sample of a few useful resources online and in print. This is by no means a comprehensive list, but it provides resources for continued learning. All of these examples provide code in same shape or form.\nThis is a list of the data sources used in this workshop. For live-coding, please refer to this link, which will update everytime we save a file. That means you can refresh the page to see whatever code we are typing, and download this file at anytime.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Data and resources</span>"
+    ]
+  },
+  {
+    "objectID": "data_resources.html#datasets",
+    "href": "data_resources.html#datasets",
+    "title": "Appendix B — Data and resources",
+    "section": "",
+    "text": "Full Dataset as a zipped folder. Inside you’ll find these files:\n\nFisheries data: fishdat.csv\nFisheries station locations: statloc.csv\n2016 seagrass coverage shapefile:\n\nsgdat.dbf\nsgdat.prj\nsgdat.shp\nsgdat.shx\n\n\nAll R scripts used in the lessons as a zipped folder. Inside you’ll find these files:\n\nR_basics.R\ndata_wrangling_1.R\ndata_wrangling_2.R\ndata_viz.R\nspatial_data_analysis.R",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Data and resources</span>"
+    ]
+  },
+  {
+    "objectID": "data_resources.html#resources",
+    "href": "data_resources.html#resources",
+    "title": "Appendix B — Data and resources",
+    "section": "B.2 Resources",
+    "text": "B.2 Resources\n\nB.2.1 TBEP Trainings\n\nFlorida AFS open science workshop\nTBEP open science workshop\nCERF open science workshop\nCERF Shiny workshop\nPEP R training, recording\nNERRS ecocystem metabolism\nTBEP R training, recordings\nWriting functions in R\nR package development workflow\nA soft introduction to Shiny\n\n\n\nB.2.2 R Lessons & Tutorials\n\nDSOS/AEMON-J Hacking Limnology 2022, supporting open science workshops\nSoftware Carpentry: R for Reproducible Scientific Analysis\nData Carpentry: Geospatial Workshop\nData Carpentry: R for Data Analysis and Visualization of Ecological Data\nData Carpentry: Data Organization in Spreadsheets\nReproducible Reporting with R (R\\(^3\\)) for Marine Ecological Indicators\nR for Water Resources Data Science\nRStudio Webinars, many topics\nR For Cats: Basic introduction site, with cats!\nTopical cheatsheets from Posit, also viewed from the help menu\nCheatsheet from CRAN of base R functions\nTotally awesome R-related artwork by Allison Horst\nColor reference PDF with text names, Color cheatsheet PDF from NCEAS\n\n\n\nB.2.3 R eBooks/Courses\n\nJenny Bryan’s Stat545.com\nGarrett Grolemund and Hadley Wickham’s R For Data Science\nChester Ismay and Albert Y. Kim’s Modern DiveR\nJulia Silge and David Robinson Text Mining with R\nHadley Wickham’s Advanced R\nHadley Wickham’s R for Data Science\nHadley Wickham’s R for Data Science, 2nd edition\nHadley Wickham’s Mastering Shiny\nYihui Xie R Markdown: The Definitive Guide\nWinston Chang R Graphics Cookbook\nWegman et al. Remote Sensing and GIS for Ecologists: Using Open Source Software\nLovelace et al. Geocomputation with R\nEdszer Pebesma and Roger Bivand Spatial Data Science\n\n\n\nB.2.4 Git/GitHub\n\nJenny Bryan’s Happy Git and GitHub for the useR\nCoding Club Intro to GitHub",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Data and resources</span>"
     ]
   }
 ]
