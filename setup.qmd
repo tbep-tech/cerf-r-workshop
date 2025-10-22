@@ -2,9 +2,6 @@
 lightbox: true
 ---
 
-# Setup for the workshop {#sec-setup}
-
-
 # Setup for the workshop {#setup}
 
 Thanks for your interest in the Introduction to R workshop. You will need to do the following, outlined below, before the workshop. 

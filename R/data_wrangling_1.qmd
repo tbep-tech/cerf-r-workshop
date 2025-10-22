@@ -1,8 +1,0 @@
----
-lightbox: true
-
-execute:
-  echo: true
----
-
-# Data wrangling part 1 {#sec-data_wrangling_1}
