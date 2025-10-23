@@ -404,31 +404,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1]  9.128770 10.360607 12.887833  9.479112 11.847621  8.734080  8.618079
-  [8] 13.297176 11.962561 10.805113  9.311729  8.677876  9.903885  9.660060
- [15] 10.745707 13.212649 11.437817 13.437796  9.929859 13.111086 13.359708
- [22]  7.584669 13.428213  8.253805  9.226773 10.264608 11.836260  6.358994
- [29]  8.915374 10.296835  7.297399  9.154403  9.047136 11.306585  9.495985
- [36]  9.916217 10.397392  9.753905  5.429432  9.477731 11.913535  7.479650
- [43] 11.542855  8.724848  9.831574  8.318010  9.905890  9.848424  7.169028
- [50]  7.342336  9.049212  9.763090  6.631898 10.412308 12.269530  6.815536
- [57]  8.889192 13.113308  9.151558  8.742497 10.385830 11.526673 11.406644
- [64]  9.211237 13.703855  9.599347 11.800900 11.687357  7.916475  9.730000
- [71]  8.482483 10.281501  9.198062 13.161443 10.815416 12.585295 11.019317
- [78] 12.861111 10.199579  7.539547 11.655246 11.528154  9.505530 11.452428
- [85]  9.845978 12.169527 11.352131  8.326621 12.645480  9.111097 11.123102
- [92]  9.872992  9.517662  9.056061 10.503300 10.593905  9.079781  5.613530
- [99]  9.348996 10.786575</code></pre>
+<pre><code>  [1]  8.506952  8.487310 10.056342 11.305703  8.252881 10.724609 10.037154
+  [8]  7.727126  6.832911 10.606303 12.415825 10.257384 10.925693 10.556487
+ [15]  6.437824 12.367512 11.502848 12.152945  9.828221  6.872140  7.681508
+ [22]  9.187442  7.410925  9.546073 12.878344 10.674083  8.422105  9.927792
+ [29] 10.967404 10.159351 10.664766  9.151206  8.377367 13.211573 11.208610
+ [36] 13.329534 10.236368  9.678429 10.518537 10.183444  9.205960  9.419723
+ [43]  8.382642 10.209111  9.364149  7.977553  8.473431 11.073384 11.410153
+ [50] 10.228755 10.898149  9.426641 10.735140 11.919103  7.739660  8.421709
+ [57] 11.791534 11.386279 10.272030  9.997590  9.102143 12.895700 12.158712
+ [64]  7.780249 10.584778  7.468125 11.509693 11.512075  9.014851  8.017404
+ [71] 12.670789  9.528704 11.866055 11.270262 12.389767  6.211448  8.477959
+ [78]  9.561069 12.225008  8.722200  9.428412  7.733591  8.868654 13.368695
+ [85] 10.866452  9.215500  7.210878  8.689401 13.119473 11.010312  9.706547
+ [92] 11.172588  8.762741  9.386313  9.639477 12.920897  8.804718  9.898839
+ [99]  9.422322  7.738615</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># average </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.002228806</code></pre>
+<pre><code>[1] -0.1897271</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 8.245497</code></pre>
+<pre><code>[1] -15.44936</code></pre>
 </div>
 </div>
 <p>Very often you will see functions used like this:</p>
@@ -439,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_random_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 13.48563</code></pre>
+<pre><code>[1] 8.275123</code></pre>
 </div>
 </div>
 <section id="what-is-the-environment" class="level3" data-number="1.6.1">
@@ -515,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="google" class="level3" data-number="1.8.3">
 <h3 data-number="1.8.3" class="anchored" data-anchor-id="google"><span class="header-section-number">1.8.3</span> Google</h3>
-<p>While the resources already mentioned are useful, often the quickest way is to just turn to Google. However, a search for “R” is a bit challenging. A few ways around this. Google works great if you search for a given package or function name. You can also search for mailing lists directly (i.e.&nbsp;“R-sig-geo”), although Google often finds results from these sources.</p>
+<p>While the resources already mentioned are useful, often the quickest way is to just turn to Google. However, a search for just “R” is a bit challenging. A few ways around this. Google works great if you search for a given package or function name. You can also search for mailing lists directly (i.e.&nbsp;“R-sig-geo”), although Google often finds results from these sources.</p>
 <p>Blind googling can require a bit of strategy to get the info you want. Some pointers:</p>
 <ul>
 <li>Always preface the search with “R”</li>
