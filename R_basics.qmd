@@ -224,7 +224,7 @@ In addition to help from within R itself, CRAN and the R-Project have many resou
 
 ### Google
 
-While the resources already mentioned are useful, often the quickest way is to just turn to Google.  However, a search for "R" is a bit challenging.  A few ways around this.  Google works great if you search for a given package or function name.  You can also search for mailing lists directly (i.e. "R-sig-geo"), although Google often finds results from these sources.
+While the resources already mentioned are useful, often the quickest way is to just turn to Google.  However, a search for just "R" is a bit challenging.  A few ways around this.  Google works great if you search for a given package or function name.  You can also search for mailing lists directly (i.e. "R-sig-geo"), although Google often finds results from these sources.
 
 Blind googling can require a bit of strategy to get the info you want.  Some pointers:
 

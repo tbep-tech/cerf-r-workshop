@@ -59,7 +59,7 @@ Once the installer downloads, Right-click on it and select "Run as administrator
 
 Type in your credentials and click yes (or if you don't have administrator access have your IT rep install with Admin privileges).
 
-![]()figs/setup/install_rstudio_as_admin.png)
+![](figs/setup/install_rstudio_as_admin.png)
 
 Accept all the default options for the RStudio install.
 
