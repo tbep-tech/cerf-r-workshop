@@ -262,8 +262,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#help-from-the-console" id="toc-help-from-the-console" class="nav-link" data-scroll-target="#help-from-the-console"><span class="header-section-number">1.8.1</span> Help from the console</a></li>
   <li><a href="#official-r-resources" id="toc-official-r-resources" class="nav-link" data-scroll-target="#official-r-resources"><span class="header-section-number">1.8.2</span> Official R Resources</a></li>
-  <li><a href="#google-and-stackoverflow" id="toc-google-and-stackoverflow" class="nav-link" data-scroll-target="#google-and-stackoverflow"><span class="header-section-number">1.8.3</span> Google and StackOverflow</a></li>
-  <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources"><span class="header-section-number">1.8.4</span> Other Resources</a></li>
+  <li><a href="#google" id="toc-google" class="nav-link" data-scroll-target="#google"><span class="header-section-number">1.8.3</span> Google</a></li>
+  <li><a href="#generative-ai" id="toc-generative-ai" class="nav-link" data-scroll-target="#generative-ai"><span class="header-section-number">1.8.4</span> Generative AI</a></li>
+  <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources"><span class="header-section-number">1.8.5</span> Other Resources</a></li>
   </ul></li>
   <li><a href="#data-structures-in-r" id="toc-data-structures-in-r" class="nav-link" data-scroll-target="#data-structures-in-r"><span class="header-section-number">1.9</span> Data structures in R</a>
   <ul>
@@ -322,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="goals-and-motivation" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="goals-and-motivation"><span class="header-section-number">1.3</span> Goals and Motivation</h2>
-<p><a href="https://www.r-project.org/" target="_blank">R</a> is a language for statistical computing as well as a general purpose programming language. It is one of the best languages used in data science and for data analysis.</p>
+<p><a href="https://www.r-project.org/" target="_blank">R</a> is a language for statistical computing as well as a general purpose programming language. It is one of the best languages for data science and analysis.</p>
 <p>The goals of this training are to expose you to fundamentals and to develop an appreciation of what’s possible with this software. We also provide resources that you can use for follow-up learning on your own. You should be able to answer these questions at the end of this session:</p>
 <ul>
 <li>What is R and why should I use it?</li>
@@ -335,15 +336,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="why-should-i-invest-time-in-r" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="why-should-i-invest-time-in-r"><span class="header-section-number">1.3.1</span> Why should I invest time in R?</h3>
 <p>There are many programming languages available and each has it’s specific benefits. R was originally created as a statistical programming language but now it is largely viewed as a ‘data science’ language. Why would you invest time in learning R compared to other languages?</p>
-<ul>
-<li>The growth of R as explained in the <a href="https://stackoverflow.blog/2017/10/10/impressive-growth-r/" target="_blank">Stack Overflow blog</a>, <a href="http://blog.revolutionanalytics.com/2016/07/r-moves-up-to-5th-place-in-ieee-language-rankings.html" target="_blank">IEEE rating</a></li>
-</ul>
+<p>Although other languages may have more popularity among general data science communities, R excels in statistics and data visualization. This workshop will expose you to some of the ways that R excels in these areas.</p>
 <p>R is also an open-source programming language - not only is it free, but this means anybody can contribute to it’s development. As of 2025-10-23, there are 22940 supplemental packages for R on CRAN!</p>
 </section>
 </section>
 <section id="rstudio" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">1.4</span> RStudio</h2>
-<p>In the old days, the only way to use R was directly from the Console - this is a bare bones way of running R only with direct input of commands. Now, <a href="https://www.rstudio.com/" target="_blank">RStudio</a> is the go-to Interactive Development Environment (IDE) for R. Think of it like a car that is built around an engine. It is integrated with the console (engine) and includes many other features to improve the user’s experience, such as version control, debugging, dynamic documents, package manager and creation, and code highlighting and completion.</p>
+<p>In the past, the only way to use R was directly from the Console - this is a bare bones way of running R only with direct input of commands. Now, <a href="https://www.rstudio.com/" target="_blank">RStudio</a> is the go-to Interactive Development Environment (IDE) for R. Think of it like a car that is built around an engine. It is integrated with the console (engine) and includes many other features to improve the user’s experience, such as version control, debugging, dynamic documents, package manager and creation, and code highlighting and completion.</p>
 <p>Let’s get familiar with RStudio before we go on.</p>
 <section id="open-r-and-rstudio" class="level3" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="open-r-and-rstudio"><span class="header-section-number">1.4.1</span> Open R and RStudio</h3>
@@ -405,31 +404,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1]  9.627735  7.584452  9.430558  9.783080 10.375470 10.667981 10.900242
-  [8]  9.460665  8.040618  9.611370  8.899478 10.833341 12.144800 11.650559
- [15] 10.607502 13.381585 10.914790 10.201842 10.979305  9.103912  9.405127
- [22] 13.111773  7.710812  8.436704  9.538819  8.841645  6.885448 11.877828
- [29] 11.224768 12.010728 13.874672 10.656636  6.642357 11.607883  9.878837
- [36]  9.820575 11.805993  9.559326 12.283245 12.640705  7.593996 12.079635
- [43] 11.668154 12.923171 10.415649  8.703887  7.774880  9.962782 10.056247
- [50] 12.351033 12.247437 10.038002 10.655279  8.049484  8.368797  9.806574
- [57] 13.354486 11.381548 11.616827 10.282238  9.938123 11.255042  6.046473
- [64] 10.851771  6.100888 10.290748  9.477694 11.260995 10.251695 11.091106
- [71] 10.007937 10.607569  7.462282 12.429503  9.410430  7.087981 11.516116
- [78]  8.018546  9.525145  6.356749  9.674211  7.652768  9.885168  9.356425
- [85]  8.264596  5.808721  7.217875 12.980645 10.344943  9.164712 12.538244
- [92] 12.437759  5.747182  8.932145  8.740435 10.238659  5.191015  7.544199
- [99]  9.599763  8.764041</code></pre>
+<pre><code>  [1]  8.853415  9.475106  8.663074 13.002450  7.766308 11.121881 13.620149
+  [8]  8.504360 10.244578  9.438621  8.494253  8.174924 10.339497 15.964751
+ [15] 13.267157 12.726568  7.709979 11.915296 10.584948  6.330734 10.135693
+ [22]  9.988030 11.080079  9.612711  8.308915  8.072151 10.328810 10.675419
+ [29] 10.108417 12.161341  9.256957  7.968217  8.089407  9.435774  9.648147
+ [36] 11.624883  9.817385  8.322598  9.729459 10.315216 10.237595  4.554831
+ [43]  7.936107 17.367845  8.110920 10.711063 11.331957 10.095830  7.053754
+ [50] 15.463807 13.120336 10.715582 13.020601  8.793526  7.414217 11.123852
+ [57] 12.025618 11.840720  9.851399 12.304931 11.374274  8.997005  8.585374
+ [64] 10.802941  9.619800  7.214613 11.974441 10.512882  9.998868  9.568045
+ [71] 10.801780 15.418193  9.029581 11.598055  6.685593 11.679789  7.282502
+ [78]  9.376540 12.780882  9.403340 11.208361  8.622335  9.500849  8.878204
+ [85] 10.605624 12.180557  8.449943 11.984223 10.557009 12.302283  9.631817
+ [92] 11.177497 10.738383 10.142164  8.585712  9.384240 10.581441 11.765129
+ [99] 11.223199 11.491108</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># average </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.02210726</code></pre>
+<pre><code>[1] 0.05012908</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -4.830777</code></pre>
+<pre><code>[1] -1.398353</code></pre>
 </div>
 </div>
 <p>Very often you will see functions used like this:</p>
@@ -440,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_random_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -8.215703</code></pre>
+<pre><code>[1] -10.18483</code></pre>
 </div>
 </div>
 <section id="what-is-the-environment" class="level3" data-number="1.6.1">
@@ -486,7 +485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="getting-help" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">1.8</span> Getting Help</h2>
-<p>Being able to find help and interpret that help is probably one of the most important skills for learning a new language. R is no different. Help on functions and packages can be accessed directly from R, can be found on CRAN and other official R resources, searched on Google, found on StackOverflow, or from any number of fantastic online resources. I will cover a few of these here.</p>
+<p>Being able to find help and interpret that help is probably one of the most important skills for learning a new language. R is no different. Help on functions and packages can be accessed directly from R, can be found on CRAN and other official R resources, searched on Google, or from any number of fantastic online resources. Generative AI can also a great service for troubleshooting code (with many caveats). I will cover a few of these here.</p>
 <section id="help-from-the-console" class="level3" data-number="1.8.1">
 <h3 data-number="1.8.1" class="anchored" data-anchor-id="help-from-the-console"><span class="header-section-number">1.8.1</span> Help from the console</h3>
 <p>Getting help from the console is straightforward and can be done numerous ways.</p>
@@ -514,28 +513,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="http://cran.r-project.org/web/views/Spatial.html" target="_blank">Spatial Analysis Task View</a>: One I use a lot that lists all the relevant packages for spatial analysis, GIS, and Remote Sensing in R.</li>
 </ul>
 </section>
-<section id="google-and-stackoverflow" class="level3" data-number="1.8.3">
-<h3 data-number="1.8.3" class="anchored" data-anchor-id="google-and-stackoverflow"><span class="header-section-number">1.8.3</span> Google and StackOverflow</h3>
+<section id="google" class="level3" data-number="1.8.3">
+<h3 data-number="1.8.3" class="anchored" data-anchor-id="google"><span class="header-section-number">1.8.3</span> Google</h3>
 <p>While the resources already mentioned are useful, often the quickest way is to just turn to Google. However, a search for “R” is a bit challenging. A few ways around this. Google works great if you search for a given package or function name. You can also search for mailing lists directly (i.e.&nbsp;“R-sig-geo”), although Google often finds results from these sources.</p>
 <p>Blind googling can require a bit of strategy to get the info you want. Some pointers:</p>
 <ul>
-<li>Always preface the search with “r”</li>
+<li>Always preface the search with “R”</li>
 <li>Understand which sources are reliable</li>
 <li>Take note of the number of hits and date of a web page</li>
 <li>When in doubt, search with the exact error message (see here for <a href="https://cran.r-project.org/doc/manuals/R-lang.html#Exception-handling" target="_blank">details</a> about warnings vs errors)</li>
 </ul>
-<p>One specific resource that I use quite a bit is <a href="http://stackoverflow.com/questions/tagged/r" target="_blank">StackOverflow with the ‘r’ tag</a>. StackOverflow is a discussion forum for all things related to programming. You can then use this tag and the search functions in StackOverflow and find answers to almost anything you can think of. However, these forums are also very strict and I typically use them to find answers, not to ask questions.</p>
 </section>
-<section id="other-resources" class="level3" data-number="1.8.4">
-<h3 data-number="1.8.4" class="anchored" data-anchor-id="other-resources"><span class="header-section-number">1.8.4</span> Other Resources</h3>
-<p>As I mentioned earlier, there are TOO many resources to list here and everyone has their favorites. Below are just a few that I like.</p>
+<section id="generative-ai" class="level3" data-number="1.8.4">
+<h3 data-number="1.8.4" class="anchored" data-anchor-id="generative-ai"><span class="header-section-number">1.8.4</span> Generative AI</h3>
+<p>Generative AI tools have dramatically changed the coding landscape in the last few years. They will continue to change how we code as the tools are constantly evolving. The most important thing to remember is they ARE NOT substitutes for the conventional learning process. While it’s true you can generate a lot of useful code with minimal experience, you will have no way of knowing what this code does or how to troubleshoot it when it doesn’t work. Use these tools as a supplement to your learning, not a replacement.</p>
+<p>There is too much to say about generative AI in this space, but here are a few tips to effectively use those tools:</p>
 <ul>
-<li><a href="http://rforcats.net/" target="_blank">R For Cats</a>: Basic introduction site, meant to be a gentle and light-hearted introduction</li>
-<li><a href="https://r4ds.had.co.nz/" target="_blank">R for Data Science</a>: My favorite resource for learning data science methods with R, focusing on the tidyverse. Much of the content in this training is adapted from this book.</li>
-<li><a href="http://adv-r.had.co.nz/" target="_blank">Advanced R</a>: Web home of Hadley Wickham’s book, the same author of R for Data Science. Gets into more advanced topics, but also covers the basics in a great way.</li>
-<li><a href="http://cran.r-project.org/doc/contrib/Short-refcard.pdf" target="_blank">CRAN Cheatsheets</a>: A good cheat sheet from the official source</li>
-<li><a href="http://www.rstudio.com/resources/cheatsheets/" target="_blank">RStudio Cheatsheets</a>: Additional cheat sheets from RStudio. I am especially fond of the data wrangling one.</li>
+<li>Use precise, clear prompts with as much detail as possible to help the model understand what you want.</li>
+<li>Understand which platforms are best for coding. Currently, <a href="https://claude.ai" target="_blank">Claude</a> seems to be the current preferred model for data science.</li>
+<li>Never include sensitive or proprietary information in your prompts. Once it’s submitted to a promp, it’s out of your control.</li>
+<li>Always verify the code that’s been generated. The human backstop is the key factor that keeps the output under control. Don’t ever <a href="https://en.wikipedia.org/wiki/Vibe_coding" target="_blank">vibe code</a>.</li>
 </ul>
+</section>
+<section id="other-resources" class="level3" data-number="1.8.5">
+<h3 data-number="1.8.5" class="anchored" data-anchor-id="other-resources"><span class="header-section-number">1.8.5</span> Other Resources</h3>
+<p>As I mentioned earlier, there are TOO many resources to list here and everyone has their favorites. Please see the <a href="data_resources.html">Data and Resources</a> page for additional links to R learning resources.</p>
 </section>
 </section>
 <section id="data-structures-in-r" class="level2" data-number="1.9">
