@@ -245,11 +245,10 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="#sec-cloud">Posit Cloud</a> (optional)</li>
 </ol>
 <p>Most of these steps will require administrative privileges on a computer. Work with your IT staff to complete the setup if you do not have these privileges. As an alternative, you can use Posit Cloud to participate (see <a href="#sec-cloud" class="quarto-xref"><span>Section A.3</span></a>), although we strongly encourage you to install the software on your personal computer for use after the workshop.</p>
-<p>Please reach out if you have any issues with installation: <a href="mailto:mbeck@tbep.org">mbeck@tbep.org</a></p>
+<p>Please reach out if you have any issues with installation: <a href="mailto:mbeck@tbep.org">mbeck@tbep.org</a>. Most of these instructions have been reurposed from the <a href="https://github.com/USGS-R/training-curriculum" target="_blank">USGS-R Training group</a> and <a href="https://datacarpentry.org/R-ecology-lesson/index.html" target="_blank">Data Carpentry</a>.</p>
 <section id="install-r" class="level2" data-number="A.1">
 <h2 data-number="A.1" class="anchored" data-anchor-id="install-r"><span class="header-section-number">A.1</span> Install R</h2>
 <p><strong>R</strong> and <strong>RStudio</strong> are separate downloads and installations. R is the underlying statistical computing software. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive. <em>You need to install R before you install RStudio</em>.</p>
-<p>Thanks to the <a href="https://owi.usgs.gov/R/training.html" target="_blank">USGS-R Training group</a> and <a href="https://datacarpentry.org/R-ecology-lesson/index.html" target="_blank">Data Carpentry</a> for making their installation materials available. The following instructions come directly from their materials, with a few minor edits to help you get set up.</p>
 <section id="sec-instr" class="level3" data-number="A.1.1">
 <h3 data-number="A.1.1" class="anchored" data-anchor-id="sec-instr"><span class="header-section-number">A.1.1</span> Windows: Download and install R</h3>
 <p>Go to <a href="https://cran.rstudio.com/bin/windows/base/" target="_blank">CRAN and download</a> the R installer for Windows. Make sure to choose the latest stable version (v4.5.1 as of October 2025).</p>
@@ -258,10 +257,11 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="figs/setup/install_open_as_admin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/setup/install_open_as_admin.png" class="img-fluid"></a></p>
 <p>You can click next through the standard dialogs and accept most defaults. But at the destination screen, please verify that it is installing it to C:\Program Files\R</p>
 <p><a href="figs/setup/install_destination.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figs/setup/install_destination.png" class="img-fluid"></a></p>
-<p>At the “Select Components” screen, you can accept the default and install both 32-bit and 64-bit versions.</p>
+<p>At the “Select Components” screen, make sure all items are checked.</p>
 <p><a href="figs/setup/install_arch_window.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figs/setup/install_arch_window.png" class="img-fluid"></a></p>
 <p>At this screen, uncheck ‘Create a desktop icon’ because non-admin users in Windows will be unable to delete it.</p>
 <p><a href="figs/setup/install_tasks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="figs/setup/install_tasks.png" class="img-fluid"></a></p>
+<p>Continue through the installer until the installation is complete.</p>
 </section>
 <section id="macos-download-and-install-r" class="level3" data-number="A.1.2">
 <h3 data-number="A.1.2" class="anchored" data-anchor-id="macos-download-and-install-r"><span class="header-section-number">A.1.2</span> macOS: Download and install R</h3>
@@ -277,8 +277,10 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="A.2" class="anchored" data-anchor-id="install-rstudio"><span class="header-section-number">A.2</span> Install RStudio</h2>
 <section id="sec-instrstudio" class="level3" data-number="A.2.1">
 <h3 data-number="A.2.1" class="anchored" data-anchor-id="sec-instrstudio"><span class="header-section-number">A.2.1</span> Windows: Download and install RStudio</h3>
-<p>Download RStudio from <a href="https://www.rstudio.com/products/rstudio/download/#download" target="_blank">here</a>.</p>
-<p>After download, double-click the installer. It will ask for your administrator credentials to install (you might need to have your IT rep install again).</p>
+<p>Download RStudio from <a href="https://www.rstudio.com/products/rstudio/download/#download" target="_blank">here</a>. Skip the step about installing R that was completed above.</p>
+<p>Once the installer downloads, Right-click on it and select “Run as administrator”.</p>
+<p>Type in your credentials and click yes (or if you don’t have administrator access have your IT rep install with Admin privileges).</p>
+<p><img src=".png" class="img-fluid">figs/setup/install_rstudio_as_admin.png)</p>
 <p>Accept all the default options for the RStudio install.</p>
 <p><a href="figs/setup/install_rstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="figs/setup/install_rstudio.png" class="img-fluid"></a></p>
 </section>
@@ -302,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
 <p>You will see a login screen that looks like this:</p>
 <p><a href="figs/setup/positsignup.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="figs/setup/positsignup.png" class="img-fluid"></a></p>
 <p>Sign up using a personal login or existing account (Google, GitHub, etc.).</p>
-<p>You’ll see the workspace in your browser once you’ve signed in. You’ll need to make a permanent copy to save your work. Just click the button at the top marked “+ Save as Permanent Copy”. When this is done, the red text at the top indicating “TEMPORARY COPY” will no longer be visible.</p>
+<p>You’ll see the workspace in your browser once you’ve signed in (be patient, it may take a minute or two to load). You’ll need to make a permanent copy to save your work. Just click the button at the top marked “+ Save as Permanent Copy”. When this is done, the red text at the top indicating “TEMPORARY COPY” will no longer be visible.</p>
 <p><a href="figs/setup/positworkspace.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="figs/setup/positworkspace.PNG" class="img-fluid"></a></p>
 <p>Now you can follow along with the workshop content.</p>
 
