@@ -235,18 +235,18 @@ Blind googling can require a bit of strategy to get the info you want.  Some poi
  
 ### Generative AI
 
-Generative AI tools have dramatically changed the coding landscape in the last few years. They will continue to change how we code as the tools are constantly evolving.  The most important thing to remember is they ARE NOT substitutes for the conventional learning process.  While it's true you can generate a lot of useful code with minimal experience, you will have no way of knowing what this code does or how to troubleshoot it when it doesn't work.  Use these tools as a supplement to your learning, not a replacement. 
+Generative AI tools built aroung Large Language Models have dramatically changed the coding landscape in the last few years. They will continue to change how we code as the tools are constantly evolving.  The most important thing to remember is they ARE NOT substitutes for the conventional learning process.  While it's true you can generate a lot of useful code with minimal experience, you will have no way of knowing what this code does or how to troubleshoot it when it doesn't work.  Use these tools as a supplement to your learning, not a replacement. 
 
 There is too much to say about generative AI in this space, but here are a few tips to effectively use those tools:
 
 * Use precise, clear prompts with as much detail as possible to help the model understand what you want.
-* Understand which platforms are best for coding.  Currently, [Claude](https://claude.ai){target="_blank"} seems to be the current preferred model for data science.
-* Never include sensitive or proprietary information in your prompts.  Once it's submitted to a promp, it's out of your control.
+* Understand which platforms are best for coding.  Currently, [Claude](https://claude.ai){target="_blank"} seems to be the preferred model for data science.
+* Never include sensitive or proprietary information in your prompts.  Once it's submitted to a prompt, it's out of your control.
 * Always verify the code that's been generated. The human backstop is the key factor that keeps the output under control.  Don't ever [vibe code](https://en.wikipedia.org/wiki/Vibe_coding){target="_blank"}. 
 
 ### Other Resources
 
-As I mentioned earlier, there are TOO many resources to list here and everyone has their favorites.  Please see the [Data and Resources](data_resources.html) page for additional links to R learning resources.
+As mentioned earlier, there are TOO many resources to list here and everyone has their favorites.  Please see the [Data and Resources](data_resources.html) page for additional links to R learning resources.
 
 ## Data structures in R
 

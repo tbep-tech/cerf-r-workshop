@@ -124,14 +124,14 @@ fishdat <- read_csv('data/fishdat.csv')
 statloc <- read_csv('data/statloc.csv')
 
 # wrangle before join
-joindat <- fishdat %>% 
-  select(Reference, Sampling_Date, Gear, `Common Snook`) %>% 
+joindat <- fishdat |> 
+  select(Reference, Sampling_Date, Gear, `Common Snook`) |> 
   filter(Gear == 20) 
 
 dim(joindat)
 
 # full join
-joindat <- joindat %>% 
+joindat <- joindat |> 
   full_join(statloc, by = 'Reference')
 
 dim(joindat)
@@ -205,7 +205,7 @@ To tidy a dataset like this, we need to __gather__ those columns into a new pair
 Together those parameters generate the call to `gather()`:
 
 ```{r}
-table4a %>%
+table4a |>
   gather(`1999`, `2000`, key = "year", value = "cases")
 ```
 
@@ -259,7 +259,7 @@ dim(fishdat)
 str(fishdat)
 
 # gather the fishdat
-gatherdat <- fishdat %>%
+gatherdat <- fishdat |>
   gather(key = 'Species', value = 'Count', Bluefish, `Common Snook`, Mullets, Pinfish, `Red Drum`, `Sand Seatrout`)
 
 # check dimensions, structure
@@ -295,8 +295,8 @@ by_spp
 
 Of course, this can (and should) be done with pipes:
 ```{r}
-by_spp <- gatherdat %>%
-  group_by(Species) %>%
+by_spp <- gatherdat |>
+  group_by(Species) |>
   summarize(totals = sum(Count))
 by_spp
 ```
@@ -304,16 +304,16 @@ by_spp
 We can group the dataset by more than one column to get summaries with multiple groups. Here we can look at total count by each unique combination of gear and species.
 
 ```{r}
-by_spp_gear <- gatherdat %>%
-  group_by(Species, Gear) %>%
+by_spp_gear <- gatherdat |>
+  group_by(Species, Gear) |>
   summarize(totals = sum(Count))
 by_spp_gear
 ```
 
 We can also get more than one summary at a time.  The summary function can use any function that operates on a vector.  Some common examples include `min`, `max`, `sd`, `var`, `median`, `mean`, and `n`.  It's usually good practice to include a summary of how many observations were in each group, so get used to including the `n` function.
 ```{r}
-more_sums <-gatherdat %>%
-  group_by(Species) %>%
+more_sums <-gatherdat |>
+  group_by(Species) |>
   summarize(
     n = n(),
     min_count = min(Count),
@@ -353,12 +353,12 @@ Now we have access to a several tools in the tidyverse to help us wrangle more e
 #| echo: true
 #| code-fold: true
 #| code-summary: "Click to show/hide solution"
-sumdat <- gatherdat %>%
-  filter(Gear == 20 & Species == 'Pinfish') %>% 
-  group_by(Reference) %>% 
+sumdat <- gatherdat |>
+  filter(Gear == 20 & Species == 'Pinfish') |> 
+  group_by(Reference) |> 
   summarize(
     ave = mean(Count)
-  ) %>% 
+  ) |> 
   arrange(-ave)
 sumdat
 ```

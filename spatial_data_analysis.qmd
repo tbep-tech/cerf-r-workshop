@@ -207,7 +207,7 @@ st_crs(alldat)
 Finally, you may often want to use another coordinate system, such as a projection that is regionally-specific.  You can use the `st_transform()` function to quickly change and/or reproject an `sf` object.  For example, if we want to convert a geographic to UTM projection: 
 
 ```{r}
-alldatutm <- alldat %>% 
+alldatutm <- alldat |> 
   st_transform(crs = '+proj=utm +zone=17 +datum=NAD83 +units=m +no_defs')
 st_crs(alldatutm)
 ```
@@ -231,7 +231,7 @@ plot(sgdat$geometry)
 To emphasize the point that the `sf` package plays nice with the tidyverse, let's do a simple filter on the fisheries data to look at only the 2016 data. This is the same year as the seagrass data.  
 
 ```{r}
-filt_dat <- alldat %>% 
+filt_dat <- alldat |> 
   filter(yr == 2016)
 plot(filt_dat$geometry)
 ```
@@ -259,8 +259,8 @@ fish_int
 Now we can easily see which stations are in which seagrass polygon.  We can use some familiar tools from dplyr to get the aggregate catch data for the different polygon counts.  Specifically, the `FLUCCS` attribute identifies seagrass polygons as continuous (`9116`) or patchy (`9113`) (metadata [here](https://www.arcgis.com/sharing/rest/content/items/f0ecff0cf0de491685f8fb074adb278b/info/metadata/metadata.xml?format=default&output=html){target="_blank"}).  Maybe we want to summarise species counts by seagrass polygon type.
 
 ```{r}
-fish_cnt <- fish_int %>% 
-  group_by(FLUCCS) %>% 
+fish_cnt <- fish_int |> 
+  group_by(FLUCCS) |> 
   summarise(
     cnt = sum(Pinfish)
   ) 

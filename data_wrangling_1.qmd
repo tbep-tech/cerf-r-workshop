@@ -262,7 +262,7 @@ Technically, if this works it's not "wrong", but there are a couple of issues th
 
 The good news is that you now know how to use the dplyr functions to wrangle data.  The function names in dplyr were chosen specifically to be descriptive.  This will make your code much more readable than if you were using base R counterparts.  The bad news is that I haven't told you how to easily link the functions.  Fortunately, there's an easy fix to this problem.
 
-The `magrittr` package (comes with tidyverse) provides a very useful method called *piping* that will make wrangling a whole lot easier.  The idea is simple: a pipe (`%>%`) is used to chain functions together.  The output from one function becomes the input to the next function in the pipe. This avoids the need to create intermediate objects and creates a logical progression of steps that demystify the wrangling process.
+Recent versionf of R provide a very useful method called *piping* that will make wrangling a whole lot easier.  The idea is simple: a pipe (`|>`) is used to chain functions together.  The output from one function becomes the input to the next function in the pipe. This avoids the need to create intermediate objects and creates a logical progression of steps that demystify the wrangling process.
 
 Consider the simple example:
 
@@ -276,8 +276,8 @@ With pipes, it looks like this:
 
 ```{r}
 # with pipes, select a column, filter rows
-good_ex <- fishdat %>% 
-  select(Gear, `Common Snook`) %>%
+good_ex <- fishdat |> 
+  select(Gear, `Common Snook`) |>
   filter(`Common Snook` > 25)
 ```
 
@@ -306,9 +306,9 @@ Using your code from exercise four, try to replicate the steps __using pipes__. 
 #| echo: true
 #| code-fold: true
 #| code-summary: "Click to show/hide solution"
-ex2 <- fishdat %>% 
-  select(Reference, Sampling_Date, Gear, `Sand Seatrout`) %>% 
-  filter(Gear == 20) %>% 
+ex2 <- fishdat |> 
+  select(Reference, Sampling_Date, Gear, `Sand Seatrout`) |> 
+  filter(Gear == 20) |> 
   rename(date = Sampling_Date)
 head(ex2)
 ```
