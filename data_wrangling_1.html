@@ -711,7 +711,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Technically, if this works it’s not “wrong”, but there are a couple of issues that can lead to problems down the line. First, the flow of functions to manipulate the data is not obvious and this makes your code very hard to read. Second, lots of unecessary intermediates have been created in your workspace. Anything that adds to clutter should be avoided because R is fundamentally based on object assignments. The less you assign as a variable in your environment the easier it will be to navigate complex scripts.</p>
 <p>The good news is that you now know how to use the dplyr functions to wrangle data. The function names in dplyr were chosen specifically to be descriptive. This will make your code much more readable than if you were using base R counterparts. The bad news is that I haven’t told you how to easily link the functions. Fortunately, there’s an easy fix to this problem.</p>
-<p>The <code>magrittr</code> package (comes with tidyverse) provides a very useful method called <em>piping</em> that will make wrangling a whole lot easier. The idea is simple: a pipe (<code>%&gt;%</code>) is used to chain functions together. The output from one function becomes the input to the next function in the pipe. This avoids the need to create intermediate objects and creates a logical progression of steps that demystify the wrangling process.</p>
+<p>Recent versionf of R provide a very useful method called <em>piping</em> that will make wrangling a whole lot easier. The idea is simple: a pipe (<code>|&gt;</code>) is used to chain functions together. The output from one function becomes the input to the next function in the pipe. This avoids the need to create intermediate objects and creates a logical progression of steps that demystify the wrangling process.</p>
 <p>Consider the simple example:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not using pipes, select a column, filter rows</span></span>
@@ -721,8 +721,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>With pipes, it looks like this:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with pipes, select a column, filter rows</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>good_ex <span class="ot">&lt;-</span> fishdat <span class="sc">%&gt;%</span> </span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Gear, <span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>good_ex <span class="ot">&lt;-</span> fishdat <span class="sc">|&gt;</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Gear, <span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Common Snook</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now we’ve created only one new object in our environment and we can clearly see that we select, then filter. The only real coding difference is now the select and filter functions only include the relevant information. You do not need to specify a data object as input to a function if you’re using piping. The pipe will always use the input that comes from above.</p>
@@ -745,9 +745,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide solution</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ex2 <span class="ot">&lt;-</span> fishdat <span class="sc">%&gt;%</span> </span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Reference, Sampling_Date, Gear, <span class="st">`</span><span class="at">Sand Seatrout</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gear <span class="sc">==</span> <span class="dv">20</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ex2 <span class="ot">&lt;-</span> fishdat <span class="sc">|&gt;</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Reference, Sampling_Date, Gear, <span class="st">`</span><span class="at">Sand Seatrout</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gear <span class="sc">==</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">date =</span> Sampling_Date)</span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ex2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>

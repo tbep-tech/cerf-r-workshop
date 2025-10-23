@@ -404,31 +404,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1]  8.853415  9.475106  8.663074 13.002450  7.766308 11.121881 13.620149
-  [8]  8.504360 10.244578  9.438621  8.494253  8.174924 10.339497 15.964751
- [15] 13.267157 12.726568  7.709979 11.915296 10.584948  6.330734 10.135693
- [22]  9.988030 11.080079  9.612711  8.308915  8.072151 10.328810 10.675419
- [29] 10.108417 12.161341  9.256957  7.968217  8.089407  9.435774  9.648147
- [36] 11.624883  9.817385  8.322598  9.729459 10.315216 10.237595  4.554831
- [43]  7.936107 17.367845  8.110920 10.711063 11.331957 10.095830  7.053754
- [50] 15.463807 13.120336 10.715582 13.020601  8.793526  7.414217 11.123852
- [57] 12.025618 11.840720  9.851399 12.304931 11.374274  8.997005  8.585374
- [64] 10.802941  9.619800  7.214613 11.974441 10.512882  9.998868  9.568045
- [71] 10.801780 15.418193  9.029581 11.598055  6.685593 11.679789  7.282502
- [78]  9.376540 12.780882  9.403340 11.208361  8.622335  9.500849  8.878204
- [85] 10.605624 12.180557  8.449943 11.984223 10.557009 12.302283  9.631817
- [92] 11.177497 10.738383 10.142164  8.585712  9.384240 10.581441 11.765129
- [99] 11.223199 11.491108</code></pre>
+<pre><code>  [1]  9.128770 10.360607 12.887833  9.479112 11.847621  8.734080  8.618079
+  [8] 13.297176 11.962561 10.805113  9.311729  8.677876  9.903885  9.660060
+ [15] 10.745707 13.212649 11.437817 13.437796  9.929859 13.111086 13.359708
+ [22]  7.584669 13.428213  8.253805  9.226773 10.264608 11.836260  6.358994
+ [29]  8.915374 10.296835  7.297399  9.154403  9.047136 11.306585  9.495985
+ [36]  9.916217 10.397392  9.753905  5.429432  9.477731 11.913535  7.479650
+ [43] 11.542855  8.724848  9.831574  8.318010  9.905890  9.848424  7.169028
+ [50]  7.342336  9.049212  9.763090  6.631898 10.412308 12.269530  6.815536
+ [57]  8.889192 13.113308  9.151558  8.742497 10.385830 11.526673 11.406644
+ [64]  9.211237 13.703855  9.599347 11.800900 11.687357  7.916475  9.730000
+ [71]  8.482483 10.281501  9.198062 13.161443 10.815416 12.585295 11.019317
+ [78] 12.861111 10.199579  7.539547 11.655246 11.528154  9.505530 11.452428
+ [85]  9.845978 12.169527 11.352131  8.326621 12.645480  9.111097 11.123102
+ [92]  9.872992  9.517662  9.056061 10.503300 10.593905  9.079781  5.613530
+ [99]  9.348996 10.786575</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># average </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.05012908</code></pre>
+<pre><code>[1] -0.002228806</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.398353</code></pre>
+<pre><code>[1] 8.245497</code></pre>
 </div>
 </div>
 <p>Very often you will see functions used like this:</p>
@@ -439,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_random_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -10.18483</code></pre>
+<pre><code>[1] 13.48563</code></pre>
 </div>
 </div>
 <section id="what-is-the-environment" class="level3" data-number="1.6.1">
@@ -526,18 +526,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="generative-ai" class="level3" data-number="1.8.4">
 <h3 data-number="1.8.4" class="anchored" data-anchor-id="generative-ai"><span class="header-section-number">1.8.4</span> Generative AI</h3>
-<p>Generative AI tools have dramatically changed the coding landscape in the last few years. They will continue to change how we code as the tools are constantly evolving. The most important thing to remember is they ARE NOT substitutes for the conventional learning process. While it’s true you can generate a lot of useful code with minimal experience, you will have no way of knowing what this code does or how to troubleshoot it when it doesn’t work. Use these tools as a supplement to your learning, not a replacement.</p>
+<p>Generative AI tools built aroung Large Language Models have dramatically changed the coding landscape in the last few years. They will continue to change how we code as the tools are constantly evolving. The most important thing to remember is they ARE NOT substitutes for the conventional learning process. While it’s true you can generate a lot of useful code with minimal experience, you will have no way of knowing what this code does or how to troubleshoot it when it doesn’t work. Use these tools as a supplement to your learning, not a replacement.</p>
 <p>There is too much to say about generative AI in this space, but here are a few tips to effectively use those tools:</p>
 <ul>
 <li>Use precise, clear prompts with as much detail as possible to help the model understand what you want.</li>
-<li>Understand which platforms are best for coding. Currently, <a href="https://claude.ai" target="_blank">Claude</a> seems to be the current preferred model for data science.</li>
-<li>Never include sensitive or proprietary information in your prompts. Once it’s submitted to a promp, it’s out of your control.</li>
+<li>Understand which platforms are best for coding. Currently, <a href="https://claude.ai" target="_blank">Claude</a> seems to be the preferred model for data science.</li>
+<li>Never include sensitive or proprietary information in your prompts. Once it’s submitted to a prompt, it’s out of your control.</li>
 <li>Always verify the code that’s been generated. The human backstop is the key factor that keeps the output under control. Don’t ever <a href="https://en.wikipedia.org/wiki/Vibe_coding" target="_blank">vibe code</a>.</li>
 </ul>
 </section>
 <section id="other-resources" class="level3" data-number="1.8.5">
 <h3 data-number="1.8.5" class="anchored" data-anchor-id="other-resources"><span class="header-section-number">1.8.5</span> Other Resources</h3>
-<p>As I mentioned earlier, there are TOO many resources to list here and everyone has their favorites. Please see the <a href="data_resources.html">Data and Resources</a> page for additional links to R learning resources.</p>
+<p>As mentioned earlier, there are TOO many resources to list here and everyone has their favorites. Please see the <a href="data_resources.html">Data and Resources</a> page for additional links to R learning resources.</p>
 </section>
 </section>
 <section id="data-structures-in-r" class="level2" data-number="1.9">
