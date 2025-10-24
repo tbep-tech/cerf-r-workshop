@@ -15,7 +15,7 @@ Get the lesson data: [download zip](data/data.zip)
 
 * [Combining data]
 * [Tidy data]
-* [Group by and summarize]
+* [Summarize]
 
 ## Lesson Exercises
 
@@ -25,7 +25,7 @@ Get the lesson data: [download zip](data/data.zip)
 
 ## Goals
 
-In this lesson we'll continue our discussion of data wrangling with the tidyverse. Data wrangling is the manipulation or combination of datasets for the purpose of understanding.  It fits within the broader scheme of **data exploration**, described as the art of looking at your data, rapidly generating hypotheses, quickly testing them, then repeating again and again and again (from [R for Data Science](http://r4ds.had.co.nz/){target="_blank"}, as is most of today's content). 
+In this lesson we'll continue our discussion of data wrangling with the tidyverse. Data wrangling is the manipulation or combination of datasets for the purpose of understanding.  It fits within the broader scheme of **data exploration**, described as the art of looking at your data, rapidly generating hypotheses, quickly testing them, then repeating again and again and again (from [R for Data Science](https://r4ds.hadley.nz/){target="_blank"}, 2nd Ed., as is most of today's content). 
 
 ![](figs/data_wrangling_2/data-science-wrangle.png)
 
@@ -36,13 +36,13 @@ Always remember that **wrangling is based on a purpose.** The process always beg
 
 You define what steps to take to get your data from input to where you want to go.
 
-Last lesson we learned the following functions from the `dplyr` package (cheatsheet [here](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf){target="_blank"}):
+Last lesson we learned the following functions from the `dplyr` package (cheatsheet [here](https://rstudio.github.io/cheatsheets/data-transformation.pdf){target="_blank"}):
 
 * Selecting variables with `select`
 * Filtering observations by some criteria with `filter`
 * Adding or modifying existing variables with `mutate`
-* Renaming variables with `rename`
 * Arranging rows by a variable with `arrange`
+* Renaming variables with `rename`
 
 As before, we only have one hour to cover the basics of data wrangling. It’s an unrealistic expectation that you will be a ninja wrangler after this training. As such, the goals are to expose you to fundamentals and to develop an appreciation of what’s possible. I also want to provide resources that you can use for follow-up learning on your own.
 
@@ -70,7 +70,7 @@ library(tidyverse)
 
 Combining data is a common task of data wrangling.  Perhaps we want to combine information between two datasets that share a common identifier.  As a real world example, our fisheries data contain information about fish catch, but we also want to include spatial information about the stations (i.e., lat, lon).  We would need to (and we will) combine data if this information is in two different places.  Combining data with dplyr is called joining.
 
-All joins require that each of the tables can be linked by shared identifiers.  These are called 'keys' and are usually represented as a separate column that acts as a unique variable for the observations.  The "Station ID" is a common key, but remember that a key might need to be unique for each row.  It doesn't make sense to join two tables by station ID if multiple site visits were made. In that case, your key should include some information about the site visit **and** station ID.
+All joins require that each of the tables can be linked by shared identifiers.  These are called 'keys' and are usually represented as a separate column that acts as a unique variable for the observations.  The "Station ID" is our common key, but remember that a key might need to be unique for each row.  It doesn't make sense to join two tables by station ID if multiple site visits were made. In that case, your keys should include some information about the site visit **and** station ID. In other words, you would need to join with two variables.
 
 ### Types of joins
 
@@ -100,6 +100,8 @@ joindat <- left_join(fishdat, statloc, by = 'Reference')
 head(joindat)
 ```
 
+A final note about joins is that you will have relationships between two tables defined as one-to-one, one-to-many, many-to-one, or many-to-many.  Ofen times you may expect a one-to-one join (i.e., one row in table x will always correpond to one row in table y), but another relationship is observed (e.g., one row in x correponds to more than one row in y, a one-to-many join). The join functions in dplyr will notify you if this occurs depending on the type of join you use.  This is good because it tells you how to interpret the results of the join and whether or not you may have unexpected results.  In general, you should have a prior expectation of the relationship between two tables. You can be explicit with the type of relationship you expect by including the arguments `relationship = 'one-to-one'` (or other types) in your join function.
+
 ## Exercise 6
 
 For this exercise we'll repeat the join we just did, but on a subset of the data. We're going to select some columns of interest from our fisheries dataset, filter by gear type, then use a full_join with the station data. Try to use pipes if you can. 
@@ -110,7 +112,7 @@ For this exercise we'll repeat the join we just did, but on a subset of the data
 
 1. Use a `full_join` to join the fisheries dataset with the station location dataset.  What is the key value for joining?  
 
-1. Check the dimensions of the new table.  What happened? Select only the `StationID`, `StationWaterDepth`, `SampleLatitude`, and `SampleLongitude` columns from the master data.
+1. Check the dimensions of the new table.  What happened?
 
 ```{r}
 #| results: hide
@@ -139,9 +141,9 @@ dim(joindat)
 
 ## Tidy data
 
-The opposite of a tidy dataset is a messy dataset.  You should always strive to create a tidy data set as an outcome of the wrangling process.  Tidy data are easy to work with and will make downstream analysis much simpler.  This will become apparent when we start summarizing and plotting our data.
+The opposite of a tidy dataset is a messy dataset.  You should always work towards a tidy data set as an outcome of the wrangling process.  Tidy data are easy to work with and will make downstream analysis much simpler.  This will become apparent when we start summarizing and plotting our data.
 
-To help understand tidy data, it's useful to look at alternative ways of representing data. The example below shows the same data organised in four different ways. Each dataset shows the same values of four variables *country*, *year*, *population*, and *cases*, but each dataset organises the values in a different way. Only one of these examples is tidy.
+To help understand tidy data, it's useful to look at alternative ways of representing data. The example below shows the same data organised in four different ways. Each dataset shows the same values of four variables *country*, *year*, *population*, and *cases*, but each dataset organises the values differently. Only one of these examples is tidy.
 
 ```{r}
 table1
@@ -163,8 +165,6 @@ There are three inter-correlated rules which make a dataset tidy:
 
 ![](figs/data_wrangling_2/tidy-1.png)
 
-For the example tables above, only the first table is tidy. 
-
 There are some very real reasons why you would encounter untidy data:
 
 1.  Most people aren't familiar with the principles of tidy data, and it's hard
@@ -173,17 +173,12 @@ There are some very real reasons why you would encounter untidy data:
 1.  Data is often organised to facilitate some use other than analysis. For
     example, data is often organised to make entry as easy as possible.
 
-This means for most real analyses, you'll need to do some tidying. The first step is always to figure out what the variables and observations are. The second step is to resolve one of two common problems:
+The [tidyr](https://tidyr.tidyverse.org/){target="_blank"} package can help you create tidy datasets. A full review of the functions in tidyr is beyond the scope of this workshop. Have a look at the [cheatsheet](https://rstudio.github.io/cheatsheets/tidyr.pdf){target="_blank"} to get started. Just know that the package is available to help create tidy data. 
 
-1. One variable might be spread across multiple columns.
+For the example tables above, only the first table is tidy.  The second table, although not technically tidy (variables spread across rows), is still a useful format that we'll work with later. We'll talk about 
+how to manipulate a dataset to work with both formats using two functions from tidyr: `pivot_longer()` and `pivot_wider()`.
 
-1. One observation might be scattered across multiple rows.
-
-To fix these problems, you'll need the two most important functions in tidyr: `gather()` and `spread()`.
-
-Side note: Recent versions of tidyr have the `pivot_longer()` and `pivot_wider()` functions that accomplish similar tasks.  Some may find these functions more intuitive, but I present the former here for legacy purposes. 
-
-### Gathering
+### Values as column names
 
 A common problem is a dataset where some of the column names are not names of variables, but _values_ of a variable. Take `table4a`: the column names `1999` and `2000` represent values of the `year` variable, and each row represents two observations, not one.
 
@@ -191,61 +186,58 @@ A common problem is a dataset where some of the column names are not names of va
 table4a
 ```
 
-To tidy a dataset like this, we need to __gather__ those columns into a new pair of variables. To describe that operation we need three parameters:
+To tidy a dataset like this, we need to combine those columns into a new pair of variables. To describe that operation we need three parameters:
 
 * The set of columns that represent values, not variables. In this example,
   those are the columns `1999` and `2000`.
 
-* The name of the variable whose values form the column names. I call that
-  the `key`, and here it is `year`.
+* The name of the variable whose values form the column name. Here it is `year`.
 
-* The name of the variable whose values are spread over the cells. I call
-  that `value`, and here it's the number of `cases`.
+* The name of the variable whose values are spread over the cells. Here it's the number of `cases`.
 
-Together those parameters generate the call to `gather()`:
+Together those parameters generate the call to `pivot_longer()`:
 
 ```{r}
 table4a |>
-  gather(`1999`, `2000`, key = "year", value = "cases")
+  pivot_longer(c('1999', '2000'), names_to = "year", values_to = "cases")
 ```
 
-Gathering can be graphically demonstrated:
+This operation can be graphically demonstrated:
 
 ![](figs/data_wrangling_2/tidy-9.png)
 
-### Spreading
+### Observations across rows
 
-Spreading is the opposite of gathering. You use it when an observation is scattered across multiple rows. For example, take `table2`: an observation is a country in a year, but each observation is spread across two rows.
+Another problem is when you have a single observation scattered across rows.  For example, `table2` shows that the number of cases and population is spread across rows where the observation is country and year.
 
 ```{r}
 table2
 ```
 
-To tidy this up, we first analyse the representation in similar way to `gather()`. This time, however, we only need two parameters:
+To tidy this up, we first analyse the representation in a similar way as before. This time, however, we only need to identify two things:
 
-* The column that contains variable names, the `key` column. Here, it's
+* The column that contains variable names. Here, it's
   `type`.
 
-* The column that contains values forms multiple variables, the `value`
-  column. Here it's `count`.
+* The column that contains values from multiple variables. Here it's `count`.
 
-Once we've figured that out, we can use `spread()`, as shown programmatically below.
+Once we've figured that out, we can use `pivot_wider()`.
 
 ```{r}
-spread(table2, key = type, value = count)
+pivot_wider(table2, names_from = 'type', values_from = 'count')
 ```
 
-Spreading can be graphically demonstrated:
+This operation can be graphically demonstrated:
 
 ![](figs/data_wrangling_2/tidy-8.png)
 
 ## Exercise 7
 
-Let's take a look at the fisheries data. Are these data "tidy"? To help with the next few examples, we'll gather the  species and catch count data using the `gather` function from the `tidyr` package.
+Let's take a look at the fisheries data. Are these data "tidy"? To help with the next few examples, we'll use `pivot_longer()` to manipulate the data.
 
-1. Inspect the fisheries dataset.  What are the dimensions (hint: `dim`)?  What are the names and column types (hint: `str`)?
+1. Inspect the fisheries dataset.  What are the dimensions (hint: `dim()`)?  What are the names and column types (hint: `str()`)?
 
-1. Use the `gather` function to "gather" the species columns and count data into two new columns. What are your keys? What are your values?  Assign the new dataset to a variable in your environment.
+1. Use the `pivot_longer()` function to move the species columns and count data into two new columns. What value will you use for the `names_to` argument? What value will you us for the `values_to` argument?  Assign the new dataset to a variable in your environment.
 
 1. Check the dimensions and structure of your new dataset. What's different?
 
@@ -258,72 +250,55 @@ Let's take a look at the fisheries data. Are these data "tidy"? To help with the
 dim(fishdat)
 str(fishdat)
 
-# gather the fishdat
-gatherdat <- fishdat |>
-  gather(key = 'Species', value = 'Count', Bluefish, `Common Snook`, Mullets, Pinfish, `Red Drum`, `Sand Seatrout`)
+# convert fishdat to long format
+longdat <- fishdat |>
+  pivot_longer(c('Bluefish', 'Common Snook', 'Mullets', 'Pinfish', 'Red Drum', 'Sand Seatrout'), names_to = 'Species', values_to = 'Count')
 
 # check dimensions, structure
-dim(gatherdat)
-str(gatherdat)
+dim(longdat)
+str(longdat)
 ```
 
-## Group by and summarize
+## Summarize
 
-The last tool we're going to learn about in `dplyr` is the `summarize` function.  As the name implies, this function lets you summarize columns in a dataset.  Think of it as a way to condense rows using a summary method of your choice, e.g., what's the average of the values in a column?
+The last tool we're going to learn about in `dplyr` is the `summarize` function.  As the name implies, this function lets you summarize columns in a dataset.  Think of it as a way to condense rows using a summary method of your choice, e.g., what's the average of the values in a column based on groups in another column?
 
-The summarize function is most useful with the `group_by` function.  This function lets you define a column that serves as a grouping variable for developing separate summaries, as compared to summarizing the entire dataset.  The `group_by` function works with any `dplyr` function so it can be quite powerful.
-
-Let's use our gathered fisheries dataset from exercise 7. 
+Let's use our long form fisheries dataset from exercise 7. 
 
 ```{r}
-head(gatherdat)
+head(longdat)
 ```
 
-It's difficult to see patterns until we start to evaluate some of the differences.  It's also setup in a way to let us easily group by different variables.  We could ask a simple question: how does total catch vary across species (ignoring gear differences)? 
+It's difficult to see patterns in these data until we summarize it some way. Fortunately, the data are setup in a way that let's us easily summarize by species. We could ask a simple question: how does total catch vary across species (ignoring gear differences, which is a sin in fisheries science)? 
 
-First we can use `group_by`. Notice the new information at the top of the output.
-```{r}
-by_spp <- group_by(gatherdat, Species)
-by_spp
-```
+We can then use the `summarize()` function to get the total count.  Note the use of the `.by` argument as a critical piece that defines the groups for summarizing.
 
-We can then `summarize` to get the total count.
 ```{r}
-by_spp <- summarize(by_spp, totals = sum(Count))
-by_spp
-```
-
-Of course, this can (and should) be done with pipes:
-```{r}
-by_spp <- gatherdat |>
-  group_by(Species) |>
-  summarize(totals = sum(Count))
+by_spp <- summarize(longdat, totals = sum(Count), .by = Species)
 by_spp
 ```
 
 We can group the dataset by more than one column to get summaries with multiple groups. Here we can look at total count by each unique combination of gear and species.
 
 ```{r}
-by_spp_gear <- gatherdat |>
-  group_by(Species, Gear) |>
-  summarize(totals = sum(Count))
+by_spp_gear <- summarize(longdat, totals = sum(Count), .by = c(Gear, Species))
 by_spp_gear
 ```
 
-We can also get more than one summary at a time.  The summary function can use any function that operates on a vector.  Some common examples include `min`, `max`, `sd`, `var`, `median`, `mean`, and `n`.  It's usually good practice to include a summary of how many observations were in each group, so get used to including the `n` function.
+We can also get more than one summary at a time.  The summary function can use any function that operates on a vector.  Some common examples include `min()`, `max()`, `sd()`, `var()`, `median()`, `mean()`, and `n()`.  It's usually good practice to include a summary of how many observations were in each group, so get used to including the `n()` function.
+
 ```{r}
-more_sums <-gatherdat |>
-  group_by(Species) |>
-  summarize(
+more_sums <- summarize(longdat, 
     n = n(),
     min_count = min(Count),
     max_count = max(Count),
-    total = sum(Count)
+    total = sum(Count), 
+    .by = Species
   )
 more_sums
 ```
 
-Finally, many of the summary functions we've used (e.g., `sum`, `min`, `max`, `mean`) will not work correctly if there are missing observations in your data.  You'll see these as `NA` (or sometimes `NaN`) entries.  You have to use the argument `na.rm = T` to explicitly tell R how to handle the missing values.  Setting `na.rm = T` says to remove the `NA` values when summarizing the data.
+Finally, many of the summary functions we've used (e.g., `sum()`, `min()`, `max()`, `mean()`) will not work correctly if there are missing observations in your data.  You'll see these as `NA` (or sometimes `NaN`) entries.  You have to use the argument `na.rm = T` to explicitly tell R how to handle the missing values.  Setting `na.rm = T` says to remove the `NA` values when summarizing the data.
 
 ```{r}
 x <- c(1, 2, NA, 4)
@@ -332,19 +307,18 @@ mean(x, na.rm = T)
 ```
 
 A quick check for missing values can be done with `anyNA`. This works on vectors and data frames.
+
 ```{r}
 anyNA(x)
 ```
 
 ## Exercise 8
 
-Now we have access to a several tools in the tidyverse to help us wrangle more effectively.  For the final exercise, we're going subset our fisheries data and get a summary.  Specifically, we'll filter our data by Gear type 20 and Pinfish, then summarize the average catch across stations. 
+Now we have access to a several tools in the tidyverse to help us wrangle more effectively.  For the final exercise, we're going to subset our fisheries data and get a summary.  Specifically, we'll filter our data by Gear type 20 and Pinfish, then summarize the average catch across stations. 
 
-1. Using the gathered data we created in exercise 7, filter the data by Gear type 20 and Pinfish (hint, `filter(Gear == 20 & Species == 'Pinfish')`.
+1. Using the long data we created in exercise 7, filter the data by Gear type 20 and Pinfish (hint, `filter(Gear == 20 & Species == 'Pinfish')`.
 
-1. Group the data by site so you can summarize the catch of Pinfish (hint, `group_by(Reference)`.  
-
-1. Summarize the count column by taking the average (hint, `summarise(ave = mean(Count))`)
+1. Summarize the count column by taking the average grouped by station (hint, `summarise(ave = mean(Count), .by = Reference)`).
 
 1. Which station has the highest average catch of Pinfish (hint, `arrange(ave)`)?
 
@@ -353,11 +327,11 @@ Now we have access to a several tools in the tidyverse to help us wrangle more e
 #| echo: true
 #| code-fold: true
 #| code-summary: "Click to show/hide solution"
-sumdat <- gatherdat |>
+sumdat <- longdat |>
   filter(Gear == 20 & Species == 'Pinfish') |> 
-  group_by(Reference) |> 
   summarize(
-    ave = mean(Count)
+    ave = mean(Count), 
+    .by = Reference
   ) |> 
   arrange(-ave)
 sumdat

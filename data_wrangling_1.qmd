@@ -183,11 +183,11 @@ Let's start combining filtering operations.
 filt1 <- filter(fishdat, Pinfish > 30 & Pinfish < 100)
 head(filt1)
 
-# get rows with gear type 20 and red drum larger than 40
+# get rows with gear type 20 and more than 40 red drum
 filt2 <- filter(fishdat, Gear == 20 & `Red Drum` > 40)
 head(filt2)
 
-# get rows with gear type 20 or red drum larger than 40
+# get rows with gear type 20 or more than 40 red drum
 filt3 <- filter(fishdat, Gear == 20 | `Red Drum` > 40)
 head(filt3)
 
