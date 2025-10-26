@@ -300,9 +300,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="goals" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="goals"><span class="header-section-number">4.3</span> Goals</h2>
-<p>This section will introduce you to concepts of data visualization and graphics in R. The entire workflow of data exploration is enhanced through looking at your data, whether you’re exploring a dataset for the first time or creating publication-ready figures. Viewing your data provides insight into patterns that can help you explore different hypotheses. No analysis is complete without a solid graphic.</p>
+<p>This section will introduce you to concepts of data visualization and graphics in R. The entire workflow of data exploration is enhanced through looking at your data, whether you’re exploring a dataset for the first time or creating publication-ready figures. Viewing your data provides insight into patterns that can help you evaluate different hypotheses. No analysis is complete without visualizing your data.</p>
 <p><a href="figs/data_viz/data-science.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/data_viz/data-science.png" class="img-fluid"></a></p>
-<p>Graphics capabilities in R have improved tremendously in the last ten years. The de facto plotting library is <code>ggplot2</code> as part of the <code>tidyverse</code>, but there are many other packages available that enhance or build on existing functionality. The base R installation also comes with its own set of plotting functions. These are useful for quick and dirty exploration but you’ll quickly find that these methods are tedious. We’ll start this lesson with a cursory look at some of the base R plotting functions. Later, we’ll focus on <code>ggplot2</code>.</p>
+<p>Graphics capabilities in R have improved tremendously over time. The de facto plotting library is <code>ggplot2</code> as part of the <code>tidyverse</code>, but there are many other packages available that enhance or build on existing functionality. The base R installation also comes with its own set of plotting functions. Base R plotting functions are useful for quick and dirty exploration but you’ll quickly find that these methods are tedious. We’ll start this lesson with a cursory look at some of the base R plotting functions. Later, we’ll focus on <code>ggplot2</code>.</p>
 <p>After this lesson you should be able to answer (or be able to find answers to) the following:</p>
 <ul>
 <li>What can I do with base R plots?</li>
@@ -315,15 +315,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="base-r-graphics" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="base-r-graphics"><span class="header-section-number">4.4</span> Base R graphics</h2>
-<p>In theory, all of your plotting needs can be accomplished with functions in base R. However, these graphics are not easy to customize and it’s very tedious to create publication-quality graphics. For these reasons, base R graphics are rarely taught but I believe they still serve a purpose in the data exploration workflow. Base R graphics are extremely fast and simple to use for exploring data. I caution you in using these functions for anything beyond simple exploration.</p>
+<p>In theory, all of your plotting needs can be accomplished with functions in base R. However, these graphics are not easy to customize and it’s very tedious to create publication-quality graphics. For these reasons, base R graphics are rarely taught but I believe they still serve a purpose in the data exploration workflow. Base R graphics are extremely fast and provide some simple tools for quick viewing of your data.</p>
 <p>My most frequent use for base R graphics include:</p>
 <ul>
-<li>Simple scatterplots to see how two variables are related (<code>plot</code>)</li>
-<li>Histograms to explore the distribution of a variable (<code>hist</code>)</li>
+<li>Simple scatterplots to see how two variables are related (<code>plot()</code>)</li>
+<li>Histograms to explore the distribution of a variable (<code>hist()</code>)</li>
 </ul>
-<p>We’ll explore some of these simple tools in base R with the <code>mpg</code> dataset that comes with R. The workhorse plotting function is <code>plot</code>. Let’s make a simple plot of highway mileage vs engine size.</p>
+<p>We’ll explore some of these simple tools in base R with the <code>mpg</code> dataset that comes with the tidyverse. This dataset describes various characteristics of vehicles.</p>
+<p>The workhorse plotting function is <code>plot()</code>. Let’s make a simple plot of highway mileage vs engine size.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># for them mpg dataset</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># for the mpg dataset</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mpg)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hwy <span class="sc">~</span> displ, <span class="at">data =</span> mpg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -334,7 +335,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>We created this plot using the <code>formula</code> notation. We can also create the plot by calling the columns directly.</p>
+<p>We created this plot using the <code>formula</code> notation that denotes a variable <code>y</code> against a variable <code>x</code>. The <code>data</code> argument must always be specified using this method.</p>
+<p>We can also create the plot by calling the columns directly. Note the placement of the <code>x</code> and <code>y</code> variables in the function call. Here, we do not need to explicitly specify the dataset.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg<span class="sc">$</span>displ, mpg<span class="sc">$</span>hwy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -362,12 +364,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The help file for the plot function also has this ambiguous <code>...</code> argument. You’ll see this argument for many functions in the help files. This means that the function accepts arguments from other functions. In this case, the plot function accepts arguments from the <code>par</code> function which is used for setting graphical parameters in base R. Let’s look at the help file for <code>par</code>.</p>
+<p>The help file for the plot function also has this ambiguous <code>...</code> argument. You’ll see this argument for many functions in the help files. This means that the function accepts arguments from other functions. In this case, the plot function accepts arguments from the <code>par()</code> function which is used for setting graphical parameters in base R. Let’s look at the help file for <code>par()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>?par</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><a href="figs/data_viz/par_help.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="figs/data_viz/par_help.PNG" class="img-fluid"></a></p>
-<p>The most useful section in this help file is the description of the actual graphical parameters you can set. Some useful ones are the <code>cex</code> family of arguments for sizing, <code>col</code> family of arguments for color, the <code>pch</code> argument for point types, and the <code>family</code> argument for font. All of these arguments can be passed directly to the <code>plot</code> function or separately with the <code>par</code> function.</p>
+<p>The most useful section in this help file is the description of the actual graphical parameters you can set. Some useful ones are the <code>cex</code> family of arguments for sizing of data points in the plot, <code>col</code> family of arguments for color, the <code>pch</code> argument for point types, and the <code>family</code> argument for font. All of these arguments can be passed directly to the <code>plot</code> function or separately with the <code>par</code> function.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hwy <span class="sc">~</span> displ, <span class="at">data =</span> mpg, <span class="at">main =</span> <span class="st">'Highway mileage by engine size'</span>, </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">'engine size (l)'</span>, <span class="at">ylab =</span> <span class="st">'highway (mpg)'</span>, </span>
@@ -394,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Notice how the plots are different depending on where the additional arguments are used. Confusing, right? You’ll waste a lot of time trying to tweak the base graphics.</p>
-<p>The <code>hist</code> (histogram) function is the only other plotting function from base R that is worth showing. This gets you info on the basic distribution of a variable and is a graphical way of assessing the spread and central tendency (i.e., variance and mean) of a variable.</p>
+<p>The <code>hist()</code> (histogram) function is the only other plotting function from base R that I use frequently. This gets you info on the basic distribution of a variable and is a graphical way of assessing the spread and central tendency (i.e., variance and mean) of a variable.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mpg<span class="sc">$</span>hwy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -405,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The only useful argument in <code>hist</code> is <code>breaks</code> that controls the number of bins.</p>
+<p>The only useful argument in <code>hist()</code> is <code>breaks</code> that controls the number of bins.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mpg<span class="sc">$</span>hwy, <span class="at">breaks =</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -419,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="exercise-9" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="exercise-9"><span class="header-section-number">4.5</span> Exercise 9</h2>
-<p>Let’s make a simple graphic of our fisheries dataset using base R. We’ll make a time series plot of catch using the <code>plot</code> function. We’ll also add a title and better axis labels to the plot to make it slightly more palatable.</p>
+<p>Let’s make a simple graphic of our fisheries dataset using base R. We’ll make a time series plot of catch using the <code>plot</code> function. We’ll also add a title and better axis labels to make the plot slightly more palatable.</p>
 <ol type="1">
 <li><p>First, start by loading the fish data as you’ve done before. Use <code>read_csv()</code> from the tidyverse.</p></li>
 <li><p>Make a time series plot of <code>Pinfish</code> catch over time using the <code>plot</code> function. Try creating the plot using the <code>formula</code> notation (hint: <code>Pinfish ~ Sampling_Date</code>). Remember you have to use the <code>data</code> argument when you’re using the formula (i.e., <code>data = fishdat</code>).</p></li>
@@ -447,23 +449,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="basics" class="level3" data-number="4.6.1">
 <h3 data-number="4.6.1" class="anchored" data-anchor-id="basics"><span class="header-section-number">4.6.1</span> Basics</h3>
 <p>The <code>ggplot2</code> package (full <a href="http://ggplot2.tidyverse.org/index.html" target="_blank">reference</a>) is a huge improvement over base R because it was developed following a strict philosophy known as the <em>grammar of graphics</em>. This philosophy was designed to make thinking, reasoning, and communicating about graphs easier by following a few simple rules. Like building a sentence in speech (aka grammar), all graphs start with a foundational component that is used for building other graph pieces.</p>
-<p>With ggplot2, you begin a plot with the function <code>ggplot()</code>. <code>ggplot()</code> creates a coordinate system that you can add layers to. The first argument of <code>ggplot()</code> is the dataset to use in the graph. So <code>ggplot(data = mpg)</code> creates an empty base graph.</p>
+<p>With ggplot2, you begin a plot with the function <code>ggplot()</code>. <code>ggplot()</code> creates a coordinate system for adding “geometries” (aka <code>geoms</code>). The first argument of <code>ggplot()</code> is the dataset to use in the graph. So, <code>ggplot(data = mpg)</code> creates an empty base graph.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The next step is to add one or more layers (aka <code>geoms</code>) to <code>ggplot()</code>. The function <code>geom_point()</code> adds a layer of points to your plot, which creates a scatterplot. Ggplot2 comes with many geom functions that each add a different type of layer to a plot.</p>
+<p>The next step is to add one or more <code>geoms</code> to <code>ggplot()</code>. The function <code>geom_point()</code> adds a layer of points to your plot, which creates a scatterplot. There are many geom functions that each add a different type of layer to a plot.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Each geom function in ggplot2 takes a <code>mapping</code> argument. This defines how variables in your dataset are mapped to visual properties. The <code>mapping</code> argument is defined with <code>aes()</code>, and the <code>x</code> and <code>y</code> arguments of <code>aes()</code> specify which variables to map to the x and y axes. ggplot2 looks for the mapped variable in the <code>data</code> argument, in this case, <code>mpg</code>.</p>
+<p>Each geom function in ggplot2 takes a <code>mapping</code> argument. This defines how variables in your dataset are mapped to visual properties. The <code>mapping</code> argument is defined with <code>aes()</code> for aesthetics, and the <code>x</code> and <code>y</code> arguments of <code>aes()</code> specify which variables to map to the x and y axes. The geom functions look for the mapped variable in the <code>data</code> argument, in this case, <code>mpg</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Just remember these requirements:</p>
 <ul>
-<li>All ggplot plots start with the <code>ggplot</code> function</li>
+<li>All plots start with the <code>ggplot</code> function</li>
 <li>It will need three pieces of information: the <strong>data</strong>, how the data are <strong>mapped</strong> to the plot <strong>aesthetics</strong>, and a <strong>geom</strong> layer</li>
 </ul>
 <p>The core unit of every ggplot looks like this:</p>
@@ -538,8 +540,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<pre><code>Error: geom_linerange requires the following missing aesthetics: ymin, ymax
-Execution halted</code></pre>
+<pre><code>Error in `geom_linerange()`:
+! Problem while setting up geom.
+ℹ Error occurred in the 1st layer.
+Caused by error in `compute_geom_1()`:
+! `geom_linerange()` requires the following missing aesthetics: ymin
+  and ymax or xmin and xmax.</code></pre>
 <p>Oh snap, what happened? This error is telling us that the geom we just tried is missing some required aesthetics in the plot. Here we’ve only used the <code>x</code> and <code>y</code> aesthetics but it looks like it requires <code>ymin</code> and <code>ymax</code>. Lets look at the help file for <code>geom_linerange</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>?geom_linerange</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -587,7 +593,7 @@ Execution halted</code></pre>
 </div>
 </div>
 </div>
-<p>In all of the above examples we’ve mapped an aesthetic to a variable in our dataset. We can just as easily modify the plot without mapping it to a variable (i.e., changing a part of the plot independent of the data). For example, maybe we want to change the color of the points using a single color for everything. Notice the placement of <code>colour</code> outside of the <code>aes</code> mapping function.</p>
+<p>In all of the above examples we’ve mapped an aesthetic to a variable in our dataset. We can just as easily modify the plot without mapping it to a variable (i.e., changing a part of the plot independent of the data). For example, maybe we want to change the color of the points using a single color for everything. Notice the placement of <code>colour</code> outside of the <code>aes()</code> mapping function.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">'red'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -605,9 +611,9 @@ Execution halted</code></pre>
 <h2 data-number="4.7" class="anchored" data-anchor-id="exercise-10"><span class="header-section-number">4.7</span> Exercise 10</h2>
 <p>Let’s reproduce the time series plot we created in exercise 9 using ggplot. This requires us to map the <code>Sampling_Date</code> and <code>Pinfish</code> variables to the x and y aesthetics for <code>geom_point</code>.</p>
 <ol type="1">
-<li><p>Setup your initial plot with <code>ggplot</code>. Map the x variable to <code>Sampling_Date</code>, the y variable to <code>Pinfish</code>. The setup should look like this: <code>ggplot(fishdat, aes(x = Sampling_Date, y = Pinfish))</code>). What happens if you run only this code?</p></li>
+<li><p>Setup your initial plot with <code>ggplot()</code>. Map the x variable to <code>Sampling_Date</code> and the y variable to <code>Pinfish</code>. The setup should look like this: <code>ggplot(fishdat, aes(x = Sampling_Date, y = Pinfish))</code>). What happens if you run only this code?</p></li>
 <li><p>Add the <code>geom_point()</code> geom to your plot using the <code>+</code> operator. Remember the correct placement of <code>+</code>, it always occurs in the line preceding the layer that is being added to the plot.</p></li>
-<li><p>The catch data are heavily skewed. We can easily transform the y-axis by adding a scale. Ggplot has multiple scale functions that accomplish different tasks, all of which relate to setting limits or characteristics of measured variables in your data. Add the following after <code>geom_point()</code> (remember to put a <code>+</code> after <code>geom_point()</code>): <code>scale_y_continuous('log-Catch, Pinfish', trans = 'log10')</code>. How does the plot look now?</p></li>
+<li><p>The catch data are heavily skewed. We can easily transform the y-axis by adding a scale. The ggplot2 package has multiple scale functions that accomplish different tasks, all of which relate to setting limits or characteristics of measured variables in your data. Add the following after <code>geom_point()</code> (remember to put a <code>+</code> after <code>geom_point()</code>): <code>scale_y_continuous('log-Catch, Pinfish', trans = 'log10')</code>. How does the plot look now?</p></li>
 </ol>
 <div class="cell">
 <details class="code-fold">
@@ -622,11 +628,11 @@ Execution halted</code></pre>
 <h2 data-number="4.8" class="anchored" data-anchor-id="modifying-plot-components"><span class="header-section-number">4.8</span> Modifying plot components</h2>
 <p>There are countless ways we can modify a ggplot, either by manipulating the appearance or adding information that improves our understanding of what we see. In the previous exercise, we used a scale to transform an axis. In this next section we’ll cover three additional ways to modify a plot:</p>
 <ul>
-<li>Modifying the appearance of the plot as a whole can be done using the <code>theme</code> function for individual parts or by using a pre-packaged theme that modifies many parts at once.</li>
-<li>Adding statistical summaries with <code>stat_smooth</code></li>
-<li>Making multi-panel plots with <code>facet_wrap</code> or <code>facet_grid</code>.</li>
+<li>Modifying the appearance of the plot as a whole can be done using the <code>theme()</code> function for individual parts or by using a pre-packaged theme that modifies many parts at once.</li>
+<li>Adding statistical summaries with <code>stat_smooth()</code></li>
+<li>Making multi-panel plots with <code>facet_wrap()</code> or <code>facet_grid()</code>.</li>
 </ul>
-<p>First I’ll show you how to modify the appearance to your liking. Individual components can be modified with <code>theme</code>. Here the legend is moved to the top, the minor grid lines between axis ticks are removed, and the gray panel background is changed to light blue. Check the help file for <code>theme</code> to see all the options.</p>
+<p>First I’ll show you how to modify the appearance. Individual plot components can be modified with <code>theme</code>. Here, the legend is moved to the top, the minor grid lines between axis ticks are removed, and the gray panel background is changed to light blue. Check the help file for <code>theme()</code> to see all the options.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> drv)) <span class="sc">+</span> </span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
@@ -643,7 +649,7 @@ Execution halted</code></pre>
 </div>
 </div>
 </div>
-<p>Changing plot elements with theme can take some practice because there’s lots to modify. In some respects, this is how <code>ggplot</code> is similar to base R. With flexibility comes tedium. Fortunately, there are several pre-packaged themes that modify several components at once. See <a href="http://ggplot2.tidyverse.org/reference/ggtheme.html" target="_blank">here</a> for the full documentation. There are also additional packages available that supplement the existing themes in<code>ggplot</code> (see <a href="https://github.com/jrnold/ggthemes" target="_blank">here</a>).</p>
+<p>Changing plot elements with theme can take some practice because there’s lots to modify. In some respects, this is how ggplot2 is similar to base R. With flexibility comes tedium. Fortunately, there are several pre-packaged themes that modify several components at once. See <a href="http://ggplot2.tidyverse.org/reference/ggtheme.html" target="_blank">here</a> for the full documentation. There are also additional packages available that supplement the existing themes in ggplot2 (see <a href="https://github.com/jrnold/ggthemes" target="_blank">here</a>).</p>
 <p>Black and white:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> drv)) <span class="sc">+</span> </span>
@@ -696,7 +702,7 @@ Execution halted</code></pre>
 </div>
 </div>
 </div>
-<p>In addition to its functional syntax, the real power of <code>ggplot</code> is the ability to add components to the plot that let you quickly evaluate relationships or trends in the data. Statistical relationships can be added with <code>stat_smooth</code>.</p>
+<p>In addition to its functional syntax, the real power of ggplot2 is the ability to add components to the plot that let you quickly evaluate relationships or trends in the data. Statistical relationships can be added with <code>stat_smooth()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> drv)) <span class="sc">+</span> </span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
@@ -709,7 +715,7 @@ Execution halted</code></pre>
 </div>
 </div>
 </div>
-<p>Notice that we get one smooth for each type of drive train. This is because we’ve mapped colour to the drive train. Both the <code>geom_smooth</code> and <code>stat_smooth</code> functions use colour as an aesthetic so the global <code>aes</code> function applies to both. We can change this behavior by moving the location of the <code>colour</code> aesthetic. Here color is only mapped to the points.</p>
+<p>Notice that we get one smooth for each type of drive train. This is because we’ve mapped colour to the drive train. Both the <code>geom_point()</code> and <code>stat_smooth()</code> functions use colour as an aesthetic, which is defined globally with <code>aes()</code> in <code>ggplot()</code>. We can change this behavior by moving the location of the <code>colour</code> aesthetic. Here color is only mapped to the points.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> drv)) <span class="sc">+</span> </span>
@@ -722,7 +728,7 @@ Execution halted</code></pre>
 </div>
 </div>
 </div>
-<p>By default the <code>stat_smooth</code> function uses a non-linear smooth, either a locally estimated polynomial or generalized additive model depending on size of the dataset. We can change this using the <code>method</code> argument, as for a linear model.</p>
+<p>By default the <code>stat_smooth</code> function uses a non-linear smooth, either a locally estimated polynomial or generalized additive model depending on size of the dataset. We can change this using the <code>method</code> argument, with a linear model for example.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> drv)) <span class="sc">+</span> </span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
@@ -735,7 +741,7 @@ Execution halted</code></pre>
 </div>
 </div>
 </div>
-<p>Finally, <code>ggplot</code> provides some simple functions to create multi-panelled plots. This is useful for viewing different groups of the data as they relate to a variable in the dataset. The <code>facet_wrap</code> function is one of two functions in ggplot that can be used for multi-panel plots (the other being <code>facet_grid</code>, which is similar but different). To create facets, we have to specify which variable you’re using that acts as a grouping variable for each subplot. This is defined using the <code>~</code> sign followed by the variable name within <code>facet_wrap</code>. The <code>ncol</code> (or <code>nrow</code>) argument also indicates how many columns (or rows) in the multi-panel to create.</p>
+<p>Finally, ggplot2 provides some simple functions to create multi-panelled or faceted plots. This is useful for viewing different groups of the data as they relate to a variable in the dataset. The <code>facet_wrap()</code> function is one of two functions in ggplot2 that can be used for multi-panel plots (the other being <code>facet_grid()</code>, which is similar but always creates a rectangular grid of plots). To create facets, we have to specify which variable you’re using that acts as a grouping variable for each subplot. This is defined using the <code>~</code> sign followed by the variable name within <code>facet_wrap</code>. The <code>ncol</code> (or <code>nrow</code>) argument also indicates how many columns (or rows) in the multi-panel plot to create.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> drv)) <span class="sc">+</span> </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
@@ -766,9 +772,9 @@ Execution halted</code></pre>
 </section>
 <section id="exercise-11" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="exercise-11"><span class="header-section-number">4.9</span> Exercise 11</h2>
-<p>Let’s modify the time series plot we created in exercise 10 by adding a theme, a statistical summary, and facets. We’ll map the <code>stat_smooth</code> function to the Gear type and also use this variable to create a three-panel plot.</p>
+<p>Let’s modify the time series plot we created in exercise 10 by adding a theme, a statistical summary, and facets.</p>
 <ol type="1">
-<li><p>Setup the initial plot as before. Map the x variable to <code>Sampling_Date</code> and the y variable to <code>Pinfish</code>. The intiial <code>ggplot</code> line will look like this <code>ggplot(fishdata, aes(x = Sampling_Date, y = Pinfish)</code>. Add the <code>geom_point</code> geom and the <code>scale_y_continuous</code> scale with <code>trans = "log10"</code> to transform catch.</p></li>
+<li><p>Setup the initial plot as before. Map the x variable to <code>Sampling_Date</code> and the y variable to <code>Pinfish</code>. The initial <code>ggplot()</code> line will look like this <code>ggplot(fishdata, aes(x = Sampling_Date, y = Pinfish)</code>. Add the <code>geom_point</code> geom and the <code>scale_y_continuous</code> scale with <code>trans = "log10"</code> to transform catch.</p></li>
 <li><p>Add one of these thems to the plot: <code>theme_bw()</code>, <code>theme_classic()</code>, or <code>theme_minimal()</code>.</p></li>
 <li><p>Add the <code>stat_smooth</code> function with the argument <code>method = "lm"</code> to add linear smooths between catch and time for each gear type.</p></li>
 <li><p>Use <code>facet_wrap</code> to create a three-panel plot by depth category (hint: <code>facet_wrap(~ Gear, ncol = 3)</code>).</p></li>
@@ -789,12 +795,12 @@ Execution halted</code></pre>
 <h2 data-number="4.10" class="anchored" data-anchor-id="saving-your-plots"><span class="header-section-number">4.10</span> Saving your plots</h2>
 <p>A quality plot deserves to be saved and shared. As you can imagine, there are several ways to save a plot in RStudio. The easiest way (which I don’t recommend) is to use the export feature from the plot viewing pane.</p>
 <p><a href="figs/data_viz/saveplot.JPG" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="figs/data_viz/saveplot.JPG" class="img-fluid"></a></p>
-<p>Although this is convenient, you don’t have fine control over many options that can really make your graphic pop. I recommend using either the <code>ggsave</code> function that comes with the tidyverse, or preferably, one of the available graphics devices from base R (<code>bmp</code>, <code>jpeg</code>, <code>png</code>, <code>tiff</code>, <code>eps</code>, <code>ps</code>, <code>tex</code>, <code>svg</code>, <code>wmf</code>, and my favorite, <code>pdf</code>).</p>
+<p>Although this is convenient, you don’t have fine control over many options that can really make your graphic pop. I recommend using either the <code>ggsave</code> function for ggplot2 graphics, or preferably, one of the available graphics devices from base R (<code>bmp</code>, <code>jpeg</code>, <code>png</code>, <code>tiff</code>, <code>eps</code>, <code>ps</code>, <code>tex</code>, <code>svg</code>, <code>wmf</code>, and my favorite, <code>pdf</code>).</p>
 <p>The <code>ggsave</code> function works only with ggplot objects. You can contol where the plot is saved, the file type, plotting dimensions, resolution, and a few other minor options. By default, it will save the last ggplot that you made.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">'figure/myfig.jpg'</span>, <span class="at">device =</span> <span class="st">'jpeg'</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">units =</span> <span class="st">'in'</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The <code>ggsave</code> functions uses the graphics devices from base R behind the scenes. You can always use these directly to save any type of plot (ggplot, base, etc.). These work a bit differently from regular functions. First, you “open” a graphics device by executing the function (e.g., <code>png()</code>, <code>jpeg()</code>, etc.) at the command line. Then you execute your plot command and finish by “closing” the device with <code>dev.off()</code>. In a script, it will look something like this.</p>
+<p>The <code>ggsave</code> function uses the graphics devices from base R behind the scenes. You can always use these directly to save any type of plot (ggplot2, base, etc.). These work a bit differently from regular functions. First, you “open” a graphics device by executing the function (e.g., <code>png()</code>, <code>jpeg()</code>, etc.) at the command line. Then you execute your plot command and finish by “closing” the device with <code>dev.off()</code>. In a script, it will look something like this.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save a plot as png file</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">'figure/myfig.png'</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">units =</span> <span class="st">'in'</span>, <span class="at">res =</span> <span class="dv">300</span>)</span>
