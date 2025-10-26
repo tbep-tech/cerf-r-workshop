@@ -337,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="why-should-i-invest-time-in-r"><span class="header-section-number">1.3.1</span> Why should I invest time in R?</h3>
 <p>There are many programming languages available and each has it’s specific benefits. R was originally created as a statistical programming language but now it is largely viewed as a ‘data science’ language. Why would you invest time in learning R compared to other languages?</p>
 <p>Although other languages may have more popularity among general data science communities, R excels in statistics and data visualization. This workshop will expose you to some of the ways that R excels in these areas.</p>
-<p>R is also an open-source programming language - not only is it free, but this means anybody can contribute to it’s development. As of 2025-10-26, there are 22952 supplemental packages for R on CRAN!</p>
+<p>R is also an open-source programming language - not only is it free, but this means anybody can contribute to it’s development. As of 2025-10-26, there are 22954 supplemental packages for R on CRAN!</p>
 </section>
 </section>
 <section id="rstudio" class="level2" data-number="1.4">
@@ -405,31 +405,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 13.184746 13.596198  9.852167  7.759414  9.750884 10.969860 11.235187
-  [8]  6.142735  8.550253 14.121511 10.102118  6.828601  8.922644 10.686950
- [15]  9.850086 13.071267 11.418202  9.991222 10.528638  7.617662  7.145576
- [22] 11.261453  9.339059 12.206117 10.102323  9.164060  8.460978  9.327608
- [29]  9.345170  9.492324  7.198432 13.170511  9.402334  8.998458  9.177174
- [36]  9.160470 12.354950  8.745519 11.256266  9.617434 10.813849 11.098431
- [43] 10.276708 11.022116  9.583811 10.067556  7.178724  8.099618 15.603927
- [50] 12.071990  8.761450  6.214456 10.954529 10.329584  7.613610 10.521456
- [57] 10.495786 11.927418 12.863617 10.646748 10.025865  7.814000  8.535445
- [64] 13.296597 11.747315  9.875851 11.458684 11.558041 11.857749 10.648939
- [71] 11.635631 13.332559  8.025035  8.173189  9.949614 14.327087  6.596833
- [78]  7.842496  6.877585  4.387434 10.346481  9.921869  8.443287  9.557816
- [85] 12.045232  9.424012  7.354644  2.866110 10.281503 11.093279 10.819671
- [92]  9.183000  8.073830 10.602457  9.815069 11.678212  9.905981  9.492769
- [99] 10.301371 11.087723</code></pre>
+<pre><code>  [1] 11.736965  8.255150  8.380302 10.582843 12.567967 10.571160 10.443080
+  [8] 11.532538 11.068865  9.101042  5.498824  7.736078 10.093220  8.810204
+ [15]  9.658699 10.210950 12.783402 10.232438 10.463650  7.423049 10.957025
+ [22] 10.306504 10.231413 13.944991  9.331834 13.204687  7.096525  9.225189
+ [29] 10.689759 11.832448 10.325035  9.533699  7.876743  8.933997 10.397699
+ [36]  9.593721  8.077018 14.888599 11.985829 10.835992  4.702441  7.192827
+ [43]  9.805425 11.039353  8.173107 10.922501  9.442997 10.490862  8.403063
+ [50]  9.123476  8.091570  9.142528  9.050627 11.601887 13.622260 10.854024
+ [57]  9.798715  5.518542 11.476072 10.054487  8.681944 10.852784  7.589862
+ [64] 11.898895 11.164454  8.353921 12.479276  7.177707 10.641340 12.085233
+ [71] 12.375843  7.982855 12.303148 13.668493  8.878388  9.174860  6.309569
+ [78]  8.275100 13.405900  9.861676 12.720420 11.468075  7.677895 13.641745
+ [85] 10.570573 11.610827 13.426618  9.375752  7.514809  8.761527  9.748809
+ [92]  9.408823  8.888783 10.737752  9.394317 13.133984 11.194029  5.522026
+ [99] 11.465946  8.091166</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># average </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.02740551</code></pre>
+<pre><code>[1] -0.08568414</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.360903</code></pre>
+<pre><code>[1] -2.454225</code></pre>
 </div>
 </div>
 <p>Very often you will see functions used like this:</p>
@@ -440,7 +440,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_random_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -22.65827</code></pre>
+<pre><code>[1] -8.205468</code></pre>
 </div>
 </div>
 <section id="what-is-the-environment" class="level3" data-number="1.6.1">
@@ -454,7 +454,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="cran" class="level3" data-number="1.6.3">
 <h3 data-number="1.6.3" class="anchored" data-anchor-id="cran"><span class="header-section-number">1.6.3</span> CRAN</h3>
-<p>One of the reasons for R’s popularity is CRAN, <a href="http://cran.r-project.org/" target="_blank">The Comprehensive R Archive Network</a>. This is where you download R and also where most will gain access to packages (there are other places, but that is for later). Not much else to say about this now other than to be aware of it. As of 2025-10-26, there are 22952 packages on CRAN!</p>
+<p>One of the reasons for R’s popularity is CRAN, <a href="http://cran.r-project.org/" target="_blank">The Comprehensive R Archive Network</a>. This is where you download R and also where most will gain access to packages (there are other places, but that is for later). Not much else to say about this now other than to be aware of it. As of 2025-10-26, there are 22954 packages on CRAN!</p>
 </section>
 <section id="installing-packages" class="level3" data-number="1.6.4">
 <h3 data-number="1.6.4" class="anchored" data-anchor-id="installing-packages"><span class="header-section-number">1.6.4</span> Installing packages</h3>
