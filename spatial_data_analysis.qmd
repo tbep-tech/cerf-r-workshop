@@ -25,7 +25,7 @@ Get the lesson data: [download zip](data/data.zip)
 * [Exercise 13]
 * [Exercise 14]
 
-R has been around for over twenty-five years and most of its use has focused on statistical analysis.  Tools for spatial analysis have been developed in recent years that allow the use of R as a full-blown GIS with capabilities similar or even superior to commerical software.  This lesson will focus on geospatial analysis using the [simple features](https://r-spatial.github.io/sf/){target="_blank"} package.  We will focus entirely on working with vector data in this lesson, but checkout the [raster](https://cran.r-project.org/web/packages/raster/){target="_blank"} and [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html){target="_blank"} packages if you want to work with raster data in R.  There are several useful vignettes in the raster link.
+R has been around for over thirty years and most of its use has focused on statistical analysis.  Tools for spatial analysis have been developed in recent years that allow the use of R as a full-blown GIS with capabilities similar or even superior to commerical software.  This lesson will focus on geospatial analysis using the [simple features](https://r-spatial.github.io/sf/){target="_blank"} package.  We will focus entirely on working with vector data in this lesson, but checkout the [terra](https://rspatial.github.io/terra/){target="_blank"} package if you want to work with raster data in R.
 
 The goals for today are:
 
