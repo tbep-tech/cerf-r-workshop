@@ -281,7 +281,7 @@ We can also visualize this information with ggplot2. This plot shows how many pi
 
 ```{r}
 #| message: false
-ggplot(fish_cnt, aes(x = FLUCCS, y = cnt)) + 
+ggplot(fish_cnt, aes(x = FLUCCS, y = Count)) + 
   geom_bar(stat = 'identity')
 ```
 
