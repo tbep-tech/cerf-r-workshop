@@ -43,7 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-18e48916e66a9a8e2d6c438ebac6ca13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8147499d24d726b8d13aef772ca6b2bf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -254,6 +257,7 @@ figcaption {
 }
 </style>
 </div>
+<p><a href="figs/CERF_2025_Logo.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/CERF_2025_Logo.jpg" class="img-fluid"></a></p>
 <section id="about-this-workshop" class="level1 unnumbered">
 <h1 class="unnumbered">About this Workshop</h1>
 <p>This workshop will provide attendees with a gentle introduction to the R Statistical Programming Language for basic data exploration and analysis. No prior experience is needed. The workshop content will include a mix of instructor led demonstrations and hands-on exercises designed to reinforce core principles of the programming language. Additional emphasis will be placed on using RStudio as the preferred platform for working with data in a project-based environment. By the end of the workshop, attendees will have the necessary foundation for continued learning to further build R skills.</p>
@@ -347,7 +351,7 @@ figcaption {
 <section id="source-content" class="level2">
 <h2 class="anchored" data-anchor-id="source-content">Source content</h2>
 <p>All source materials for this website can be accessed at <a href="https://github.com/tbep-tech/cerf-r-workshop" target="_blank">https://github.com/tbep-tech/cerf-r-workshop</a></p>
-<p><a href="https://github.com/tbep-tech/cerf-r-workshop/actions"><img src="https://github.com/tbep-tech/cerf-r-workshop/workflows/build/badge.svg" class="img-fluid" alt="build"></a> This site is built automatically with GitHub Actions. Last site build 2025-10-27 14:21:45.867571.</p>
+<p><a href="https://github.com/tbep-tech/cerf-r-workshop/actions"><img src="https://github.com/tbep-tech/cerf-r-workshop/workflows/build/badge.svg" class="img-fluid" alt="build"></a> This site is built automatically with GitHub Actions. Last site build 2025-10-27 14:39:17.03811.</p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>&nbsp;&nbsp;This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 
 
@@ -829,6 +833,38 @@ figcaption {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
