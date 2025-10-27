@@ -12,6 +12,8 @@ figcaption {
 }
 ```
 
+![](figs/CERF_2025_Logo.jpg)
+
 # About this Workshop {.unnumbered}
 
 This workshop will provide attendees with a gentle introduction to the R Statistical Programming Language for basic data exploration and analysis. No prior experience is needed. The workshop content will include a mix of instructor led demonstrations and hands-on exercises designed to reinforce core principles of the programming language. Additional emphasis will be placed on using RStudio as the preferred platform for working with data in a project-based environment. By the end of the workshop, attendees will have the necessary foundation for continued learning to further build R skills.

@@ -36,7 +36,7 @@ book:
 format:
   html:
     theme:
-      - minty
+      - yeti
     code-tools:
       source: repo
     code-link: true
