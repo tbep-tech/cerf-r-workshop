@@ -39,13 +39,13 @@ There are a few housekeeping items we need to go over before we start the worksh
 
 1. Each lesson has it's own R script that is linked at the top. If you are not using the live coding link, you can download the lesson R script and use that directly. 
 
-1. Finally, if you are not using RStudio Cloud, please make sure to download the required datasets [here](https://tbep-tech.github.io/cerf-r-workshop/data/data.zip) and make sure you have the the `tidyverse`, `sf`, and `mapview` packages installed. See the [setup instructions](setup.html) for details.  cerf-r
+1. Finally, if you are not using RStudio Cloud, please make sure to download the required datasets [here](https://tbep-tech.github.io/cerf-r-workshop/data/data.zip) and make sure you have the the `tidyverse`, `sf`, and `mapview` packages installed. See the [setup instructions](setup.html) for details.
 
-All exercises and breaks will be timed to make sure that we stay on schedule. We'll display a timer on the screen to track progress.
+All exercises and breaks will be timed to make sure that we stay on schedule. A timer will be displayed on the screen to track progress.
 
 ## Software requirements
 
-This training will use RStudio and R. Please make sure that you are ready to use the required software prior to the workshop by following the setup instructions [here](setup.html).  __We will not be available for installation issues or questions the day of the workshop__.  There are two options:
+This training will use RStudio and R. Please make sure that you are ready to use the required software prior to the workshop by following the setup instructions [here](setup.html).  __Installation issues will not be addressed the day of the workshop__.  There are two options:
 
 1. Install RStudio and R on your personal computer (recommended). 
 
