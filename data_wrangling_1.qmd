@@ -93,7 +93,7 @@ As you'll soon learn using R, there are often several ways to achieve the same g
 
 ![](figs/data_wrangling_1/data-science-wrangle.png)
 
-The data wrangling process includes data import, tidying, and transformation.  The process directly feeds into, and is not mutually exclusive, with the *understanding* or modelling side of data exploration.  More generally, I consider data wrangling as the manipulation or combination of datasets for the purpose of analysis.
+The data wrangling process includes data import, tidying, and transformation.  The process directly feeds into, and is not mutually exclusive with, the *understanding* or modelling side of data exploration.  More generally, I consider data wrangling as the manipulation or combination of datasets for the purpose of analysis.
 
 Wrangling begins with import and ends with an output of some kind, such as a plot or a model, but is more often a dataset that has been altered from a raw dataset to suit the needs of an analysis.  In a perfect world, the wrangling process is linear with no need for back-tracking.  In reality, we often uncover more information about a dataset, either through wrangling or modeling, that warrants re-evaluation or even gathering more data.  Data also come in many forms and the form you need for analysis is rarely the required form of the input data.  For these reasons, data wrangling will consume most of your time in data exploration.
 

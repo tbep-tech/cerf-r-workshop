@@ -235,7 +235,7 @@ Blind googling can require a bit of strategy to get the info you want.  Some poi
  
 ### Generative AI
 
-Generative AI tools built aroung Large Language Models have dramatically changed the coding landscape in the last few years. They will continue to change how we code as the tools are constantly evolving. You can use them to generate code or to troubleshoot code you already have. Pasting problematic code or error messages will often produce a more useful result than Googling.  
+Generative AI tools built with Large Language Models have dramatically changed the coding landscape in the last few years. They will continue to change how we code as the tools are constantly evolving. You can use them to generate code or to troubleshoot code you already have. Pasting problematic code or error messages will often produce a more useful result than Googling.  
 
 The most important thing to remember is they __ARE NOT__ substitutes for the conventional learning process.  While it's true you can generate a lot of useful code with minimal experience, you will have no way of knowing what this code does or how to troubleshoot it when it doesn't work.  Use these tools as a supplement to your learning, not a replacement. 
 
