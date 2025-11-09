@@ -422,7 +422,7 @@ Let's modify the time series plot we created in exercise 10 by adding a theme, a
 
 1. Add the `stat_smooth` function with the argument `method = "lm"` to add linear smooths between catch and time for each gear type. 
 
-1. Use `facet_wrap` to create a three-panel plot by depth category (hint: `facet_wrap(~ Gear, ncol = 3)`).  
+1. Use `facet_wrap` to create a three column plot by gear type (hint: `facet_wrap(~ Gear, ncol = 3)`).  
 
 ```{r}
 #| eval: false

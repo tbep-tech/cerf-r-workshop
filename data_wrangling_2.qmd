@@ -100,11 +100,11 @@ joindat <- left_join(fishdat, statloc, by = 'Reference')
 head(joindat)
 ```
 
-A final note about joins is that you will have relationships between two tables defined as one-to-one, one-to-many, many-to-one, or many-to-many.  Ofen times you may expect a one-to-one join (i.e., one row in table x will always correpond to one row in table y), but another relationship is observed (e.g., one row in x correponds to more than one row in y, a one-to-many join). The join functions in dplyr will notify you if this occurs depending on the type of join you use.  This is good because it tells you how to interpret the results of the join and whether or not you may have unexpected results.  In general, you should have a prior expectation of the relationship between two tables. You can be explicit with the type of relationship you expect by including the arguments `relationship = 'one-to-one'` (or other types) in your join function.
+A final note about joins is that you will have relationships between two tables defined as one-to-one, one-to-many, many-to-one, or many-to-many.  Ofen times you may expect a one-to-one join (i.e., one row in table x will always correspond to one row in table y), but another relationship is observed (e.g., one row in table x corresponds to more than one row in table y, a one-to-many join). The join functions in dplyr will notify you if this occurs depending on the type of join you use.  This is good because it tells you how to interpret the results of the join and whether or not you may have unexpected results.  In general, you should have a prior expectation of the relationship between two tables. You can be explicit with the type of relationship you expect by including the arguments `relationship = 'one-to-one'` (or other types) in your join function.
 
 ## Exercise 6
 
-For this exercise we'll repeat the join we just did, but on a subset of the data. We're going to select some columns of interest from our fisheries dataset, filter by gear type, then use a full_join with the station data. Try to use pipes if you can. 
+For this exercise we'll repeat the join we just did, but on a subset of the data. We're going to select some columns of interest from our fisheries dataset, filter by gear type, then use `full_join()` with the station data. Try to use pipes if you can. 
 
 1. Select the `Reference`, `Sampling_Date`, `Gear`, and `Common Snook` columns from the fisheries dataset (hint, use `select` from dplyr).
 

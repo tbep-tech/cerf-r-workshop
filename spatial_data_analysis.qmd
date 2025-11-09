@@ -47,7 +47,7 @@ Vector data come in three flavors.  The simplest is a __point__, which is a 0-di
 
 *Image [source](https://earthdatascience.org/courses/earth-analytics/spatial-data-r/intro-vector-data-r/){target="_blank"}*
 
-All vector data are represented similarly, whether they're points, lines or polygons.  Points are defined by a single coordinate location, whereas a line or polygon include several points with a grouping variable that distinguishes one object from another. In all cases, the aggregate dataset is composed of one or more features of the same type (points, lines, or polygons).
+All vector data are represented similarly, whether they're points, lines, or polygons.  Points are defined by a single coordinate location, whereas a line or polygon include several points with a grouping variable that distinguishes one object from another. In all cases, the aggregate dataset is composed of one or more features of the same type (points, lines, or polygons).
 
 There are two other pieces of information that are included with vector data.  The __attributes__ that can be associated with each feature and the __coordinate reference system__ or __CRS__.  The attributes can be any supporting information about a feature, such as a text description or summary data about the features.  You can identify attributes as anything in a spatial dataset that is not explicitly used to define the location (or geometry) of the features.  
 
@@ -193,7 +193,7 @@ alldat
 str(alldat)
 ```
 
-There's a shortcut for specifying the CRS if you don't know which one to use.  Remember, for spatial anlaysis make sure to only work with datasets that have the same coordinate reference systems.  The `st_crs()` function tells us the CRS for an existing `sf` obj. 
+There's a shortcut for specifying the CRS if you don't know which one to use.  Remember, for spatial analysis make sure to only work with datasets that have the same coordinate reference systems.  The `st_crs()` function tells us the CRS for an existing `sf` obj. 
 
 ```{r}
 # check crs
