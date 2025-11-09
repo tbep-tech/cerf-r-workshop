@@ -777,7 +777,7 @@ Caused by error in `compute_geom_1()`:
 <li><p>Setup the initial plot as before. Map the x variable to <code>Sampling_Date</code> and the y variable to <code>Pinfish</code>. The initial <code>ggplot()</code> line will look like this <code>ggplot(fishdata, aes(x = Sampling_Date, y = Pinfish)</code>. Add the <code>geom_point</code> geom and the <code>scale_y_continuous</code> scale with <code>trans = "log10"</code> to transform catch.</p></li>
 <li><p>Add one of these thems to the plot: <code>theme_bw()</code>, <code>theme_classic()</code>, or <code>theme_minimal()</code>.</p></li>
 <li><p>Add the <code>stat_smooth</code> function with the argument <code>method = "lm"</code> to add linear smooths between catch and time for each gear type.</p></li>
-<li><p>Use <code>facet_wrap</code> to create a three-panel plot by depth category (hint: <code>facet_wrap(~ Gear, ncol = 3)</code>).</p></li>
+<li><p>Use <code>facet_wrap</code> to create a three column plot by gear type (hint: <code>facet_wrap(~ Gear, ncol = 3)</code>).</p></li>
 </ol>
 <div class="cell">
 <details class="code-fold">

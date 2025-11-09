@@ -323,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="goals-and-motivation" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="goals-and-motivation"><span class="header-section-number">1.3</span> Goals and Motivation</h2>
-<p><a href="https://www.r-project.org/" target="_blank">R</a> is a language for statistical computing as well as a general purpose programming language. It is one of the best languages for data science and analysis.</p>
+<p><a href="https://www.r-project.org/" target="_blank">R</a> is a language for statistical computing and general purpose programming. It is one of the best languages for data science and analysis.</p>
 <p>The goals of this training are to expose you to fundamentals and to develop an appreciation of what’s possible with this software. We also provide resources that you can use for follow-up learning on your own. You should be able to answer these questions at the end of this session:</p>
 <ul>
 <li>What is R and why should I use it?</li>
@@ -335,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="why-should-i-invest-time-in-r" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="why-should-i-invest-time-in-r"><span class="header-section-number">1.3.1</span> Why should I invest time in R?</h3>
-<p>There are many programming languages available and each has it’s specific benefits. R was originally created as a statistical programming language but now it is largely viewed as a ‘data science’ language. Why would you invest time in learning R compared to other languages?</p>
+<p>There are many programming languages available and each has it’s specific benefits. R was originally created as a statistical programming language, but now it is largely viewed as a “data science” language. Why would you invest time learning R compared to other languages?</p>
 <p>Although other languages may have more popularity among general data science communities, R excels in statistics and data visualization. This workshop will expose you to some of the ways that R excels in these areas.</p>
 <p>R is also an open-source programming language - not only is it free, but this means anybody can contribute to it’s development. As of 2025-11-09, there are 22968 supplemental packages for R on CRAN!</p>
 </section>
@@ -352,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>There are four panes in RStudio:</p>
 <ul>
 <li><strong>Source</strong>: Your primary window for writing code to send to the console, this is where you write and save R “scripts” for your code</li>
-<li><strong>Console</strong>: This is where code fromr you scripts is executed in R - you will typically not write code here</li>
+<li><strong>Console</strong>: This is where code from your scripts is executed in R - you will typically not write code here</li>
 <li><strong>Environment, History, etc.</strong>: A tabbed window showing your working environment, code execution history, and other useful things</li>
 <li><strong>Files, plots, etc.</strong>: A tabbed window showing a file explorer, a plot window, list of installed packages, help files, and viewer</li>
 </ul>
@@ -405,47 +405,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 12.025258  8.338702  9.446232 10.929971  9.999960  9.635028  7.672043
-  [8]  8.986212  8.015174 11.314844  9.415348 11.352364 11.742764  7.229928
- [15]  8.953799  5.672021 11.447747  6.778038  8.800586 13.370694  5.704302
- [22] 11.739196  9.925776 16.922743 11.970701 14.106553 11.272423 10.931271
- [29]  9.641268 10.543944  7.165063 11.140394 11.688836 11.426175 13.261924
- [36] 10.719637  9.051093  8.932223  8.939767  9.668039  8.392456  9.648480
- [43]  8.929263  9.569179  8.286314  8.194689  8.742470 13.357944  9.718542
- [50]  7.491792 10.858361 10.903323 11.053034  8.568592 11.103402 11.395190
- [57] 10.912736  9.560722 14.853551 10.445111 10.573262 10.559043 12.451025
- [64] 11.232535 11.033685  8.938557  9.079327  9.864933  9.297678 10.839095
- [71] 10.388776  7.933570 11.644235 11.651976 10.898203 13.720058 10.380082
- [78]  8.041491 10.358203 10.060841 12.695800  8.392960 10.033941 10.366290
- [85] 12.382442 10.564507 12.804282  8.568181 10.634689 12.212942 15.087315
- [92]  8.364026 10.347693 10.363608 10.154198  9.766861 10.459125  9.432737
- [99]  9.422939 10.590801</code></pre>
+<pre><code>  [1] 11.960870 10.438675 11.751982  8.322788 10.568417 11.178310  7.372537
+  [8]  9.501259 11.023713  8.729379  9.393094  9.122849 10.713239 10.456100
+ [15]  8.748877  9.414231  7.455619  8.705473 14.548842 10.796614  9.584225
+ [22] 11.390746  9.748953 13.031879  9.569546 12.638764 13.456226 10.194869
+ [29]  9.353047 11.296514  6.494189  8.747236  9.638914  4.659012 11.066041
+ [36] 12.600965 10.729185 12.067168 12.586549 10.649802 12.720674  8.206583
+ [43] 10.196055 16.342268 11.735271 10.403964 11.584261 12.945414 10.837850
+ [50]  8.449866  8.960520 11.078315 11.505610  7.813845 12.167654  8.255577
+ [57]  9.571766 12.496801  8.952669  9.801306  8.292491  7.562363 12.610183
+ [64]  9.330307 11.901586 11.166861  8.852697 12.134109  8.793964  8.532201
+ [71]  9.415348  8.402653  8.048493  8.212449  7.659357  8.315481 10.039071
+ [78]  6.357608 10.656872  9.682126  6.228958  9.894121 10.021679 11.848069
+ [85]  7.147778  9.278212 10.328673  6.850998  7.816120  8.247710 12.327569
+ [92]  8.146166  9.608615 11.455665  7.606123  7.877849 10.819761  7.983994
+ [99] 10.619615  8.850592</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># average </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.07001688</code></pre>
+<pre><code>[1] -0.06132054</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.858119</code></pre>
+<pre><code>[1] 6.000205</code></pre>
 </div>
 </div>
 <p>Very often you will see functions used like this:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>my_random_sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>In this case the first part of the line is the name of an object. You make this up. Ideally it should have some meaning, but the only rules are that it can’t start with a number and must not have any spaces. The second bit, <code>&lt;-</code>, is the assignment operator. This tells R to take the result of <code>sum(rnorm(100))</code> and store it in an object named, <code>my_random_sum</code>. It is stored in the environment and can be used by just executing it’s name in the console.</p>
+<p>In this case, the first part of the line is the name of an object. You make this up. Ideally it should have some meaning, but the only rules are that it can’t start with a number and must not have any spaces. The second bit, <code>&lt;-</code>, is the assignment operator. This tells R to take the result of <code>sum(rnorm(100))</code> and store it in an object named <code>my_random_sum</code>. It is stored in the environment and can be used by just executing it’s name in the console.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_random_sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -5.566349</code></pre>
+<pre><code>[1] 0.8849905</code></pre>
 </div>
 </div>
 <section id="what-is-the-environment" class="level3" data-number="1.6.1">
 <h3 data-number="1.6.1" class="anchored" data-anchor-id="what-is-the-environment"><span class="header-section-number">1.6.1</span> What is the environment?</h3>
-<p>There are two outcomes when you run code. First, the code will simply print output directly in the console. Second, there is no output because you have stored it as a variable using <code>&lt;-</code>. Output that is stored is actually saved in the <code>environment</code>. The environment is the collection of named objects that are stored in memory for your current R session. Anything stored in memory will be accessible by it’s name without running the original script that was used to create it.</p>
+<p>There are two outcomes when you run code. First, the code will simply print output directly in the console. Second, there is no output because you have stored it as a variable using <code>&lt;-</code>. Stored output is saved in the <code>environment</code>, a collection of named objects that are stored in memory for your current R session. Anything stored in memory will be accessible by it’s name without running the original script that was used to create it.</p>
 <p>With this, you have the very basics of how we write R code and save objects that can be used later.</p>
 </section>
 <section id="packages" class="level3" data-number="1.6.2">
